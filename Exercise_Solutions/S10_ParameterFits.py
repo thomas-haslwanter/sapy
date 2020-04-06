@@ -1,4 +1,4 @@
-""" Solution Exercise Chapter 10 'Parameter Fits'
+""" Solution Exercise Chapter 'Parameter Fits'
 """
 
 # author:   Thomas Haslwanter
@@ -70,12 +70,19 @@ def polynomial_fits(data):
 
     p_1 = np.polyfit(data.date, data.co2, 1)
     p_2 = np.polyfit(data.date, data.co2, 2)
-    
+
+
     # Since there are numerical problems with large-x-values, center them around 2000
     data['year2000'] = data['date']-2000
+    explanation = """Fitting a polynomial with a large offset on the x-axis can lead to numerical instabilities.
+    To avoid that problem, we subtract the main bias of 2000 years.
+    This is part of the process of "normalization", which is commonly used in areas such as machine learning
+    to optimize the numerical results. """
+    print(explanation)
     p_2_year2000 = np.polyfit(data.year2000, data.co2, 2)
     p_3_year2000 = np.polyfit(data.year2000, data.co2, 3)
-    
+
+
     # Show the quadratic fit-values
     print(f'\nquadratic fit: {p_2}')
     print(f'quadratic fit around 2000: {p_2_year2000}\n')
@@ -131,7 +138,7 @@ def CIs_and_sinefit(data):
     #print(res_3.summary())
     
     # Which ones are significant?
-    print('\Which order of fit di we need?')
+    print('\Which order of fit d0 we need?')
     for (res, order) in zip([res_1, res_2, res_3], ['linear', 'quadratic', 'cubic']):
         ci = res.conf_int()
         ci.columns = ['Lower', 'Upper']
@@ -165,7 +172,7 @@ def CIs_and_sinefit(data):
     
     
 if __name__ == '__main__':
-    in_file = r'..\..\Data\co2_mm_mlo.txt'
+    in_file = r'..\..\..\Data\co2_mm_mlo.txt'
     data = get_data(in_file)    
     polynomial_fits(data)    
     CIs_and_sinefit(data)
