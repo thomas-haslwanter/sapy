@@ -20,7 +20,7 @@ def show_me(data):
     
 if __name__ == '__main__':
     # Get the data ...
-    in_file = r'..\..\Data\eye.bmp'
+    in_file = r'..\..\..\Data\eye.bmp'
     data = plt.imread(in_file)
     
     
