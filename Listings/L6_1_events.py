@@ -15,14 +15,14 @@ data = np.sin(time)
 threshold = 0.7
 
 # Find the (binary) indices of all data above that threshold
-isLarge = data > threshold
+is_large = data > threshold
 
 # Plot the data
 fig, axs = plt.subplots(3,1)
 
 axs[0].plot(time, data)
-axs[1].plot(time[isLarge], data[isLarge])
-axs[2].plot(data[isLarge])
+axs[1].plot(time[is_large], data[is_large])
+axs[2].plot(data[is_large])
 
 # Format the plot
 axs[0].set_ylabel('All data')

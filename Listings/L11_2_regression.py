@@ -68,12 +68,13 @@ y_kr = kr.predict(X_plot)
 # #############################################################################
 # Look at the results
 sv_ind = svr.best_estimator_.support_
-plt.scatter(X[sv_ind], y[sv_ind], c='r', s=50, label='SVR support vectors',
-            zorder=2, edgecolors=(0, 0, 0))
-plt.scatter(X[:200], y[:200], c='k', label='data', zorder=1,
-            edgecolors=(0, 0, 0))
-plt.plot(X_plot, y_svr, c='r', label='SVR ')
-plt.plot(X_plot, y_kr, c='g', label='KRR')
+plt.scatter(X[:200], y[:200], c='C0', label='data', zorder=1)
+plt.plot(X_plot, y_kr, c='C0', label='KRR')
+
+plt.scatter(X[sv_ind], y[sv_ind], c='C1', s=50, label='SVR support vectors',
+            zorder=2 )
+plt.plot(X_plot, y_svr, c='C1', label='SVR ')
+
 plt.xlabel('Regressor')
 plt.ylabel('Predicted Variable')
 plt.title('SVR versus Kernel Ridge')

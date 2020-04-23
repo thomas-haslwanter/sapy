@@ -1,4 +1,7 @@
-""" Short demonstration of a Python script. """
+""" Short demonstration of a Python script.
+After a short one-line description of the content, the header can contain
+further details.
+"""
 
 # author: Thomas Haslwanter
 # date:   May-2015

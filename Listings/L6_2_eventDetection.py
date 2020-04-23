@@ -52,7 +52,7 @@ axs[0,1].plot(is_fast[close_domain], '*-')
 axs[0,1].set_ylabel('Above threshold')
 
 # Plot5: Find the start and end of each movement
-start_stop = np.diff(is_fast*1)
+start_stop = np.diff(is_fast*1)     # "*1": to convert boolean signal to numerical
 axs[1,1].plot(start_stop[close_domain])
 axs[1,1].set_ylabel('Start / Stop')
 
