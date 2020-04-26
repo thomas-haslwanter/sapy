@@ -1,0 +1,14 @@
+BMI
+WHO, 2016
+age-standardized estimate
+values: https://www.who.int/data/gho/data/indicators/indicator-details/GHO/mean-bmi-(kg-m-)-(age-standardized-estimate)   
+method: https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(17)32129-3/fulltext
+
+austria      26.5 [24.8-28.2]
+china        24.2 [23.6-24.7]
+germany      27.3 [26.5-28.1]
+usa          28.8 [28.3-29.4]
+
+SD ca. 4.5
+from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3651246/
+
