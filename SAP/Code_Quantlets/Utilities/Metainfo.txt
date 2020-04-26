@@ -1,0 +1,14 @@
+Name of QuantLet: ISP_mystyle
+
+Published in:  Hands-on Signal Analysis with Python
+
+Description: 'Common formatting and print commands, for the book "Hands-on
+    Signal Analysis with Python". These commands ensure a common layout, and reduce
+    the code required to generate plots in the other modules.'
+
+Keywords: utility function
+
+Author: Thomas Haslwanter 
+
+Submitted: April 25, 2020
+
