@@ -9,7 +9,7 @@
 import os
 import sys
 
-figDir = os.path.join('..', r'SAP/Code_Quantlets')
+figDir = os.path.join('..', r'SAP/CodeQuantlets')
 os.chdir(figDir)
 startNr = 4     # if you don't want to go through all files
 
