@@ -1,4 +1,4 @@
-""" Shows how filters can be characterized """
+""" Shows how filters can be characterized. """
 
 # author:   Thomas Haslwanter
 # date:     April-2020
@@ -9,8 +9,19 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 
-def impulse_response(a, b, ax):
-    """Show the impulse response of an IIR-filter in 'ax' """
+def impulse_response(a, b, ax) -> None:
+    """Show the impulse response of an IIR-filter.
+    
+    Parameters
+    ----------
+    a : array_like
+        feedforward coefficients ('1' for FIR-filter)
+    b : array_like
+        feedback coefficients
+    ax : mpl-axis
+        plot-axis for the impulse response
+
+    """
 
     # Define the impulse ...
     xImpulse = np.zeros(20)
@@ -28,8 +39,18 @@ def impulse_response(a, b, ax):
     ax.tick_params(axis='x', labelbottom=False)
 
 
-def step_response(a, b, ax):
-    """Show the impulse response of an IIR-filter in 'ax' """
+def step_response(a, b, ax) -> None:
+    """Show the impulse response of an IIR-filter.
+    
+    Parameters
+    ----------
+    a : array_like
+        feedforward coefficients ('1' for FIR-filter)
+    b : array_like
+        feedback coefficients
+    ax : mpl-axis
+        plot-axis for the impulse response
+    """
 
     # Define the step ...
     xStep = np.zeros(20)
@@ -48,7 +69,20 @@ def step_response(a, b, ax):
 
 
 def freq_response(a, b):
-    """Show the impulse response of an IIR-filter in 'ax' """
+    """ Show the impulse response of an IIR-filter. 
+    
+    Parameters
+    ----------
+    a : array_like
+        feedforward coefficients ('1' for FIR-filter)
+    b : array_like
+        feedback coefficients
+
+    Returns
+    -------
+    w : selected radial frequency of 
+    h : complex gain for w
+    """
 
     ## Frequency Response
     w, h = signal.freqz(b, a, fs=2)   # Calculate the normalized values
@@ -84,8 +118,14 @@ def freq_response(a, b):
     return (selFreq_w, selFreq_h)
     
 
-def show_filterEffect(w, h):
-    """ Demonstrate the filter effect on the selected frequency """
+def show_filterEffect(w: float, h: complex) -> None:
+    """ Demonstrate the filter effect on the selected frequency.
+
+    Parameters
+    ----------
+    w : radial frequency
+    h : complex gain
+    """
     
     # Convert the normalized frequency to an absolute frequency
     rate = 1000
