@@ -9,14 +9,7 @@ import matplotlib.pyplot as plt
 from matplotlib import patches
 from scipy.integrate import cumtrapz
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'code_quantlets', 'utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('Could not import "SAP_mystyle".')
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Generate velocity data
 vel = np.hstack((np.arange(10)**2,

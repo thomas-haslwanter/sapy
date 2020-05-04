@@ -10,14 +10,7 @@ import matplotlib as mpl
 from scipy import signal, io
 from pprint import pprint
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Get eye positions, sampled with 100 Hz
 data_dir = r'..\..\Data'

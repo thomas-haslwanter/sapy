@@ -8,12 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import control
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Define the transfer function - a first order lag, with tau=5 sec
 num = 1

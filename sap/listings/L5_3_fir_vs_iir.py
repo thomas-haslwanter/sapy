@@ -8,15 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# additional packages
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Generate the impulse, and the time-axis
 xx = np.zeros(20)

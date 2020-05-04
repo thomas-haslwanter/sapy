@@ -8,12 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Get the data
 import skimage as ski

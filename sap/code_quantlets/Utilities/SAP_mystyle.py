@@ -27,7 +27,7 @@ def set_fonts(fs=24):
     ytick = {'direction': 'out',
              'major.size': 6,
              'labelsize': fs-2}
-    
+
     axes = {'labelsize': fs,
             'titlesize': fs}
     

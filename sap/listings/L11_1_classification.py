@@ -1,7 +1,7 @@
 """ Simple classification model for "iris" data-set """
 
-# author:	Thomas Haslwanter
-# date:		Oct-2019
+# author:   Thomas Haslwanter
+# date:	    May-2020
 
 # Import the standard packages
 import numpy as np
@@ -13,12 +13,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Load the data
 iris_dataset = load_iris()

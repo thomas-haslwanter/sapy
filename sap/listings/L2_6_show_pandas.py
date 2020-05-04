@@ -9,12 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import stats
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 def handle_nans():
     """Show some of the options of handling nan-s in Pandas"""

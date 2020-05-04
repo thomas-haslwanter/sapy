@@ -25,16 +25,7 @@ import os
 
 # additional packages
 import matplotlib as mpl
-
-try:
-    from utilities.SAP_mystyle import setFonts, showData 
-except ImportError:
-# Ensure correct performance otherwise
-    def setFonts(*options):
-        return
-    def showData(*options):
-        plt.show()
-        return
+from utilities.SAP_mystyle import setFonts, showData 
 
     
 def printout(outFile: str, xlabel: str='', ylabel: str='',

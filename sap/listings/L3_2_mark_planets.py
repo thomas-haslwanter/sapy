@@ -3,12 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Set the filenames
 in_file = r'..\..\Data\Saturn.jpg'

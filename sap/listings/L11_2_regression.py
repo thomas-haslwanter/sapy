@@ -37,12 +37,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.kernel_ridge import KernelRidge
 import matplotlib.pyplot as plt
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # #############################################################################
 # Generate sample data
