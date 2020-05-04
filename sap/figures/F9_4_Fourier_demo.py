@@ -1,7 +1,7 @@
-"""Demonstration of the application of the Fourier Transformation to a repeating step function"""
+"""Application of the Fourier Transformation to a repeating step function"""
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 import numpy as np
 import matplotlib.pyplot as plt

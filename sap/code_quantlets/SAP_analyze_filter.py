@@ -1,7 +1,7 @@
 """ Shows how filters can be characterized. """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
 """ Demonstration on how to numerically integrate a signal """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import all the standard packages
 import numpy as np
@@ -12,9 +12,11 @@ from scipy.integrate import cumtrapz
 # Import formatting commands if directory "Utilities" is available
 import os
 import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
+sys.path.append(os.path.join('..', 'code_quantlets', 'utilities'))
 try:
     from SAP_mystyle import set_fonts, show_data 
+except:
+    print('Could not import "SAP_mystyle".')
 
 # Generate velocity data
 vel = np.hstack((np.arange(10)**2,

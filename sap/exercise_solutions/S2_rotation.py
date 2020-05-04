@@ -8,15 +8,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def rotate_me(in_vector, alpha):
+def rotate_me(in_vector:np.ndarray, alpha:float) -> np.ndarray:
     """Function that rotates a vector in 2 dimensions
     
     Parameters
     ----------
     in_vector : vector (2,) or array (:,2)
                 vector(s) to be rotated
-    alpha : float
-            rotation angle [deg]
+    alpha : rotation angle [deg]
     
     Returns
     -------

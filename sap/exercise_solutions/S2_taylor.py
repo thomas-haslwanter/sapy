@@ -1,32 +1,34 @@
 """Solution to Exercise 2 of the chaper 'Programming Background' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
+from typing import Tuple
 
 
-def approximate(angle):
+def approximate(angle:np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     """Function that calculates a second order approximation to sine and cosine
     
     Parameters
     ----------
-    theta : float or vector
-            angle [deg]
+    angle : angle [deg]
     
     Returns
     -------
-    approx_sine :  float or vector
-                approximated sine 
-    approx_cosine :  float or vector
-                approximated cosine 
+    approx_sine :  approximated sine 
+    approx_cosine :  approximated cosine 
     
     Examples
     --------
     alpha = 0.1
     sin_ax, cos_ax = approximate(alpha)
+
+    Notes
+    -----
+    Input can also be a single float
     
     """
     

@@ -1,14 +1,15 @@
 """Demonstration of B-splines."""
 
 # author:   stack-overflow user Fnord, comments by Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as si
 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
-def scipy_bspline(cv, n:int=100, degree=3, periodic=False):
+def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False):
     """ Calculate n samples on a bspline
 
         cv :      Array of control vertices
@@ -40,8 +41,6 @@ def scipy_bspline(cv, n:int=100, degree=3, periodic=False):
 
 if __name__ == '__main__':
     
-    colors = ('b', 'g', 'r', 'c', 'm', 'y', 'k')
-    
     cv = np.array([[ 50.,  25.],
        [ 59.,  12.],
        [ 50.,  10.],
@@ -49,18 +48,29 @@ if __name__ == '__main__':
        [ 40.,   4.],
        [ 40.,   14.]])
     
+
+    set_fonts(12)
     plt.plot(cv[:,0],cv[:,1], 'o-', label='Control Points')
+
+    ax = plt.gca()
+    # ax.set_xticklabels([])
+    # ax.set_yticklabels([])
+    ax.set_prop_cycle(None)
     
-    for degree in range(1,7):
+    # for degree in range(1,7):
+    for degree in [1, 2, 3]:
         p = scipy_bspline(cv, n=100, degree=degree, periodic=False)
         x,y = p.T
-        plt.plot(x, y, 'k-', label='Degree %s'%degree, color=colors[degree%len(colors)])
+        plt.plot(x, y,  label='Degree %s'%degree)
     
-    plt.minorticks_on()
+    # Format the plot
     plt.legend()
-    plt.xlabel('x')
-    plt.ylabel('y')
     plt.xlim(35, 70)
     plt.ylim(0, 30)
-    plt.gca().set_aspect('equal', adjustable='box')
-    plt.show()
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    ax.set_aspect('equal', adjustable='box')
+
+    # Show and save the output
+    out_file = 'bsplines_example.jpg'
+    show_data(out_file)

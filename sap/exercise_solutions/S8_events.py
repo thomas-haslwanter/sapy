@@ -1,15 +1,16 @@
 """Solution Chapter 8: Events """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
+from typing import Tuple
 
 
-def X_Events():
+def X_Events() -> Tuple[np.ndarray, dict]:
     """ Generate a signal, containing steps and sine-waves
 
     Returns

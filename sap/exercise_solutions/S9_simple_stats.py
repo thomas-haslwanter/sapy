@@ -8,9 +8,10 @@ import numpy as np
 from numpy import random
 import matplotlib.pyplot as plt
 from scipy import stats
+from typing import Tuple
 
 
-def generate_and_analyze():
+def generate_and_analyze() -> Tuple:
     """Task1: Generate and analyze the data, and return them"""
         
     # Generate the data ...
@@ -41,7 +42,7 @@ def generate_and_analyze():
     return (group1, group1_10, group2, group2_after)
 
 
-def show(data):
+def show(data: Tuple) -> None:
     """Show errorplots with SD and SEM, and a boxplot of the data"""
     
     # Unravel the data
@@ -74,7 +75,7 @@ def show(data):
     plt.show()
 
 
-def compare(data):
+def compare(data: Tuple) -> None:
     """ Compare groups """
     
     # Unravel the data

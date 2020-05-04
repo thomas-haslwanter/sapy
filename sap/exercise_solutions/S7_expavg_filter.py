@@ -1,6 +1,4 @@
-"""Solution_Assignment_IIR  Solution to the Assignment "IIR-filtering",
-   Exercise 1
-   """
+"""Solution Assignment 'IIR-filtering', Exercise 1 """
 
 # author:   Thomas Haslwanter
 # date:     April-2020
@@ -12,12 +10,11 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 
-def applyLeakyIntegrator(alpha, x):
+def applyLeakyIntegrator(alpha:float, x:np.ndarray) -> np.ndarray:
     """
     Parameters
     ----------
-        alpha : float
-            Decay rate of leaky integrator
+        alpha : Decay rate of leaky integrator
         x : ndarry (N,)
             input data
 

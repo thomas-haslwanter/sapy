@@ -1,12 +1,27 @@
-""" Lowess and Loess-Smoothing """
+""" Lowess and Loess-Smoothing
+
+Note that this script requires the installation of the package 'loess'!
+"""
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.nonparametric.smoothers_lowess import lowess
 from loess.loess_1d import loess_1d
+
+# Import formatting commands if directory "Utilities" is available
+import os
+import sys
+sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
+try:
+    from SAP_mystyle import set_fonts, show_data 
+except:
+    print('I could not load SAP_mystyle')
+
+set_fonts(14)
+np.random.seed(1234)
 
 # Generate some data
 x = np.arange(0,10,0.1)
@@ -27,4 +42,6 @@ plt.plot(index, data, label='lowess')
 x_out, y_out, weights = loess_1d(x_space, y_space, frac=0.1)
 plt.plot(x_out, y_out, label='loess')
 plt.legend()
-plt.show()
+
+out_file = 'loess.jpg'
+show_data(out_file)

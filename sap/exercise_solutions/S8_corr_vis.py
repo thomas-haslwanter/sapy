@@ -10,12 +10,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.pyplot as mpl
 
-def CorrVis(x,y):
-    """
-    Visualize correlation, by calculating the cross-correlation of two signals,
-    one point at a time. The aligned signals and the resulting corss correlation
-    value are shown, and advanced when the user hits a key or clicks with the
-    mouse.
+def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
+    """Visualize correlation, by calculating the cross-correlation of two
+    signals, one point at a time. The aligned signals and the resulting corss
+    correlation value are shown, and advanced when the user hits a key or
+    clicks with the mouse.
     
     Parameters
     ----------

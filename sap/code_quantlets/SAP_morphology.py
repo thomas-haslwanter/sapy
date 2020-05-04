@@ -1,26 +1,29 @@
 """ Demonstration of basic morphological operations """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import morphology
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+from utilities.SAP_mystyle import set_fonts, show_data 
     
     
-def show_modImage(image, function, ax, title):
-    """ Perform a morphological operation on an image, and display it
-        in the given axis """
+def show_modImage(image, function: str, ax, title: str) -> None:
+    """ Perform a morphological operation on an image, and display it.
+    
+    Parameters
+    ----------
+    image : 2D ndarray
+            Image data
+    function : name of function from the module skimage.morphology to be
+               applied to the data
+    ax : Matplotlib axis
+         For the generation of the plots
+    title : title for the subplot
+    """
     
     fcn = getattr(morphology, function)
     ax.imshow(fcn(image, selem=selem))
@@ -30,6 +33,8 @@ def show_modImage(image, function, ax, title):
 
 
 if __name__=='__main__':
+    set_fonts(16)
+
     # Generate the base image
     data = np.zeros( (99,99) )
     data[34:66, 33:67] = 1

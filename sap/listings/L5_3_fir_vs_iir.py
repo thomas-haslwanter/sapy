@@ -1,7 +1,7 @@
 """ Show the effect of an FIR- and an IIR-filter on an impulse """
 
 # author:   Thomas Haslwanter
-# date:	    April-2020
+# date:	    May-2020
 
 # Import the standard packages
 import numpy as np
@@ -37,8 +37,11 @@ plt.xlabel('Timesteps')
 plt.ylabel('Signal')
 
 plt.legend()
-plt.xlim([0, 20])
+# plt.xlim([0, 20])
 plt.xticks(np.arange(0, 20, 2))
+
+ax = plt.gca()
+ax.margins(x=0, y=0.02)
 
 out_file = 'FIRvsIIR.jpg'
 

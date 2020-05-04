@@ -1,4 +1,4 @@
-''' Show different ways to present statistical data
+""" Show different ways to present statistical data.
 
 The examples contain:
 - scatter plots, with 1-dimensional and higher-dimensional data
@@ -10,15 +10,10 @@ The examples contain:
 - pieplots
 - scatterplots, with markersize proportional to the value of a corresponding variable
 - 3D surface and wireframe plots
-'''
+"""
 
-# Copyright(c) 2017, Thomas Haslwanter. All rights reserved, under the CC BY-SA 4.0 International License
-
-# First, import the libraries that you are going to need. You could also do
-# that later, but it is better style to do that at the beginning.
-
-# pylab imports the numpy, scipy, and matplotlib.pyplot libraries into the
-# current environment
+# author:   Thomas Haslwanter
+# date:     May-2020
 
 # Import standard packages
 import numpy as np
@@ -31,12 +26,8 @@ import os
 # additional packages
 import matplotlib as mpl
 
-import sys
-sys.path.append(os.path.join('..', '..', 'Utilities'))
 try:
-# Import formatting commands if directory "Utilities" is available
-    from SAP_mystyle import setFonts, showData 
-    
+    from utilities.SAP_mystyle import setFonts, showData 
 except ImportError:
 # Ensure correct performance otherwise
     def setFonts(*options):
@@ -45,8 +36,10 @@ except ImportError:
         plt.show()
         return
 
-def printout(outFile, xlabel = '', ylabel='', title='', outDir = '.'):
-    '''Save the current figure to a file, and then display it'''
+    
+def printout(outFile: str, xlabel: str='', ylabel: str='',
+             title: str='', outDir: str='.') -> None:
+    """Save the current figure to a file, and then display it."""
     
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -67,8 +60,9 @@ def printout(outFile, xlabel = '', ylabel='', title='', outDir = '.'):
     plt.show()
     plt.close()
     
-def simplePlots():
-    '''Demonstrate the generation of different statistical standard plots'''
+    
+def simplePlots() -> None:
+    """ Demonstrate the generation of different statistical standard plots. """
     
     # Univariate data -------------------------
     
@@ -150,8 +144,9 @@ def simplePlots():
     plt.axis('equal')
     printout('piePlot.png', title=' ')
 
-def show3D():
-    '''Generation of 3D plots'''
+    
+def show3D() -> None:
+    """ Generate 3D plots. """
     
     # imports specific to the plots in this example
     from matplotlib import cm   # colormaps
@@ -192,6 +187,7 @@ def show3D():
     ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
 
     showData('3dGraph.png')
+    
     
 if __name__ == '__main__':
     simplePlots()

@@ -1,49 +1,43 @@
-"""Solution to Exercise 1 of the chaper 'Data IO' """
+"""Solution to Exercise 2 of the chaper 'Data IO' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
-# Import the required packages
+# Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
-def plot_data(num_cycles=1, freq=1):
-    """Function that calculates and plots a sine wave
-    
-    Parameters
-    ----------
-    num_cycles: float
-                Number of cycles
-    freq : float                    
-           Frequency of oscillation [Hz] 
-           
-    Examples
-    --------
-    plot_data(5, 0.3)
-    """
-               
-    # Set the parameters
-    amp = 1
-    rate = 100       # [Hz]
-    noise_amp = 0.5
-    
-    # Calculate the data
-    dt = 1/rate
-    omega = 2*np.pi*freq
-    t_cycle = 1/freq
-    
-    t = np.arange(0, num_cycles*t_cycle, dt)
-    x = amp * np.sin(omega*t) + noise_amp*np.random.randn(len(t))
-    
-    # Plot the data
-    plt.plot(t, x);
-    plt.xlabel('Time [s]');
-    plt.ylabel('Signal');
-    plt.title('Noisy Sine');
-    
-    plt.show()    
-    
-if __name__ == '__main__':
-    plot_data(2, 0.3)
-    
-    
+# ------------ data.csv --------------------------------
+# The name "df" indicates a Pandas-DataFrame
+in_file = 'data.csv'
+df = pd.read_csv(in_file, index_col=0)
+print(df.head())
+print(df.tail())
+
+# ------------ data_tab.txt -----------------------------
+in_file = 'data_tab.txt'
+df = pd.read_csv(in_file, sep='\t', header=None)
+print(df.head())
+print(df.tail())
+
+# ------------ data_modified.txt ------------------------
+in_file = 'data_modified.txt'
+df = pd.read_csv(in_file, sep=',', header=2, index_col=0)
+df.plot('t', 'values')
+plt.show()
+
+# ------------ data.xls ---------------------------------
+in_file = 'data.xls'
+df = pd.read_excel(in_file)
+print(df.head())
+
+# ------------ data.mat ---------------------------------
+from scipy.io import loadmat
+in_file = 'data.mat'
+data_dict = loadmat(in_file)
+print(data_dict['info'])
+data = data_dict['data']
+plt.plot(data[:,0], data[:,1])
+plt.show()
+

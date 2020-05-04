@@ -1,10 +1,10 @@
-import numpy as np
 """ Generate and plot a STFT (Short Time Fourier Transformation) """
 
 # author:   Thomas Haslwanter
 # date:	    April-2020
 
 # Import all the standard packages
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 

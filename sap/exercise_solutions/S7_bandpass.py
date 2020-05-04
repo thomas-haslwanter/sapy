@@ -1,5 +1,4 @@
-""" Solution Exercise Chapter 7, 'Bandpass'
-"""
+""" Solution Exercise Chapter 7, 'Bandpass' """
 
 # author:   Thomas Haslwanter
 # date:     April-2020

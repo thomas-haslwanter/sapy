@@ -8,15 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_data(num_cycles=1, freq=1):
-    """Function that calculates and plots a sine wave
+def plot_data(num_cycles:float=1, freq:float=1) -> None:
+    """Calculate and plot a sine wave.
     
     Parameters
     ----------
-    num_cycles: float
-                Number of cycles
-    freq : float                    
-           Frequency of oscillation [Hz] 
+    num_cycles: Number of cycles
+    freq : Frequency of oscillation [Hz] 
            
     Examples
     --------

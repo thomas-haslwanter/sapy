@@ -1,20 +1,14 @@
-"""Add transparency layer to image"""
+"""Add transparency layer to image."""
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required libraries
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 from skimage import data
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Get a color-image
 img = data.astronaut()
