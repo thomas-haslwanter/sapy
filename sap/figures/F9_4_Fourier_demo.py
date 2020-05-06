@@ -31,7 +31,7 @@ for ii, n in enumerate([1, 5, 13, 21]):
         axs[ii].plot(t, x)
     fft_approx = np.copy(X_fft)
     fft_approx[n+2:-(n+1)] = 0
-    approx = np.fft.ifft(fft_approx)
+    approx = np.real(np.fft.ifft(fft_approx))
     axs[ii].plot(t, approx, label='n='+str(n))
     axs[ii].legend(loc='lower right')
 

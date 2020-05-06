@@ -3,13 +3,13 @@
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # additional packages
 import os
 import sys
 
-figDir = os.path.join('..', r'SAP/CodeQuantlets')
+figDir = os.path.join('..', r'sap/code_quantlets')
 os.chdir(figDir)
 startNr = 4     # if you don't want to go through all files
 

@@ -1,13 +1,13 @@
 """ Test routine for source code that generates 'F'igures """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # additional packages
 import os
 import sys
 
-figDir = os.path.join('..', r'SAP/Figures')
+figDir = os.path.join('..', r'sap/figures')
 os.chdir(figDir)
 startNr = 0     # if you don't want to go through all files
 

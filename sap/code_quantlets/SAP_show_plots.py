@@ -25,7 +25,7 @@ import os
 
 # additional packages
 import matplotlib as mpl
-from utilities.SAP_mystyle import setFonts, showData 
+from utilities.SAP_mystyle import set_fonts, show_data 
 
     
 def printout(outFile: str, xlabel: str='', ylabel: str='',
@@ -64,11 +64,11 @@ def simplePlots() -> None:
     x = np.random.randn(500)
     
     # Other graphics settings
-    # Set " context='poster' " for printouts, and "setFonts(32)"
+    # Set " context='poster' " for printouts, and "set_fonts(32)"
     sns.set(context='notebook', style='ticks', palette=sns.color_palette('muted'))
     
     # Set the fonts the way I like them
-    setFonts(16)
+    set_fonts(16)
     
     # Scatter plot
     plt.scatter(np.arange(len(x)), x)
@@ -108,12 +108,12 @@ def simplePlots() -> None:
     # Barplot
     # The font-size is set such that the legend does not overlap with the data
     np.random.seed(1234)
-    setFonts(20)
+    set_fonts(20)
     
     df = pd.DataFrame(np.random.rand(10, 4), columns=['a', 'b', 'c', 'd'])
     df.plot(kind='bar', grid=False, color=sns.color_palette('muted'))
     
-    showData('barplot.png')
+    show_data('barplot.png')
 
     # Bivariate Plots
     df2 = pd.DataFrame(np.random.rand(50, 3), columns=['a', 'b', 'c'])
@@ -147,7 +147,7 @@ def show3D() -> None:
     
     # Twice as wide as it is tall.
     fig = plt.figure(figsize=plt.figaspect(0.5))
-    setFonts(16)
+    set_fonts(16)
     
     #---- First subplot
     # Generate the data
@@ -177,7 +177,7 @@ def show3D() -> None:
     X, Y, Z = get_test_data(0.05)
     ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
 
-    showData('3dGraph.png')
+    show_data('3dGraph.png')
     
     
 if __name__ == '__main__':

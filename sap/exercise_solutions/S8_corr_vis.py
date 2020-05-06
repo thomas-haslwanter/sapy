@@ -1,7 +1,7 @@
 """Solution to Exercise xxx of the chaper 'xxx' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
@@ -32,10 +32,6 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
     Based on an idea from dpwe@ee.columbia.edu
     """
     
-    # Author : Thomas Haslwanter
-    # Version : 1.0
-    # Date : Sept-2012
-    
     Nx = x.size
     Ny = y.size
     Nr = Nx + Ny -1
@@ -43,14 +39,15 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
     xmin = -(Nx - 1)
     xmax = Ny + Nx -1
     
+    if not 'fig' in locals():
+        fig, axs = plt.subplots(3,1)
     # First plot: Signal 1
-    ax1 = mpl.subplot(311)
-    ax1.plot(range(Ny), y)
-    ax = ax1.axis()
-    ax1.axis([xmin, xmax, ax[2], ax[3]])
-    ax1.grid(True)
-    ax1.set_xticklabels(())
-    ax1.set_ylabel('Y[n]')
+    axs[0].plot(range(Ny), y)
+    ax = axs[0].axis()
+    axs[0].axis([xmin, xmax, ax[2], ax[3]])
+    axs[0].grid(True)
+    axs[0].set_xticklabels(())
+    axs[0].set_ylabel('Y[n]')
     
     # Precalculate limits of correlation output
     axr = [xmin, xmax, np.correlate(x,y,'full').min(), np.correlate(x,y,'full').max()]
@@ -64,14 +61,13 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
     for p in range(Nr):
         
         # Figure aligned X
-        ax2 = mpl.subplot(312)
-        ax2.cla()
-        ax2.plot(np.arange(Nx)-Nx+p+1, x)
-        ax = ax2.axis()
-        ax2.axis([xmin, xmax, ax[2], ax[3]])
-        ax2.grid(True)
-        ax2.set_ylabel('X[n-l]')
-        ax2.set_xticklabels(())
+        axs[1].cla()
+        axs[1].plot(np.arange(Nx)-Nx+p+1, x)
+        ax = axs[1].axis()
+        axs[1].axis([xmin, xmax, ax[2], ax[3]])
+        axs[1].grid(True)
+        axs[1].set_ylabel('X[n-l]')
+        axs[1].set_xticklabels(())
         
         # Calculate correlation
         # Pad an X to the appropriate place
@@ -79,12 +75,11 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
         R = np.r_[R, np.sum(padX * padY)]
         
         # Third plot: cross-correlation values
-        ax3 = mpl.subplot(313)
-        ax3.cla()
-        ax3.plot(np.arange(len(R))-(Nx-1), R, linewidth=2)
-        ax3.axis(axr)
-        ax3.grid(True)
-        ax3.set_ylabel('Rxy[l]')
+        axs[2].cla()
+        axs[2].plot(np.arange(len(R))-(Nx-1), R, linewidth=2)
+        axs[2].axis(axr)
+        axs[2].grid(True)
+        axs[2].set_ylabel('Rxy[l]')
         
         # Update the plot
         mpl.draw()

@@ -22,7 +22,7 @@ x = np.sin(t)
 
 # Calculate the power of the signal
 x_fft = np.fft.fft(x)
-Pxx = x_fft * np.conj(x_fft)
+Pxx = np.real(x_fft * np.conj(x_fft))
 
 # Show the results
 plt.plot(Pxx, '*-')

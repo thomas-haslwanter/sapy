@@ -21,7 +21,7 @@ except:
 from scipy.io import wavfile
 data_dir = r'..\..\Data'
 file_name = 'vowels.wav'
-in_file = os.path.join(data_dir, in_file)
+in_file = os.path.join(data_dir, file_name)
 
 # Make the stft
 fs, data = wavfile.read(in_file)
