@@ -1,12 +1,14 @@
 """ Demonstration of linear and non-linear filters on data with extreme outliers """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
+
+from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Create the data
 x = np.zeros(20)
@@ -23,11 +25,16 @@ b = np.ones(3)/3
 x_filt = signal.lfilter(b, 1, x)
 
 # Plot the data
-plt.plot(x_filt[1:], Color='g', label='filtered')
-plt.plot(x, '-.o', Color='b', label='rawdata')
-plt.plot(x_med,  Color='r', label='median')
+plt.plot(x, '--o', label='rawdata')
+plt.plot(x_filt[1:], label='filtered')
+plt.plot(x_med, label='median')
 
 plt.xlim([0, 19])
 plt.xticks(np.arange(0,20,2))
 plt.legend()
-plt.show()
+
+ax = plt.gca()
+ax.margins(x=0, y=0.02)
+
+out_file = 'median.jpg'
+show_data(out_file)

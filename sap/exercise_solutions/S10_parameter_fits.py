@@ -1,8 +1,7 @@
-""" Solution Exercise Chapter 'Parameter Fits'
-"""
+""" Solution Exercise Chapter 'Parameter Fits' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
@@ -12,19 +11,18 @@ from ftplib import FTP
 import os
 
 # Get the data --------------------------------
-def get_data(in_file=None):
+
+def get_data(in_file: str=None) -> pd.DataFrame:
     """Get data from NOAA about the global CO2-levels
     
     Parameters
     ----------
-        in_file : string
-            Name of locally stored data-file. If 'in_file' is 'None',
+        in_file : Name of locally stored data-file. If 'in_file' is 'None',
             the data are retrieved from the web
     
     Return
     ------
-        df : Pandas Dataframe
-            in_data, with the column names
+        df : in_data, with the column names
             ['Year', 'index', 'date', 'avg', 'co2', 'trend', 'nr_days']
     """
     

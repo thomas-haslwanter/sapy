@@ -6,11 +6,10 @@
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-import numpy as np
-import matplotlib.pyplot as mpl
 
-def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
+def corr_vis(x:np.ndarray, y:np.ndarray) -> None:
     """Visualize correlation, by calculating the cross-correlation of two
     signals, one point at a time. The aligned signals and the resulting corss
     correlation value are shown, and advanced when the user hits a key or
@@ -25,7 +24,7 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
     -------
     x = np.r_[0:2*pi:10j]
     y = sin(x)
-    CorrVis(y,y)
+    corr_vis(y,x)
     
     Notes
     -----
@@ -39,15 +38,18 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
     xmin = -(Nx - 1)
     xmax = Ny + Nx -1
     
+    # Generate figure and axes
     if not 'fig' in locals():
         fig, axs = plt.subplots(3,1)
+        
     # First plot: Signal 1
-    axs[0].plot(range(Ny), y)
+    axs[0].plot(range(Ny), y, '-',  label='signal')
     ax = axs[0].axis()
     axs[0].axis([xmin, xmax, ax[2], ax[3]])
-    axs[0].grid(True)
+    axs[0].xaxis.grid(True)
     axs[0].set_xticklabels(())
     axs[0].set_ylabel('Y[n]')
+    axs[0].legend()
     
     # Precalculate limits of correlation output
     axr = [xmin, xmax, np.correlate(x,y,'full').min(), np.correlate(x,y,'full').max()]
@@ -62,12 +64,14 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
         
         # Figure aligned X
         axs[1].cla()
-        axs[1].plot(np.arange(Nx)-Nx+p+1, x)
+        axs[1].plot(np.arange(Nx)-Nx+p+1, x, '--', label='feature')
+        
         ax = axs[1].axis()
         axs[1].axis([xmin, xmax, ax[2], ax[3]])
-        axs[1].grid(True)
-        axs[1].set_ylabel('X[n-l]')
+        axs[1].xaxis.grid(True)
+        axs[1].set_ylabel('X[n-m]')
         axs[1].set_xticklabels(())
+        axs[1].legend()
         
         # Calculate correlation
         # Pad an X to the appropriate place
@@ -76,19 +80,32 @@ def CorrVis(x:np.ndarray, y:np.ndarray) -> None:
         
         # Third plot: cross-correlation values
         axs[2].cla()
-        axs[2].plot(np.arange(len(R))-(Nx-1), R, linewidth=2)
+        axs[2].plot(np.arange(len(R))-(Nx-1), R,
+                    'o-', linewidth=2, color='C1', 
+                    label='cross-correlation')
         axs[2].axis(axr)
         axs[2].grid(True)
-        axs[2].set_ylabel('Rxy[l]')
+        axs[2].set_xlabel('Steps')
+        axs[2].set_ylabel('$R_{xy}[m]$')
+        axs[2].legend()
         
         # Update the plot
-        mpl.draw()
-        mpl.waitforbuttonpress()
+        plt.draw()
+        plt.waitforbuttonpress()
         
-    mpl.show()
+    plt.show()
 
+    
 if __name__ == '__main__':
-    x = np.r_[[0]*5, [1]*4, [0]*3]
-    y = x
-    CorrVis(x,y)
+    sns.set_style('ticks')
+    
+    # Generate the data
+    signal = np.zeros(20)
+    signal[7:10] = 1
+    signal[14:17] = 1
+    
+    feature = np.zeros(7)
+    feature[2:5] = 1
+    
+    corr_vis(feature, signal)
     
