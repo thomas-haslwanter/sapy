@@ -1,5 +1,8 @@
 """Show how to read in images, and mark selected locations"""
 
+# author:   Thomas Haslwanterp
+# date:     May-2020
+
 import numpy as np
 import matplotlib.pyplot as plt
 

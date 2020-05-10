@@ -11,6 +11,57 @@ from scipy import stats
 
 from utilities.SAP_mystyle import set_fonts, show_data 
 
+
+def generate_data():
+    """Generate dummy data, containing the height of 100 men and 100 women
+
+    The return values are a Pandas DataFrame, looking as follows:
+    height  gender
+    185     m
+    166     f
+    172     f
+    177     m
+    etc ....
+
+    """
+
+    # Enter mean and standard deviation, for men and women
+    height = pd.DataFrame({
+        gender':['m', 'f'],
+        'mean':[176.0, 162.6],
+        'std':[7.1, 7.1]
+        })
+
+    # Make the "gender" the label for the row-index, and print these values
+    height = height.set_index('gender')
+    print('Pandas DataFrame for the height of men and women:')
+    print(height)
+
+    def make_samples(mean=170, std=10):
+        """Generates 100 random samples from a normal distribution"""
+        return stats.norm(mean, std).rvs(100)
+
+    # For men and women, generate DataFrames containing height and gender
+    height_dict = height.transpose().to_dict()
+    print(f'Values of females only: {height_dict["f"]}')
+
+    male   = pd.DataFrame({
+        height':make_samples(**height_dict['m']),
+        'gender':'m'
+        })
+    female = pd.DataFrame({
+        'height':make_samples(**height_dict['f']),
+        'gender':'f'
+        })
+
+    # Combine the two DataFrames, mix them, and re-set the index
+    data = male.append(female)
+    data = data.sample(n=200)
+    data = data.reset_index(drop=True)
+
+    return data
+
+
 def handle_nans():
     """Show some of the options of handling nan-s in Pandas"""
 
@@ -40,8 +91,7 @@ def handle_nans():
 
 
 def two_categories():
-    """Show how data with two categories - here height values from men and women -
-    can be handles with Pandas"""
+    """Show how data with two categories can be handled with Pandas"""
 
     print('--- Grouping data in Pandas ---')
 
@@ -75,47 +125,6 @@ def two_categories():
     # For a standalone figure, the boxplot of the two groups can also be
     # generated with a single command:
     #grouped.boxplot()
-
-
-
-def generate_data():
-    """Generate dummy data, containing the height of 100 men and 100 women
-
-    The return values are a Pandas DataFrame, looking as follows:
-    height  gender
-    185     m
-    166     f
-    172     f
-    177     m
-    etc....
-
-    """
-
-    # Enter mean and standard deviation, for men and women
-    height = pd.DataFrame({'gender':['m', 'f'], 'mean':[176.0, 162.6], 'std':[7.1, 7.1]})
-
-    # Make the "gender" the label for the row-index, and print these values
-    height = height.set_index('gender')
-    print('Pandas DataFrame for the height of men and women:')
-    print(height)
-
-    def make_samples(mean=170, std=10):
-        """Generates 100 random samples from a normal distribution"""
-        return stats.norm(mean, std).rvs(100)
-
-    # For men and women, generate DataFrames containing height and gender
-    height_dict = height.transpose().to_dict()
-    print(f'Values of females only: {height_dict["f"]}')
-
-    male   = pd.DataFrame({'height':make_samples(**height_dict['m']), 'gender':'m' })
-    female = pd.DataFrame({'height':make_samples(**height_dict['f']), 'gender':'f' })
-
-    # Combine the two DataFrames, mix them, and re-set the index
-    data = male.append(female)
-    data = data.sample(n=200)
-    data = data.reset_index(drop=True)
-
-    return data
 
 
 if __name__ == '__main__':

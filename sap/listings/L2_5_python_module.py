@@ -1,13 +1,14 @@
 """ Demonstration of a Python Function """
 
 # author:   Thomas Haslwanter
-# date:     March-2020
+# date:     May-2020
 
 # Import standard packages
 import numpy as np
+from typing import Tuple
 
 
-def income_and_expenses(data):
+def income_and_expenses(data : np.ndarray) -> Tuple[float, float]:
     """Find the sum of the positive numbers, and the sum of the negative ones.
 
     Parameters
@@ -17,10 +18,8 @@ def income_and_expenses(data):
 
     Returns
     -------
-    income : float
-             Sum of the incoming transactions
-    expenses : float
-             Sum of the outgoing account transactions
+    income : Sum of the incoming transactions
+    expenses : Sum of the outgoing account transactions
     """
     
     income = np.sum(data[data>0])
