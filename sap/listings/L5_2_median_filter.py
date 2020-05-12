@@ -26,7 +26,7 @@ x_filt = signal.lfilter(b, 1, x)
 
 # Plot the data
 plt.plot(x, '--o', label='rawdata')
-plt.plot(x_filt[1:], label='filtered')
+plt.plot(x_filt[1:], label='average')
 plt.plot(x_med, label='median')
 
 plt.xlim([0, 19])
@@ -36,5 +36,5 @@ plt.legend()
 ax = plt.gca()
 ax.margins(x=0, y=0.02)
 
-out_file = 'median.jpg'
+out_file = 'MedianFilter.jpg'
 show_data(out_file)

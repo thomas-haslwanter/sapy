@@ -7,7 +7,7 @@
 import numpy as np
 
 # additional packages: this imports the function defined above
-import L2_4_python_module as py_func
+import L2_3_python_module as py_func
 
 # Generate test-data
 testData = np.arange(-5, 10)
