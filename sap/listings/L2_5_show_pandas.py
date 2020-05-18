@@ -1,15 +1,10 @@
 """Short demonstration of data handling with Pandas"""
 
-# author: Thomas Haslwanter
-# date:   April-2020
-
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import stats
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 
 def generate_data():
@@ -119,8 +114,12 @@ def two_categories():
                           'f': females})
     df_mf.boxplot(ax=axs[1])
 
+    # To save to an out-file with my default formatting
     out_file = 'pandas.jpg'
-    show_data(out_file)
+    plt.savefig(out_file, dpi=200, quality=90)
+    print(f'Image saved to {out_file}')
+
+    plt.show()
     
     # For a standalone figure, the boxplot of the two groups can also be
     # generated with a single command:

@@ -3,17 +3,11 @@
 Note that this script requires the installation of the package 'loess'!
 """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.nonparametric.smoothers_lowess import lowess
 from loess.loess_1d import loess_1d
 
-from utilities.SAP_mystyle import set_fonts, show_data 
-
-set_fonts(14)
 np.random.seed(1234)
 
 # Generate some data
@@ -36,5 +30,9 @@ x_out, y_out, weights = loess_1d(x_space, y_space, frac=0.1)
 plt.plot(x_out, y_out, label='loess')
 plt.legend()
 
+# Save and show the image
 out_file = 'loess.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

@@ -1,13 +1,8 @@
 """Simple generation of B-splines"""
 
-# author:   Thomas Haslwanterp
-# date:     May-2020
-
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 dt = 0.01    # step interval for plotting
 t = np.arange(0,1,dt)
@@ -40,6 +35,9 @@ plt.xlim(0, 4)
 plt.xticks(np.arange(5))
 plt.ylim(0, 1.1)
 
-# Show and save the result
+# Save and show the image
 out_file = 'Bsplines.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

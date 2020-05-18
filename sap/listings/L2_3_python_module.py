@@ -1,8 +1,5 @@
 """ Demonstration of a Python Function """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import standard packages
 import numpy as np
 from typing import Tuple

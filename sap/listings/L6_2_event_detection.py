@@ -1,16 +1,11 @@
 """ Show how events can be elegantly detected using binary indexing """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from scipy import signal, io
 from pprint import pprint
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Get eye positions, sampled with 100 Hz
 data_dir = r'..\..\Data'
@@ -73,8 +68,12 @@ axs[1,1].margins(x=0)
 axs[2,1].axis('off')
 plt.tight_layout()
 
+# Save and show the figure
 out_file = 'event_detection.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()
 
 # Find the start and end times for all movements (in sec)
 movement = {}

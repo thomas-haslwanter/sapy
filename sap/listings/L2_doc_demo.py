@@ -8,9 +8,6 @@ Module headers and function headers should use tripple quotes, single comment
 lines should use "#"
 """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # First import the required packages
 import numpy as np
 

@@ -1,14 +1,9 @@
 """ Use the Python-package 'control' to implement a feedback loop """
 
-# author:	Thomas Haslwanter
-# date:		April-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 import control
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Define the transfer function - a first order lag, with tau=5 sec
 num = 1
@@ -35,4 +30,7 @@ plt.plot(t_total, y_total, '-.', label='Feedback')
 plt.legend()
 
 out_file = 'feedback.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

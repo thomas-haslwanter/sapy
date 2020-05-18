@@ -37,8 +37,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.kernel_ridge import KernelRidge
 import matplotlib.pyplot as plt
 
-from utilities.SAP_mystyle import set_fonts, show_data 
-
 # #############################################################################
 # Generate sample data
 rng = np.random.RandomState(0)
@@ -82,5 +80,9 @@ plt.ylabel('Predicted Variable')
 plt.title('SVR versus Kernel Ridge')
 plt.legend()
 
+# To save to an out-file with my default formatting
 out_file = 'fit_regression.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

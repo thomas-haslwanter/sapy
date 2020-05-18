@@ -1,14 +1,9 @@
 """ Demonstration of the content of grayscale images """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Get the data
 import skimage as ski
@@ -37,5 +32,8 @@ box.set_points(pts)
 axs[2].set_position(box)
 
 # Save and show the image
-out_file = 'grayscale_demo.png'
-show_data(out_file)
+out_file = 'fit_regression.jpg'
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

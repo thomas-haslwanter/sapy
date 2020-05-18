@@ -1,8 +1,5 @@
 """ Find the pupil-edge in an image of the eye, using sckit-image """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import standard modules
 import os
 import numpy as np

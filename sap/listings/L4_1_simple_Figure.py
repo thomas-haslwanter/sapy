@@ -1,8 +1,5 @@
 """ Basic plotting commands, by showing position and velocity of two curves """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import standard packages
 import numpy as np
 import matplotlib.pyplot as plt

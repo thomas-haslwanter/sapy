@@ -1,8 +1,5 @@
 """ Calculation of confidence intervals """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import the required packages
 import numpy as np
 import pandas as pd
@@ -20,7 +17,7 @@ formula = 'y~x'
 results = smf.ols(formula, data=df).fit()
 
 # Show the results, with the default 95% confidence intervals
-print(results.summary())
+print(results.summary2())
 
 # Address some of the fit-parameters
 fit = {}

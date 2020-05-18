@@ -1,8 +1,5 @@
 """ Demonstration of importing a Python module """
 
-# author: Thomas Haslwanter
-# date:   May-2020
-
 # Import standard packages
 import numpy as np
 

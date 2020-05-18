@@ -3,9 +3,6 @@ After a short one-line description of the content, the header can contain
 further details.
 """
 
-# author: Thomas Haslwanter
-# date:   April-2020
-
 # Import standard packages
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,14 +1,9 @@
 """ Show the effect of an FIR- and an IIR-filter on an impulse """
 
-# author:   Thomas Haslwanter
-# date:	    May-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Generate the impulse and the time-axis
 xx = np.zeros(20)
@@ -33,6 +28,9 @@ plt.legend()
 plt.xticks(np.arange(0, 20, 2))
 plt.gca().margins(x=0, y=0.02)
 
-# Show and save the image
+# Save and show the image
 out_file = 'FIRvsIIR.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

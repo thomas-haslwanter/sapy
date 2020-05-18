@@ -1,15 +1,10 @@
 """ Linear and Cubic interpolations """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import the standard packages
 import numpy as np
 from scipy.interpolate import CubicSpline
 import matplotlib.pyplot as plt
 from scipy import signal
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Generate the data
 x = np.arange(7)
@@ -35,5 +30,9 @@ ax.set_yticks(np.linspace(-1, 1, 5))
 ax.axhline(0, LineStyle='--')
 plt.legend()
 
+# Save and show the figure
 out_file = 'interpolations.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

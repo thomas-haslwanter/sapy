@@ -1,12 +1,7 @@
 """Show how to read in images, and mark selected locations"""
 
-# author:   Thomas Haslwanterp
-# date:     May-2020
-
 import numpy as np
 import matplotlib.pyplot as plt
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Set the filenames
 in_file = r'..\..\Data\Saturn.jpg'
@@ -37,4 +32,7 @@ for ii in range(len(sel_pts)):
 plt.pause(3)
     
 # Save the resulting file
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

@@ -11,9 +11,6 @@ Based on information from: https://matplotlib.org/3.1.0/gallery/user_interfaces/
  (Thank you Em-Bo & dirck)
 """
 
-# author:	Thomas Haslwanter
-# date:		April-2020
-
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt

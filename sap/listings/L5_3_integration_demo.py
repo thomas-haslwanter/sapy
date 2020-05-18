@@ -1,15 +1,10 @@
 """ Demonstration on how to numerically integrate a signal """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import patches
 from scipy.integrate import cumtrapz
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Generate velocity data
 vel = np.hstack((np.arange(10)**2,
@@ -44,6 +39,9 @@ axs[2].set_ylabel('Distance [m]')
 axs[2].set_xlabel('Time [s]')
 axs[2].set_xlim([0, len(vel)-1])
 
-# Generate the plot
+# Save and show the image
 out_file = 'numericalIntegrationPy.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

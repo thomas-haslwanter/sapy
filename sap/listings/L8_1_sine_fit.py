@@ -1,13 +1,8 @@
 """ Demonstrate a fit to sinusoidal data """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
-
-from utilities.SAP_mystyle import set_fonts, show_data
 
 # Set the parameters for the sine-wave
 freq = 0.5
@@ -51,5 +46,9 @@ plt.axhline(ls='dotted')
 plt.xlabel('Time [sec]')
 plt.ylabel('Signal')
 
+# Save and show the figure
 out_file = 'sine_fit.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

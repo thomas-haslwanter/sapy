@@ -3,10 +3,6 @@ This module offeres an example of a good Python documentation style.
 
 """
 
-# author:   Thomas Haslwanter
-# date:     17-Sept-2019
-# ver:      0.1
-
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt

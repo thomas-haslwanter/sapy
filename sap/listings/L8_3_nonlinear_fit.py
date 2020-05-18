@@ -1,8 +1,5 @@
 """ Demonstration of a non-linear fit """
 
-# author:   Thomas Haslwanter
-# date:     April-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt

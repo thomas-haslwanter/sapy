@@ -1,8 +1,5 @@
 """ Simple classification model for "iris" data-set """
 
-# author:   Thomas Haslwanter
-# date:	    May-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,8 +9,6 @@ import pandas as pd
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Load the data
 iris_dataset = load_iris()
@@ -67,5 +62,10 @@ classified = knn.predict(new_sample)
 plt.text(3, 0.1, f"Predicted: {iris_dataset['target_names'][classified]}")
 
 plt.tight_layout()
+
+# To save to an out-file with my default formatting
 out_fig = 'ml_classified.jpg'
-show_data(out_fig)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()

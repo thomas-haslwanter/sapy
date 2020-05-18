@@ -1,10 +1,4 @@
-"""
-Find the pupil-edge in an image of the eye, using sckit-image
-
-"""
-
-# Author: Thomas Haslwanter
-# Date:   Sept 2019
+""" Find the pupil-edge in an image of the eye, using sckit-image """
 
 # Import standard modules
 import os

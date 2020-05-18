@@ -1,8 +1,5 @@
 """ Trigger an error that can be investigated with a debugger. """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt

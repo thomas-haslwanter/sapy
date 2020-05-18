@@ -1,14 +1,9 @@
 """ Demonstration of linear and non-linear filters on data with extreme outliers """
 
-# author:   Thomas Haslwanter
-# date:     May-2020
-
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
-
-from utilities.SAP_mystyle import set_fonts, show_data 
 
 # Create the data
 x = np.zeros(20)
@@ -36,5 +31,9 @@ plt.legend()
 ax = plt.gca()
 ax.margins(x=0, y=0.02)
 
+# Save and show the image
 out_file = 'MedianFilter.jpg'
-show_data(out_file)
+plt.savefig(out_file, dpi=200, quality=90)
+print(f'Image saved to {out_file}')
+
+plt.show()
