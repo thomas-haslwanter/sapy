@@ -7,8 +7,8 @@ Basic steps are:
  * Display form
  * Draw plots onto convas
  
-Based on information from: https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
- (Thank you Em-Bo & dirck)
+Based on information from:
+https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
 """
 
 # Import the required packages

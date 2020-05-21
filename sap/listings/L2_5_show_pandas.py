@@ -12,17 +12,17 @@ def generate_data():
 
     The return values are a Pandas DataFrame, looking as follows:
     height  gender
-    185     m
-    166     f
-    172     f
-    177     m
+    185     male
+    166     female
+    172     female
+    177     male
     etc ....
 
     """
 
     # Enter mean and standard deviation, for men and women
     height = pd.DataFrame({
-        gender':['m', 'f'],
+        'gender':['male', 'female'],
         'mean':[176.0, 162.6],
         'std':[7.1, 7.1]
         })
@@ -38,15 +38,15 @@ def generate_data():
 
     # For men and women, generate DataFrames containing height and gender
     height_dict = height.transpose().to_dict()
-    print(f'Values of females only: {height_dict["f"]}')
+    print(f'Values of females only: {height_dict["female"]}')
 
     male   = pd.DataFrame({
-        height':make_samples(**height_dict['m']),
-        'gender':'m'
+        'height':make_samples(**height_dict['male']),
+        'gender':'male'
         })
     female = pd.DataFrame({
-        'height':make_samples(**height_dict['f']),
-        'gender':'f'
+        'height':make_samples(**height_dict['female']),
+        'gender':'female'
         })
 
     # Combine the two DataFrames, mix them, and re-set the index
@@ -108,10 +108,10 @@ def two_categories():
     axs[0].legend()
 
     # If you only want the height-values of each group 
-    males   = grouped.get_group('m').height.values
-    females = grouped.get_group('f').height.values
-    df_mf = pd.DataFrame({'m': males,
-                          'f': females})
+    males   = grouped.get_group('male').height.values
+    females = grouped.get_group('female').height.values
+    df_mf = pd.DataFrame({'male': males,
+                          'female': females})
     df_mf.boxplot(ax=axs[1])
 
     # To save to an out-file with my default formatting
@@ -123,9 +123,13 @@ def two_categories():
     
     # For a standalone figure, the boxplot of the two groups can also be
     # generated with a single command:
-    #grouped.boxplot()
+    grouped.boxplot()
+    plt.show()
 
 
 if __name__ == '__main__':
+    # Control the precision of pandas-output
+    pd.options.display.float_format = '{:5.1f}'.format
+
     two_categories()
     handle_nans()
