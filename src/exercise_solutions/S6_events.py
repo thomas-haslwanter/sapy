@@ -1,4 +1,4 @@
-"""Solution Chapter 8: Events """
+"""Solution Chapter 6: Events """
 
 # author:   Thomas Haslwanter
 # date:     May-2020
