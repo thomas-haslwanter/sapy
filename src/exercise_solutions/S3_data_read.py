@@ -1,4 +1,4 @@
-"""Solution to Exercise 2 of the chaper 'Data IO' """
+"""Solution to Exercise 1 of the chaper 'Data Input' """
 
 # author:   Thomas Haslwanter
 # date:     May-2020

@@ -1,7 +1,7 @@
-"""Solution to Exercise 3 of the chaper 'Data IO' """
+"""Solution to Exercise 2 of the chaper 'Data Input' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
