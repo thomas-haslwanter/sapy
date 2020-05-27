@@ -4,12 +4,12 @@ Hands-on Signal Analysis with Python
 ---
 Python code and data to the manuscript "Hands-on Signal Analysis with Python"
 
-Data
+data
 ====
 Raw data required for running the programs
 
-Jupyter_Notebooks
-=================
+ipynbs
+======
 Presentation of additional or extended information relevant to signal
 processing with Python.
 
