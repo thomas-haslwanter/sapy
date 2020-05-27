@@ -9,14 +9,14 @@
 import os
 import sys
 
-figDir = os.path.join('..', r'sap/code_quantlets')
+figDir = os.path.join('..', r'src/code_quantlets')
 os.chdir(figDir)
 startNr = 4     # if you don't want to go through all files
 
 # make sure local imports are working
 sys.path.append('.')
 
-pyList = [file for file in os.listdir('.') if (file[-3:]=='.py' and file[0]=='S')]
+pyList = [file for file in os.listdir('.') if (file[-3:]=='.py')]
 for number, file in enumerate(pyList):
     print(f'{number+1}/{len(pyList)}: {file}')
     if number >= startNr:

@@ -21,7 +21,7 @@ def add_one(data : np.ndarray) -> np.ndarray:
     return added
 
 
-def BrokenMethod(input_str : str) -> bool:
+def checker(input_str : str) -> bool:
     """ Return 'True' for strings like 'FUZZBUZZ', 'False' for most other strings
     From https://docs.fuzzbuzz.io/
 
@@ -38,12 +38,14 @@ def BrokenMethod(input_str : str) -> bool:
         return input_str[0] == 'F' and input_str[1] == 'U'# and input_str[2] == 'Z' 
     
 
-def FuzzerEntrypoint(Data):
-    """From https://docs.fuzzbuzz.io/ """
+def fuzzy_check(Data):
+    """From https://docs.fuzzbuzz.io/
+    Is supposed to check if a given input starts with 'FU', allowing text with
+    utf-8 characters"""
     
     try:
         strData = str(Data.read(), "utf-8")
-        return BrokenMethod(strData)
+        return checker(strData)
         
     except UnicodeDecodeError:
         return None
@@ -51,8 +53,19 @@ def FuzzerEntrypoint(Data):
     
 if __name__ == '__main__':
     
-    t = np.arange(0, 10, 0.1)
-    x = np.sin(tt)
+    # Example 1
+    in_val = 4
+    out_val = add_one(in_val)
+    print(f'{in_val} + 1 = {out_val}')
+    
+    # Example 2
+    sample = 'FUZZY'
+    if fuzzy_check(sample):
+        print(f'{sample} is really fuzzy :)')
+    else:
+        print(f'Sorry, {sample} is not fuzzy :(')
+    
+    
     
    
     

@@ -17,6 +17,7 @@ out_base =  r'..\Data\Pleasure_out'
 dt = 25 # [msec]
 counter = 0
 
+# Show the movie
 while(cap.isOpened()):
     ret, frame = cap.read()     # Get the next frame
 

@@ -37,7 +37,7 @@ for ax in axs:
     lines = ax.get_lines()
     lines[0].set_linestyle('dashed')
     
-# Add a legend
+# Add a legend to the first axis
 axs[0].legend(['x', 'y'])
 
 # Save the figure
