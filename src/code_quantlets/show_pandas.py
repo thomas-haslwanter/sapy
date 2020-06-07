@@ -1,4 +1,12 @@
-"""Short demonstration of data handling with Pandas"""
+"""Short demonstration of data handling with Pandas
+
+    Lines 76-85:    Show different options for handling nan's
+    Lines 96-100:   Grouping, and summary information
+    Line 126:       One-line boxplot of both groups
+"""
+
+# author:   Thomas Haslwanter
+# date:     May-2020
 
 # Import the required packages
 import numpy as np
