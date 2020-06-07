@@ -1,6 +1,7 @@
 """ Lowess and Loess-Smoothing
 
-Note that this script requires the installation of the package 'loess'!
+Note that this script requires the installation of the packages 'loess' and
+'statsmodels'!
 """
 
 import numpy as np

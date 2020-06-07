@@ -19,6 +19,13 @@ time = np.arange(len(vel))
 fig, axs = plt.subplots(3, 1, sharex=True)
 
 axs[0].plot(time, vel, '*-')
+## Corresponding trapezoid corners
+for ii in range(len(vel)-1):
+    x = [time[ii], time[ii], time[ii+1], time[ii+1]]
+    y = [0, vel[ii], vel[ii], 0]
+    data = np.column_stack((x,y))
+    axs[0].add_patch(patches.Polygon(data, alpha=0.1))
+    axs[0].add_patch(patches.Polygon(data, fill=False))
 axs[0].set_ylabel('Velocity [m/s]')
 
 

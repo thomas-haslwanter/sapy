@@ -33,7 +33,7 @@ def set_fonts(fs=24):
     
     legend = {'fontsize': fs}
     
-    figure = {'autolayout': True}
+    figure = {'autolayout': False}
     
     mpl.rc('font', **font)
     mpl.rc('xtick', **xtick)

@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Generate the time-values
-t = np.r_[0:10:0.1]         # equivalent to np.arange(0, 10, 0.1)
+t = np.arange(0, 10, 0.1)
 
 # Set the frequency, and calculate the sine-value
 freq = 0.5

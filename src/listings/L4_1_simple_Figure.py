@@ -18,8 +18,10 @@ vy = 2*np.cos(2*t)
 # Ensure that when you zoom into one, the other also gets adjusted
 fig, axs = plt.subplots(nrows=2, ncols=1, sharex=True)
 
-axs[0].plot(t, np.column_stack( (x,y) ))
-axs[1].plot(t, np.column_stack( (vx, vy) ))
+# Here a plot-parameter is modified during the creation of the figure element.
+# The parameters 'linewidth=' and 'lw=' are equivalent
+axs[0].plot(t, np.column_stack([x,y]), linewidth=2)
+axs[1].plot(t, np.column_stack([vx,vy]), lw=2)
 
 # Add the axis labels
 axs[0].set_ylabel('Position [m]')
@@ -32,7 +34,7 @@ axs[0].set_xlim([0, 10])
 # Also put the date on the figure
 fig.text(0.8, 0.02, date.isoformat(date.today()))
 
-# If you want to change the properties of one of the lines, you can do that now
+# Properties of figure elements can also be changed after they have been drawn:
 for ax in axs:
     lines = ax.get_lines()
     lines[0].set_linestyle('dashed')
