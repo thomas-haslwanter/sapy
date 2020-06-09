@@ -44,7 +44,7 @@ def powerSpect(data: np.ndarray, rate: float) -> Tuple:
     return (Pxx[:nyq], freq[:nyq])
     
 
-def showData(data: np.ndarray, rate: float, legend: str, axs: List) -> None:
+def showData(data: np.ndarray, rate: float, legend: str, ax_list: List) -> None:
     """Show data in time domain, and corresponding powerspectrum
 
     Parameters
@@ -55,18 +55,14 @@ def showData(data: np.ndarray, rate: float, legend: str, axs: List) -> None:
     axs : axes in which to plot the signal and the powerspectrum
     """
     
-    t = np.arange(len(x)) / rate
-        
-    # fig, axs = plt.subplots(2,1)
-    axs[0].plot(t,x, label=legend)
-    # axs[0].set_title(legend)
-
+    t = np.arange(len(data)) / rate
+    ax_list[0].plot(t,data, label=legend)
     
     # Calculate the powerspectrum
-    (Pxx, freq) = powerSpect(x, rate)
+    (Pxx, freq) = powerSpect(data, rate)
     
-    axs[1].plot(freq, Pxx, '.-', lw=0.5)
-    axs[1].set_xlim(1, 5000)
+    ax_list[1].plot(freq, Pxx, '.-', lw=0.5)
+    ax_list[1].set_xlim(1, 5000)
     
 
 if __name__ == '__main__':
@@ -85,12 +81,12 @@ if __name__ == '__main__':
     x = np.cos(2*np.pi*f*t)
 
     # ... clipped ...
-    y = x
+    y = x.copy()
     y[:199] = 0
     y[400:1001] = 0
 
     # ... and windowed
-    z = y;
+    z = y.copy();
     window = windows.hann(201)
     z[199:400] = z[199:400]*window
 

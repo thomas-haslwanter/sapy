@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import os
 from scipy import signal, io
 from pprint import pprint
 
@@ -18,7 +19,6 @@ hor_pos = data['HorPos'][:,0]
 
 # General layout of the plot
 fig, axs = plt.subplots(3,2)
-set_fonts(12)
 mpl.rc('lines', lw=0.8)
 
 # Select an interesting domain
@@ -29,13 +29,14 @@ axs[0,0].tick_params(labelbottom=False)
 axs[0,0].margins(x=0)
 
 # Plot the absolute eye velocity
-eye_vel = signal.savgol_filter(hor_pos, window_length=71, polyorder=3, deriv=1, delta=1/rate)
+eye_vel = signal.savgol_filter(hor_pos, window_length=71, polyorder=3,
+        deriv=1, delta=1/rate)
 eye_vel_abs = np.abs(eye_vel)
 axs[1,0].plot(eye_vel_abs[my_domain])
 
 # Set a default threshold, in case the threshold is not determined interactively
 threshold = 6.3
-axs[1,0].axhline(threshold, color='r')
+axs[1,0].axhline(threshold, color='C1')
 axs[1,0].tick_params(labelbottom=False)
 axs[1,0].margins(x=0)
 axs[1,0].set_ylabel('Velocity')

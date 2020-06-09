@@ -58,8 +58,8 @@ def fourier_intro(time, data, freq, Pxx, time_slice, out_file):
     Corresponds to Fig. 9.1 in the book"""
 
     fig, axs = plt.subplots(1,3)
-    axs[0].plot(time, data)
-    axs[0].set_ylabel('Airpressure')
+    axs[0].plot(time, data, lw=0.5)
+    axs[0].set_ylabel('Sound-pressure')
     axs[0].set_xlabel('Time [s]')
     
     axs[1].plot(time, data)
@@ -93,7 +93,7 @@ def linear_and_log(freq, Pxx, out_file):
     axs[0].set_ylabel('Powerspectrum')
     axs[0].ticklabel_format(style='sci', scilimits=(0, 4))
     
-    axs[1].semilogy(freq, Pxx)
+    axs[1].semilogy(freq, Pxx, lw=0.5)
     axs[1].set_xlim([0, upper_limit])
     axs[1].set_xlabel('Frequency [Hz]')
     axs[1].set_ylabel('Powerspectrum [dB]')
@@ -120,12 +120,12 @@ def noise_effects(time, sound, Pxx, time_slice, duration, out_file):
     axs[0].plot(time, sound, label='original')
     axs[0].plot(time, sound_noisy, label='noise added')
     axs[0].set_xlabel('Time [s]')
-    axs[0].set_ylabel('Airpressure')
+    axs[0].set_ylabel('Sound-pressure')
     axs[0].set_xlim(time_slice)
     axs[0].legend()
     
-    axs[1].semilogy(freq, Pxx, label='original')
-    axs[1].semilogy(freq, Pxx_noisy, label='noise added')
+    axs[1].semilogy(freq, Pxx, label='original', lw=0.5)
+    axs[1].semilogy(freq, Pxx_noisy, label='noise added', lw=0.5)
     axs[1].set_xlabel('Frequency')
     axs[1].set_ylabel('Powerspectrum')
     axs[1].set_xlim([1200, 1700])
@@ -147,8 +147,8 @@ def welch_periodogram(data, rate, freq, Pxx, out_file):
     # "normalize" welch
     welch = welch / (np.sum(welch)*df)
     
-    axs[0].semilogy(freq, Pxx, label='Periodogram')
-    axs[0].semilogy(f, welch, label='Welch')
+    axs[0].semilogy(freq, Pxx, label='Periodogram', lw=0.5)
+    axs[0].semilogy(f, welch, label='Welch', lw=0.8)
     axs[0].set_xlim([0, rate/2])
     axs[0].set_ylabel('Powerspectrum')
     axs[0].set_xlabel('Frequency[Hz]')
