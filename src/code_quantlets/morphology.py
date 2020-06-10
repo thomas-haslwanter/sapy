@@ -1,7 +1,7 @@
 """ Demonstration of basic morphological operations """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
 """Demonstration of B-splines."""
 
 # author:   stack-overflow user Fnord, comments by Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 import numpy as np
 import matplotlib.pyplot as plt

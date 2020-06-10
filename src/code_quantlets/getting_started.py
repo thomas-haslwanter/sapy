@@ -20,7 +20,7 @@ superfluous. But it shows good Python coding style.
 '''
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # In contrast to MATLAB, you explicitly have to load the modules that you need.
 import numpy as np

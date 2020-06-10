@@ -13,7 +13,7 @@ The examples contain:
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import standard packages
 import numpy as np
@@ -75,21 +75,21 @@ def simplePlots() -> None:
     plt.xlim([0, len(x)])
     
     # Save and show the data, in a systematic format
-    printout('scatterPlot.png', xlabel='Datapoints', ylabel='Values', title='Scatter')
+    printout('scatterPlot.jpg', xlabel='Datapoints', ylabel='Values', title='Scatter')
     
     # Histogram
     plt.hist(x)
-    printout('histogram_plain.png', xlabel='Data Values',
+    printout('histogram_plain.jpg', xlabel='Data Values',
              ylabel='Frequency', title='Histogram, default settings')
     
     plt.hist(x, 25, density=True)
-    printout('density_histogram.png', xlabel='Data Values', ylabel='Probability',
+    printout('density_histogram.jpg', xlabel='Data Values', ylabel='Probability',
              title='Density Histogram, 25 bins')
     
     # Boxplot
     # The ox consists of the first, second (middle) and third quartile
     plt.boxplot(x, sym='*')
-    printout('boxplot.png', xlabel='Values', title='Boxplot')
+    printout('boxplot.jpg', xlabel='Values', title='Boxplot')
     
     plt.boxplot(x, sym='*', vert=False)
     plt.title('Boxplot, horizontal')
@@ -103,7 +103,19 @@ def simplePlots() -> None:
     plt.errorbar(x,y, yerr=errorBar, fmt='o', capsize=5, capthick=3)
     plt.xlim([-0.2, 4.2])
     plt.ylim([-0.2, 19])
-    printout('Errorbars.png', xlabel='Data Values', ylabel='Measurements', title='Errorbars')
+    printout('Errorbars.jpg', xlabel='Data Values', ylabel='Measurements', title='Errorbars')
+
+    # SD for two groups
+    weight = {'USA':89, 'Austria':74}
+    weight_SD_male = 12
+    plt.errorbar([1,2], weight.values(), yerr=weight_SD_male * np.r_[1,1],
+     capsize=5, LineStyle='', marker='o')
+    plt.xlim([0.5, 2.5])
+    plt.xticks([1,2], weight.keys())
+    plt.ylabel('Weight [kg]')
+    plt.title('Adult male, mean +/- SD')
+
+    show_data('SD_groups.jpg')
     
     # Barplot
     # The font-size is set such that the legend does not overlap with the data
@@ -113,14 +125,14 @@ def simplePlots() -> None:
     df = pd.DataFrame(np.random.rand(10, 4), columns=['a', 'b', 'c', 'd'])
     df.plot(kind='bar', grid=False, color=sns.color_palette('muted'))
     
-    show_data('barplot.png')
+    show_data('barplot.jpg')
 
     # Bivariate Plots
     df2 = pd.DataFrame(np.random.rand(50, 3), columns=['a', 'b', 'c'])
     df2.plot(kind='scatter', x='a', y='b', s=df2['c']*500);
     plt.axhline(0, ls='--', color='#999999')
     plt.axvline(0, ls='--', color='#999999')
-    printout('bivariate.png')
+    printout('bivariate.jpg')
     
     sns.set_style('ticks')
 
@@ -133,7 +145,7 @@ def simplePlots() -> None:
             autopct='%1.1f%%', shadow=True, startangle=90,
             colors=sns.color_palette('muted') )
     plt.axis('equal')
-    printout('piePlot.png', title=' ')
+    printout('piePlot.jpg', title=' ')
 
     
 def show3D() -> None:
@@ -177,7 +189,7 @@ def show3D() -> None:
     X, Y, Z = get_test_data(0.05)
     ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
 
-    show_data('3dGraph.png')
+    show_data('3dGraph.jpg')
     
     
 if __name__ == '__main__':

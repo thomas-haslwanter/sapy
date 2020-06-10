@@ -1,7 +1,7 @@
 """ Test routine for source code that generates 'F'igures """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # additional packages
 import os

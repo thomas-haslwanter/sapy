@@ -16,7 +16,6 @@ for ii in range(3):
     Bsplines[-1] /= np.sum(Bsplines[-1])*dt
     
 # Plot the Bsplines    
-set_fonts(16)
 for spline in Bsplines:
     plt.plot(np.arange(len(spline))*dt, spline)
 

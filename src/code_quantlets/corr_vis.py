@@ -1,7 +1,7 @@
 """Solution to Exercise xxx of the chaper 'xxx' """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

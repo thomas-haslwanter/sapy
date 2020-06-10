@@ -144,7 +144,7 @@ def CIs_and_sinefit(data):
             print(f'\nThe {order} fit is not significant.')
     
     # For the quadratic fit, show the residuals
-    plt.plot(data.year2000, res_2.resid, '-o')
+    plt.plot(data.year2000, res_2.resid, '.')
     plt.title('Residuals for the quadratic fit')
     plt.show()
     

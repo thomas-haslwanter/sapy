@@ -19,7 +19,6 @@ cs = CubicSpline(x, y)
 yic = cs(xi)
 
 # Plot polynomial interpolations
-set_fonts(14)
 plt.plot(x, y, 'ro', label = 'original data')
 plt.plot(xi, yi, label='linear interpolation')
 plt.plot(xi, yic, label='cubic spline')

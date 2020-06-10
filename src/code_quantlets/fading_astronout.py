@@ -1,7 +1,7 @@
 """Add transparency layer to image."""
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required libraries
 import numpy as np

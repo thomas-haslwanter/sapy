@@ -1,7 +1,7 @@
 """Figures for the chapter 'Statistics' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np
@@ -10,14 +10,8 @@ import pandas as pd
 from scipy import stats
 import seaborn as sns
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+# Import formatting commands 
+from my_style import set_fonts, show_data 
 
 # Use the "seaborn"-package for the figure styling
 # (this is just a convenience wrapper for matplotlib settings)

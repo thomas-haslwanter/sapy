@@ -1,9 +1,9 @@
 """ Test exercise solutions for
-'Hands-on Introduction to Signalanalysis with Python'
+'Hands-on Introduction to Signal Analysis with Python'
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # additional packages
 import os

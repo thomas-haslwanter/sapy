@@ -64,7 +64,7 @@ plt.text(3, 0.1, f"Predicted: {iris_dataset['target_names'][classified]}")
 plt.tight_layout()
 
 # To save to an out-file with my default formatting
-out_fig = 'ml_classified.jpg'
+out_file = 'ml_classified.jpg'
 plt.savefig(out_file, dpi=200, quality=90)
 print(f'Image saved to {out_file}')
 

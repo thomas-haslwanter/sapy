@@ -1,28 +1,16 @@
 """ Images for the intro-fig of Chapter 5 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 from skimage import color, feature
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'code_quantlets', 'utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+# Import formatting commands 
+from my_style import set_fonts, show_data 
     
-#print(f'__file__={__file__:<35}')
-#print(f' __name__={__name__:<20} ')
-#print(f'__package__={str(__package__):<20}')
-
-#from ..code_quantlets.utilities.SAP_mystyle import set_fonts, show_data 
-
 # Formatting
 set_fonts(14)
 

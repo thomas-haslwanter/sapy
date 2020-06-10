@@ -22,7 +22,6 @@ np.random.seed(123)             # to make the noise reproducible
 y = offset + amplitude * np.sin(omega*t + delta) + np.random.randn(len(t))
 
 # Show the data
-set_fonts(14)
 plt.plot(t, y, '--', label='noisy data')
 plt.autoscale(axis='x', tight=True)
 

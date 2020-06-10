@@ -1,20 +1,14 @@
 """Plot an infinity symbol"""
 
 # author:   Thomas Haslwanter
-# date:     March-2020
+# date:     June-2020
 
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+# Import formatting commands 
+from my_style import set_fonts, show_data 
 
 # Generate the trajectory
 t = np.arange(0, 4*np.pi, 0.1)
