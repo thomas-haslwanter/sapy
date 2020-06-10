@@ -11,6 +11,9 @@ import os
 # For the image filtering
 from scipy import ndimage
 
+# Import formatting commands 
+from utilities.my_style import set_fonts, show_data 
+
 # Get the data
 import skimage as ski
 img = ski.data.camera()
@@ -47,7 +50,5 @@ for axis in axs.ravel():
 plt.tight_layout()
 
 # Save and show the figure
-out_file = r'..\Images\filter_demo.jpg'
-plt.savefig(out_file, dpi=200, quality=90)
-print(f'Image saved to {os.path.abspath(out_file)}')
-plt.show()
+out_file = 'filter_demo.jpg'
+show_data(out_file)

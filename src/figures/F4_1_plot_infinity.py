@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Import formatting commands 
-from my_style import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data 
 
 # Generate the trajectory
 t = np.arange(0, 4*np.pi, 0.1)

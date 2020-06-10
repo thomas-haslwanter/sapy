@@ -22,7 +22,7 @@ for ii in range(3):
     y = x + np.random.randn(len(x))*SDs[ii]
     axs[ii].plot(x, y, '.')
     regression = stats.linregress(x,y)
-    axs[ii].set_title(f'r2 = {regression.rvalue:5.3f}')
+    axs[ii].set_title(f'$r^2 = {regression.rvalue:5.3f}$')
 
 axs[0].set_ylabel('Y')    
 axs[1].set_xlabel('X')
