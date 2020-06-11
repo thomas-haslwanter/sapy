@@ -1,4 +1,10 @@
-""" Example of Fourier Transformation and Power-spectra """
+""" Example of Fourier Transformation and Power-spectra
+
+If you want the output to use the LaTeX-formatting, please
+    i) make sure that LaTeX is installed properly on your system, and then
+    ii) manually set the flag 'latex_installed' in line 22 to 'True'
+"""
+    
 
 # author:   Thomas Haslwanter
 # date:     June-2020
@@ -13,11 +19,12 @@ import os
 # For simplified presentation
 from utilities.my_style import set_fonts, show_data 
 
-# For the LaTeX header
-import matplotlib
-matplotlib.rcParams['text.usetex'] = True
-   
+latex_installed = False
     
+if latex_installed:
+    import matplotlib
+    matplotlib.rcParams['text.usetex'] = True
+
 def generate_data() -> None:
     """ Generate sample data for the FFT-demo """
 
@@ -62,17 +69,23 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
     """
     
     set_fonts(16)
+    
     fig, axs = plt.subplots(1,2, figsize=(10,5))
     
+    if latex_installed:
+        txt ='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t)$'
+        label = '$|FFT|^2$'
+    else:
+        txt = 'signal = offset + sum(i=0:2) a_i*sin(omega_i*t)'
+        label = '|FFT|^2'
+        
     # From a quick look we learn - nothing
     axs[0].plot(t, sig, '--')
     axs[0].set_xlim(0,1)
     axs[0].set_ylim(-15, 25)
     axs[0].set_xlabel('Time [s]')
     axs[0].set_ylabel('Signal')
-    axs[0].text(0.5, 24,
-       s='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t)$',
-             fontsize=16)
+    axs[0].text(0.5, 24, s=txt, fontsize=16)
     
     # Calculate the power spectrum by hand
     fft = np.fft.fft(sig)
@@ -85,9 +98,11 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
     axs[1].plot(freq, Pxx, '--')
     axs[1].set_xlim(-50, 50)
     axs[1].set_xlabel('Frequency [Hz]')
-    axs[1].set_ylabel('$|FFT|^2$')
+    axs[1].set_ylabel(label)
+        
     axs[1].set_yticklabels([])
-    show_data('FFT_sines.jpg')
+    plt.show()
+    #show_data('FFT_sines.jpg')
     
     # With real input, the power spectrum is symmetrical and we only one half
     Pxx = Pxx[:int(len(Pxx)/2)]

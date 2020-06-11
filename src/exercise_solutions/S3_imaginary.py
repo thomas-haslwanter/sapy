@@ -7,9 +7,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 # Set the required parameters
-data_dir = r'..\..\Data'
+data_dir = '../../data'
 file_name = 'imaginary.txt'
 in_file = os.path.join(data_dir, file_name)
 out_file = 'imaginary_out.txt'

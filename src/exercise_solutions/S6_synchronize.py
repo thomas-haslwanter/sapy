@@ -14,7 +14,7 @@ import pandas as pd
 import os
 
 # Get the data
-data_dir = r'..\..\Data'
+data_dir = '../../data'
 in_mobile = 'mobile_phone.txt'
 in_imu = 'ngimu.txt'
 rate_sync = 100         # [Hz] for synchronized data

@@ -36,7 +36,7 @@ def getDataDobson(url: str, inFile: str) -> pd.DataFrame:
 
 if __name__ == '__main__':
     # Go to the data-directory
-    in_dir = r'..\..\Data'
+    in_dir = '../../data'
     os.chdir(in_dir)
 
     # Read in a mixed CSV file, and show the top and bottom data

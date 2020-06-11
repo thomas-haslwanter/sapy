@@ -7,13 +7,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
+import os
 
 # Import formatting commands 
 from utilities.my_style import set_fonts, show_data 
 
 # Get the data
 from scipy.io import wavfile
-data_dir = r'..\..\Data'
+data_dir = '../../data'
 file_name = 'vowels.wav'
 in_file = os.path.join(data_dir, file_name)
 

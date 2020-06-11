@@ -12,7 +12,7 @@ import os
 import wfdb
 
 # Set the parameters
-data_dir = r'..\..\Data'
+data_dir = '../../data'
 in_file = 'rec_1'
 rate = 500          # [Hz]
 nn = 10             # calculate HRV over nn heart beats

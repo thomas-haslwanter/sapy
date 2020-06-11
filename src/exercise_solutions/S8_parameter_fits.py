@@ -170,7 +170,7 @@ def CIs_and_sinefit(data):
     
     
 if __name__ == '__main__':
-    data_dir = r'..\..\Data'
+    data_dir = '../../data'
     file_name = 'co2_mm_mlo.txt'
     in_file = os.path.join(data_dir, file_name)
 

@@ -15,7 +15,7 @@ from scipy.io import wavfile
 from utilities.my_style import set_fonts, show_data 
 
 # Set the parameters
-in_dir = r'..\..\data'
+in_dir = '../../data'
 in_file = 'a1.wav'
 out_file = 'windowing.jpg'
 slice = range(7000, 20000)

@@ -163,7 +163,7 @@ def welch_periodogram(data, rate, freq, Pxx, out_file):
 
 if __name__ == '__main__':
     # Specify the parameters
-    in_dir = r'..\..\data'
+    in_dir = '../../data'
     in_file = 'a1.wav'
     sound_time = range(7000, 20000)
     time_slice = [0.175, 0.185]

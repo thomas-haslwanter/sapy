@@ -40,4 +40,4 @@ if __name__ == '__main__':
     df = getDataDobson(url, inFile)
     print(df)
 
-    input('All done!')
+    #input('All done!')

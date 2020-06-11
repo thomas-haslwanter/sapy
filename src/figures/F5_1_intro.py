@@ -29,7 +29,7 @@ axs[1].plot(t, x)
 show_data('noisy_sine.svg')
 
 # BW-Image
-img_file = r'..\..\Data\HagenbergRocks.jpg'
+img_file = '../../data/HagenbergRocks.jpg'
 img = color.rgb2gray(plt.imread(img_file))
 
 # Edges

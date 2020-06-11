@@ -45,8 +45,20 @@ if __name__ == '__main__':
     ax.set_xlabel('Time [sec]')
     ax.set_ylabel('Sine-wave')
     figure_x, figure_y, figure_w, figure_h = fig.bbox.bounds
+    
+    # Without the following line, I get on my Linux system the ominous error
+    # _tkinter.TclError: bad screen distance "640.0"
+    # Since I have found no recent references to that error on  Google,
+    # I just override the setting here
+    (figure_w, figure_h) = (600, 400)
 
     # define the window layout
+    layout = [[sg.Text('GUI-demo', font='Any 18')],
+              [sg.Canvas(size=(figure_w, figure_h), key='canvas')],
+              [sg.Text('Amplitude '), sg.InputText('1')],
+              [sg.Text('Frequency'), sg.InputText('1')],
+              [sg.Button('Ok'), sg.Button('Cancel')] ]
+    
     layout = [[sg.Text('GUI-demo', font='Any 18')],
               [sg.Canvas(size=(figure_w, figure_h), key='canvas')],
               [sg.Text('Amplitude '), sg.InputText('1')],
