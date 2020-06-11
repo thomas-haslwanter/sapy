@@ -43,19 +43,20 @@ def set_fonts(fs=24):
     mpl.rc('figure', **figure)
     
     
-def show_data(out_file, out_dir = r'..\new_figures'):
+def show_data(out_file, out_dir = None):
     '''Save a figure with subplots to a file, and then display it'''
     
-    # Generate the plot
-    saveTo = os.path.join(out_dir, out_file)
-    if out_file[-3:].lower() == 'jpg':
-        plt.savefig(saveTo, dpi=200, quality=90)
-    else:
-        plt.savefig(saveTo, dpi=200)
+    if out_dir is not None:
+        # Generate the plot
+        saveTo = os.path.join(out_dir, out_file)
+        if out_file[-3:].lower() == 'jpg':
+            plt.savefig(saveTo, dpi=200, quality=90)
+        else:
+            plt.savefig(saveTo, dpi=200)
     
-    # Show the user where the file is saved to
-    print('OutDir: {0}'.format(out_dir))
-    print('Figure saved to {0}'.format(out_file))
+        # Show the user where the file is saved to
+        print('OutDir: {0}'.format(out_dir))
+        print('Figure saved to {0}'.format(out_file))
     
     # Show the plot
     plt.show()

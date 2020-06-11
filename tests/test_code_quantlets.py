@@ -11,7 +11,7 @@ import sys
 
 figDir = os.path.join('..', r'src/code_quantlets')
 os.chdir(figDir)
-startNr = 4     # if you don't want to go through all files
+startNr = 0     # if you don't want to go through all files
 
 # make sure local imports are working
 sys.path.append('.')

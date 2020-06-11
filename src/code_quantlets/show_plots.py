@@ -65,7 +65,7 @@ def simplePlots() -> None:
     
     # Other graphics settings
     # Set " context='poster' " for printouts, and "set_fonts(32)"
-    sns.set(context='notebook', style='ticks', palette=sns.color_palette('muted'))
+    sns.set(context='notebook', style='ticks', palette='muted')
     
     # Set the fonts the way I like them
     set_fonts(16)
