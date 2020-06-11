@@ -1,4 +1,9 @@
-"""Solution to Exercise xxx of the chaper 'xxx' """
+""" Visualization of cross correlation
+
+The app is working fine, but for some unclear reason, the app crashes the
+testing (after it is closed), with the error message
+_tkinter.TclError: can't invoke "update" command: application has been destroyed
+"""
 
 # author:   Thomas Haslwanter
 # date:     June-2020
@@ -91,7 +96,15 @@ def corr_vis(x:np.ndarray, y:np.ndarray) -> None:
         
         # Update the plot
         plt.draw()
-        plt.waitforbuttonpress()
+        
+        # If one exits early, the command "waitforbuttonpress" crashes, and must
+        # be caught. Otherwise it produces the error-message
+        # _tkinter.TclError: can't invoke "update" command: application has been destroyed
+        try:
+            plt.waitforbuttonpress()
+        except:
+            print('you returned before it was over :(')
+            return
         
     plt.show()
 
