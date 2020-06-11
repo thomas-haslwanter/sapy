@@ -1,21 +1,15 @@
 """Scatterplot of normally distributed data, with Standard Deviation and Standard Error"""
 
 # author:   Thomas Haslwanter
-# date:     March-2020
+# date:     June-2020
 
 # Import standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'code_quantlets', 'utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+# Import formatting commands 
+from utilities.my_style import set_fonts, show_data 
 
 def arrow_bidir(ax, start, end, headWidth=0.01):
     """Plot a bidirectional arrow"""

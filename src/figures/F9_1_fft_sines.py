@@ -11,7 +11,7 @@ import pandas as pd
 import os
 
 # For simplified presentation
-from utilities.SAP_mystyle import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data 
 
 # For the LaTeX header
 import matplotlib

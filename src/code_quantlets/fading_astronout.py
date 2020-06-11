@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage import data
 
-from utilities.SAP_mystyle import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data 
 
 # Get a color-image
 img = data.astronaut()

@@ -1,20 +1,14 @@
 """ Show principle of Savitzky-Golay filter """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
+# Import formatting commands 
+from utilities.my_style import set_fonts, show_data 
 
 # Set the parameters
 p = [-4, 15, 4]

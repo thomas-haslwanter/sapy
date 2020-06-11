@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as si
 
-from utilities.SAP_mystyle import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data 
 
 def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False):
     """ Calculate n samples on a bspline

@@ -1,20 +1,13 @@
 """Generate an auto-correlation."""
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands if directory "Utilities" is available
-import os
-import sys
-sys.path.append(os.path.join('..', 'Code_Quantlets', 'Utilities'))
-try:
-    from SAP_mystyle import set_fonts, show_data 
-except:
-    print('I could not load SAP_mystyle')
-
+# Import formatting commands 
+from utilities.my_style import set_fonts, show_data 
 
 if __name__ =='__main__':
 

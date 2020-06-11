@@ -25,7 +25,7 @@ import os
 
 # additional packages
 import matplotlib as mpl
-from utilities.SAP_mystyle import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data 
 
     
 def printout(outFile: str, xlabel: str='', ylabel: str='',
