@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib import patches
 from scipy.integrate import cumtrapz
 
-# Generate velocity data
+# Generate velocity data for Fig. 5.19
 vel = np.hstack((np.arange(10)**2,
                   np.ones(4) * 9**2,
                   np.arange(9, 4, -1)**2,
@@ -19,8 +19,8 @@ time = np.arange(len(vel))
 fig, axs = plt.subplots(3, 1, sharex=True)
 
 axs[0].plot(time, vel, '*-')
-## Corresponding trapezoid corners
 for ii in range(len(vel)-1):
+    ## Corresponding trapezoid corners
     x = [time[ii], time[ii], time[ii+1], time[ii+1]]
     y = [0, vel[ii], vel[ii], 0]
     data = np.column_stack((x,y))
@@ -30,8 +30,8 @@ axs[0].set_ylabel('Velocity [m/s]')
 
 
 axs[1].plot(time, vel, '*-')
-## Corresponding trapezoid corners
 for ii in range(len(vel)-1):
+    ## Corresponding trapezoid corners
     x = [time[ii], time[ii], time[ii+1], time[ii+1]]
     y = [0, vel[ii], vel[ii+1], 0]
     data = np.column_stack((x,y))

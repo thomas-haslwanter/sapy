@@ -10,7 +10,8 @@ import skimage as ski
 img = ski.data.camera()
 
 # Make the plot
-fig, axs = plt.subplots(1, 3, figsize=(10,4), gridspec_kw={'width_ratios':[1,1,0.1]})
+fig, axs = plt.subplots(1, 3, figsize=(10,4),
+        gridspec_kw={'width_ratios':[1,1,0.1]})
 plt.gray()
 
 # Show the image

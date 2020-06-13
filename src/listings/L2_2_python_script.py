@@ -23,7 +23,7 @@ plt.xlabel('Time[sec]')
 plt.ylabel('Values')
 
 # Generate a figure, one directory up, and let the user know about it
-out_file = r'..\Sinewave.jpg'
+out_file = '../Sinewave.jpg'
 plt.savefig(out_file, dpi=200, quality=90)
 print(f'Image has been saved to {out_file}')
 

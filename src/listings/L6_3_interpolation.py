@@ -20,13 +20,13 @@ yic = cs(xi)
 
 # Plot polynomial interpolations
 plt.plot(x, y, 'ro', label = 'original data')
-plt.plot(xi, yi, label='linear interpolation')
+plt.plot(xi, yi, ls='dashed', label='linear interpolation')
 plt.plot(xi, yic, label='cubic spline')
 
 # Format the plot
 ax = plt.gca()
 ax.set_yticks(np.linspace(-1, 1, 5))
-ax.axhline(0, LineStyle='--')
+ax.axhline(0, LineStyle='dotted')
 plt.legend()
 
 # Save and show the figure
