@@ -20,7 +20,7 @@ b = np.ones(3)/3
 x_filt = signal.lfilter(b, 1, x)
 
 # Plot the data
-plt.plot(x, '--o', label='rawdata')
+plt.plot(x, 'o', linestyle='dotted', label='rawdata')
 plt.plot(x_filt[1:], label='average')
 plt.plot(x_med, label='median')
 
