@@ -17,8 +17,13 @@ def bode_log(out_file):
     
     fig, axs = plt.subplots(2,1, sharex=True)
     
+    # Indicate the approximate gains
+    axs[0].plot([0, 1/tau], [0, 0], ls='dashed', lw=3, color='C1')
+    axs[0].plot([1/tau, 10/tau], [0, -20], ls='dashed', lw=3, color='C1')
+    axs[0].set_xlim(1e-2, 1)
+    
     # Bode magnitude plot
-    axs[0].semilogx(w, mag) 
+    axs[0].semilogx(w, mag, color='C0') 
     axs[0].plot(w[index], mag[index], 'ro') # Indicate cut-off frequency
     
     # Bode phase plot

@@ -13,9 +13,9 @@ ipynbs
 Presentation of additional or extended information relevant to signal
 processing with Python.
 
-pictures
-========
-Images required by this for the exercises and by this repository.
+images
+======
+Images used by this repo
 
 src
 ===

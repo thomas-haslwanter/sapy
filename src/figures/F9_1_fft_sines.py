@@ -19,7 +19,7 @@ import os
 # For simplified presentation
 from utilities.my_style import set_fonts, show_data 
 
-latex_installed = False
+latex_installed = True
     
 if latex_installed:
     import matplotlib
@@ -70,7 +70,7 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
     
     set_fonts(16)
     
-    fig, axs = plt.subplots(1,2, figsize=(10,5))
+    fig, axs = plt.subplots(1,2, figsize=(10, 5))
     
     if latex_installed:
         txt ='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t)$'
@@ -101,6 +101,7 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
     axs[1].set_ylabel(label)
         
     axs[1].set_yticklabels([])
+    plt.savefig('FFT_sines.svg')
     plt.show()
     #show_data('FFT_sines.jpg')
     
