@@ -1,4 +1,4 @@
-""" Solution Exercise Chapter 10: Equations of Motion """
+""" Solution Exercises Chapter 'Equations of Motion' """
 
 # author:   Thomas Haslwanter
 # date:     June-2020
