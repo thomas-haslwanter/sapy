@@ -1,7 +1,7 @@
-""" Solution Exercise 11.x 'FFT' """
+""" Solution Exercises Chapter 'Spectral Analysis' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

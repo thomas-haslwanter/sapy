@@ -1,7 +1,7 @@
-""" Solution Exercise 9.3 'Statistical data analysis' """
+""" Solution Exercises Chapter 'Statistics' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
-"""Solution Assignment 'IIR-filtering', Exercise 1 """
+"""Solution Ex. 'Exponential Averaging Filter' of Chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 
 # Import the required packages

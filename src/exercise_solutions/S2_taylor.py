@@ -1,7 +1,7 @@
-"""Solution to Exercise 2 of the chaper 'Programming Background' """
+"""Solution to Exercise 'Taylor' of the chapter 'Python' """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

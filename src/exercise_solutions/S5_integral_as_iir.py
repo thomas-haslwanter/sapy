@@ -1,7 +1,7 @@
-""" Solution Exercise 7.9.1 'Integration as  IIR-filter' """
+""" Solution Ex. 'Integration as  IIR-filter' of Chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the basic packages
 import numpy as np

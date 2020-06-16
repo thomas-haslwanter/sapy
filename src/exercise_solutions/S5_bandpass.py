@@ -1,7 +1,7 @@
-""" Solution Exercise Chapter 7, 'Bandpass' """
+""" Solution Exercise 'Bandpass' of chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

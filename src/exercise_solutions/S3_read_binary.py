@@ -1,9 +1,10 @@
-"""Solution to Exercise 4 of the chaper 'Data Input' 
+"""Solution to Exercise 'Binary Data' of the chapter 'Data Input' 
+
 Read in binary data, with an 256 byte ASCII-header.
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

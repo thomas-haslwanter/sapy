@@ -1,4 +1,5 @@
-"""
+""" Solution to Exercise Chapter 'Programming Tools'
+
 Demonstrates one way of embedding Matplotlib figures into a PySimpleGUI window.
 
 Basic steps are:
@@ -10,6 +11,9 @@ Basic steps are:
 Based on information from:
 https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
 """
+
+# author:   Thomas Haslwanter
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
-"""Solution Exercise Chapter 7, 'Derivative of noisy data' """
+"""Solution Ex. 'Differentiation of Noisy Data' of chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

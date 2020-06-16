@@ -1,7 +1,7 @@
-"""Solution Chapter 6: Events """
+"""Solution Ex. 'Event Finding', Chapter 'Events' """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
-"""Solution to Exercise 1 of the chaper 'Data IO' """
+"""Solution to Exercise 'Plotting Data' of the chapter 'Data IO' """
 
 # author:   Thomas Haslwanter
-# date:     April-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

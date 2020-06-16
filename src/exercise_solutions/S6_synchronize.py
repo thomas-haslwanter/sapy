@@ -1,11 +1,11 @@
-"""Solution Chapter 6: Events
+"""Solution Exercise 'Synchronization, Chapter 'Events'
 
 Synchronize the acceleration measurements from two datasets
 The information about the measurement units is taken from the column names
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

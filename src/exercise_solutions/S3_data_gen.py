@@ -12,7 +12,7 @@ One may have to install the package "xlwt" for this solution to run.
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 # Import the required packages
 import numpy as np

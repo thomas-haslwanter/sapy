@@ -30,7 +30,7 @@ def generate_data() -> None:
 
     # Generate some data, as a superposition of three sine waves
     # First set the parameters
-    rate = 100      # [Hz]
+    rate = 200      # [Hz]
     duration = 60   # [sec]
     freqs = [3, 7, 20]
     amps = [1, 2, 3]
@@ -48,17 +48,20 @@ def generate_data() -> None:
     # Add some noise, and an offset
     np.random.seed(12345)
     offset = 1
-    sig += np.random.randn(len(sig))*5 + offset
+    noise_amp = 5
+    sig_without_noise = sig + offset
+    sig_with_noise = sig_without_noise + noise_amp * np.random.randn(len(sig)) 
     
     # Note that the same could be achived with a single line of code.
     # However, in my opinion that is much less clear
     #sig = np.ravel(np.atleast_2d(amps) @ np.sin(2*np.pi * np.c_[freqs]*t)) + \
         #np.random.randn(len(t))*5
         
-    return (t, dt, sig)
+    return (t, dt, sig_with_noise, sig_without_noise)
 
 
-def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
+def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
+                   sig_ideal: np.ndarray) -> None:
     """ Demonstrate three different ways to calculate the power-spectrum
     
     Parameters
@@ -66,6 +69,7 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
     t : time [sec]
     dt : sample period [sec]
     sig : sample signal to be analyzed
+    sig_ideal : signal without noise
     """
     
     set_fonts(16)
@@ -80,7 +84,8 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray) -> None:
         label = '|FFT|^2'
         
     # From a quick look we learn - nothing
-    axs[0].plot(t, sig, '--')
+    axs[0].plot(t, sig)
+    axs[0].plot(t, sig_ideal, ls='dashed')
     axs[0].set_xlim(0,1)
     axs[0].set_ylim(-15, 25)
     axs[0].set_xlabel('Time [s]')

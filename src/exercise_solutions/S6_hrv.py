@@ -1,10 +1,11 @@
-""" Estimation of hear beat variability 
+""" Solution Exercise 'Heart Rate Variability', Chapter 'Events'
 
+Estimation of hear beat variability 
 To read in the data, you need the package 'wfdb'
 """
 
 # author:   Thomas Haslwanter
-# date:     May-2020
+# date:     June-2020
 
 import numpy as np
 import matplotlib.pyplot as plt
