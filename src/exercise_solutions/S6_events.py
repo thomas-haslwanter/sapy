@@ -1,4 +1,4 @@
-"""Solution Ex. 'Event Finding', Chapter 'Events' """
+"""Solution Exercise 'Event Finding', Chapter 'Events' """
 
 # author:   Thomas Haslwanter
 # date:     June-2020

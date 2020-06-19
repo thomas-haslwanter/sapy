@@ -71,7 +71,7 @@ def simplePlots() -> None:
     set_fonts(16)
     
     # Scatter plot
-    plt.scatter(np.arange(len(x)), x)
+    plt.plot(x, '.', markersize=7)
     plt.xlim([0, len(x)])
     
     # Save and show the data, in a systematic format
@@ -120,9 +120,9 @@ def simplePlots() -> None:
     # Barplot
     # The font-size is set such that the legend does not overlap with the data
     np.random.seed(1234)
-    set_fonts(20)
+    set_fonts(16)
     
-    df = pd.DataFrame(np.random.rand(10, 4), columns=['a', 'b', 'c', 'd'])
+    df = pd.DataFrame(np.random.rand(7, 3), columns=['one', 'two', 'three'])
     df.plot(kind='bar', grid=False, color=sns.color_palette('muted'))
     
     show_data('barplot.jpg')

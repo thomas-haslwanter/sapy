@@ -1,4 +1,4 @@
-"""Solution to Exercise 'Plotting Data' of the chapter 'Data IO' """
+"""Solution to Exercise 'Plotting Data' of the chapter 'Data Display' """
 
 # author:   Thomas Haslwanter
 # date:     June-2020

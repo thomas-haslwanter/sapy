@@ -23,8 +23,8 @@ fs, data = wavfile.read(in_file)
 plt.specgram(data, NFFT=512, Fs=fs, noverlap=256, cmap=cm.jet)
 
 # Format and save the result
-plt.xlabel('Time [sec]')
-plt.ylabel('Frequency [Hz]')
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (Hz)')
 plt.ylim([0, 8000])
 
 out_file = 'stft.jpg'

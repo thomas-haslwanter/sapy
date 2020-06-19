@@ -41,7 +41,7 @@ def get_data(in_file, sound_time, time_slice):
     
     # Calculate the power-spectrum by hand
     a1_fft = np.fft.fft(a1)
-    Pxx = a1_fft * np.conj(a1_fft)
+    Pxx = np.abs(a1_fft)**2
     
     dt = 1/sound.rate
     duration = dt*len(a1)
@@ -59,18 +59,19 @@ def fourier_intro(time, data, freq, Pxx, time_slice, out_file):
 
     fig, axs = plt.subplots(1,3)
     axs[0].plot(time, data, lw=0.5)
-    axs[0].set_ylabel('Sound-pressure')
-    axs[0].set_xlabel('Time [s]')
+    axs[0].set_xlabel('Time (s)')
+    axs[0].set_ylabel('Sound-pressure ()')
+    axs[0].margins(x=0)
     
     axs[1].plot(time, data)
     axs[1].set_xlim(time_slice)
-    axs[1].set_xlabel('Time [s]')
+    axs[1].set_xlabel('Time (s)')
     axs[1].set_yticklabels([])      
     
-    axs[2].plot(freq, Pxx)
+    axs[2].plot(freq, np.sqrt(Pxx))
     axs[2].set_xlim([0, 4000])
-    axs[2].set_ylabel('Power')
-    axs[2].set_xlabel('Frequency [Hz]')
+    axs[2].set_xlabel('Frequency (Hz)')
+    axs[2].set_ylabel('|FFT| ()')
     axs[2].ticklabel_format(style='sci', scilimits=(0, 4))
     
     # Position the plots
@@ -89,14 +90,14 @@ def linear_and_log(freq, Pxx, out_file):
     upper_limit = 4000
     axs[0].plot(freq, Pxx)
     axs[0].set_xlim([0, upper_limit])
-    axs[0].set_xlabel('Frequency [Hz]')
-    axs[0].set_ylabel('Powerspectrum')
+    axs[0].set_xlabel('Frequency (Hz)')
+    axs[0].set_ylabel('Powerspectrum ()')
     axs[0].ticklabel_format(style='sci', scilimits=(0, 4))
     
     axs[1].semilogy(freq, Pxx, lw=0.5)
     axs[1].set_xlim([0, upper_limit])
-    axs[1].set_xlabel('Frequency [Hz]')
-    axs[1].set_ylabel('Powerspectrum [dB]')
+    axs[1].set_xlabel('Frequency (Hz)')
+    axs[1].set_ylabel('Powerspectrum (dB)')
     
     plt.tight_layout()
     
@@ -111,7 +112,7 @@ def noise_effects(time, sound, Pxx, time_slice, duration, out_file):
     # Note that a1 has been normalized to have a range of 1
     sound_noisy = sound + 1/100 * np.random.randn(len(sound))
     fft_noisy = np.fft.fft(sound_noisy)
-    Pxx_noisy = fft_noisy * np.conj(fft_noisy)
+    Pxx_noisy = np.abs(fft_noisy)**2
     
     # Normalize to 'density'
     Pxx_noisy = Pxx_noisy *2/(np.sum(Pxx_noisy)/duration)
@@ -119,15 +120,15 @@ def noise_effects(time, sound, Pxx, time_slice, duration, out_file):
     fig, axs = plt.subplots(1,2)
     axs[0].plot(time, sound, label='original')
     axs[0].plot(time, sound_noisy, label='noise added')
-    axs[0].set_xlabel('Time [s]')
-    axs[0].set_ylabel('Sound-pressure')
+    axs[0].set_xlabel('Time (s)')
+    axs[0].set_ylabel('Sound-pressure ()')
     axs[0].set_xlim(time_slice)
     axs[0].legend()
     
     axs[1].semilogy(freq, Pxx, label='original', lw=0.5)
     axs[1].semilogy(freq, Pxx_noisy, label='noise added', lw=0.5)
-    axs[1].set_xlabel('Frequency')
-    axs[1].set_ylabel('Powerspectrum')
+    axs[1].set_xlabel('Frequency (Hz)')
+    axs[1].set_ylabel('Powerspectrum (P**2/Hz)')
     axs[1].set_xlim([1200, 1700])
     
     plt.tight_layout()
@@ -150,13 +151,13 @@ def welch_periodogram(data, rate, freq, Pxx, out_file):
     axs[0].semilogy(freq, Pxx, label='Periodogram', lw=0.5)
     axs[0].semilogy(f, welch, label='Welch', lw=0.8)
     axs[0].set_xlim([0, rate/2])
-    axs[0].set_ylabel('Powerspectrum')
-    axs[0].set_xlabel('Frequency[Hz]')
+    axs[0].set_ylabel('Powerspectrum (P**2/Hz)')
+    axs[0].set_xlabel('Frequency (Hz)')
     
     axs[1].semilogy(freq, Pxx, label='Pxx')
     axs[1].semilogy(f, welch, label='Welch')
     axs[1].set_xlim([800, 1100])
-    axs[1].set_xlabel('Frequency[Hz]')
+    axs[1].set_xlabel('Frequency (Hz)')
     axs[1].legend()
     
     show_data(out_file)

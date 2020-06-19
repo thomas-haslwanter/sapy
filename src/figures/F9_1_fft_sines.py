@@ -30,7 +30,7 @@ def generate_data() -> None:
 
     # Generate some data, as a superposition of three sine waves
     # First set the parameters
-    rate = 200      # [Hz]
+    rate = 200     # [Hz]
     duration = 60   # [sec]
     freqs = [3, 7, 20]
     amps = [1, 2, 3]
@@ -77,50 +77,62 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
     fig, axs = plt.subplots(1,2, figsize=(10, 5))
     
     if latex_installed:
-        txt ='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t)$'
-        label = '$|FFT|^2$'
+        txt ='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t) + noise$'
+        label = '$|FFT|\; ()$'
+        label2 = '$|FFT|^2  ()$'
     else:
         txt = 'signal = offset + sum(i=0:2) a_i*sin(omega_i*t)'
-        label = '|FFT|^2'
+        label = '|FFT| ()'
+        label2 = '|FFT|^2 ()'
         
     # From a quick look we learn - nothing
-    axs[0].plot(t, sig)
-    axs[0].plot(t, sig_ideal, ls='dashed')
-    axs[0].set_xlim(0,1)
+    axs[0].plot(t, sig, lw=0.7, label='noisy')
+    axs[0].plot(t, sig_ideal, ls='dashed', lw=2, label='ideal')
+    axs[0].set_xlim(0, 0.4)
     axs[0].set_ylim(-15, 25)
-    axs[0].set_xlabel('Time [s]')
-    axs[0].set_ylabel('Signal')
-    axs[0].text(0.5, 24, s=txt, fontsize=16)
+    axs[0].set_xlabel('Time (s)')
+    axs[0].set_ylabel('Signal ()')
+    axs[0].legend()
+    axs[0].text(0.2, 24, s=txt, fontsize=16)
     
-    # Calculate the power spectrum by hand
+    # Calculate the spectrum by hand
     fft = np.fft.fft(sig)
     print(fft[:3])
-    Pxx = np.abs(fft)**2
+    fft_abs = np.abs(fft)
     
     # The easiest way to calculate the frequencies
     freq = np.fft.fftfreq(len(sig), dt)
     
-    axs[1].plot(freq, Pxx, '--')
-    axs[1].set_xlim(-50, 50)
-    axs[1].set_xlabel('Frequency [Hz]')
+    axs[1].plot(freq, fft_abs)
+    axs[1].set_xlim(0, 35)
+    axs[1].set_xlabel('Frequency (Hz)')
     axs[1].set_ylabel(label)
         
     axs[1].set_yticklabels([])
-    plt.savefig('FFT_sines.svg')
-    plt.show()
-    #show_data('FFT_sines.jpg')
+    show_data('FFT_sines.jpg')
+    
+    # Also show the double-sided spectrum
+    fig, ax = plt.subplots(1,1)
+    ax.plot(fft_abs)
+    #ax.set_xlim(0, 35)
+    ax.set_xlabel('Points')
+    ax.set_ylabel(label)
+    plt.tight_layout()
+    show_data('FFT_doublesided.jpg')
     
     # With real input, the power spectrum is symmetrical and we only one half
-    Pxx = Pxx[:int(len(Pxx)/2)]
+    fft_abs = fft_abs[:int(len(fft_abs)/2)]
     freq = freq[:int(len(freq)/2)]
     
+    # The power is the norm of the amplitude squared
+    Pxx = fft_abs**2
     # Showing the same data on a linear and a log scale
     fig, axs = plt.subplots(2,1, sharex=True)
-    axs[0].plot(freq, Pxx, '--')
-    axs[0].set_ylabel('Power')
-    axs[1].semilogy(freq, Pxx, '--')
-    axs[1].set_xlabel('Frequency [Hz]')
-    axs[1].set_ylabel('Power [dB]')
+    axs[0].plot(freq, Pxx)
+    axs[0].set_ylabel('Power (linear)')
+    axs[1].semilogy(freq, Pxx)
+    axs[1].set_xlabel('Frequency (Hz)')
+    axs[1].set_ylabel('Power (dB)')
     show_data('FFT_sines_power_lin_log.jpg')
     
     # Periodogram and Welch-Periodogram
@@ -129,14 +141,14 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
     
     fig, axs = plt.subplots(2, 1, sharex=True)
     
-    axs[0].semilogy(f_pgram, P_pgram, '--', label='periodogram')
-    axs[1].semilogy(f_welch, P_welch, '--', label='welch')
+    axs[0].semilogy(f_pgram, P_pgram, label='periodogram')
+    axs[1].semilogy(f_welch, P_welch, label='welch')
     
-    axs[0].set_ylabel('Spectral Density [dB]')
+    axs[0].set_ylabel('Spectral Density (dB)')
     axs[0].legend()
     axs[0].set_ylim(1e-4, 1e3)
-    axs[1].set_xlabel('Frequency [Hz]')
-    axs[1].set_ylabel('Spectral Density [dB]')
+    axs[1].set_xlabel('Frequency (Hz)')
+    axs[1].set_ylabel('Spectral Density (dB)')
     axs[1].legend()
     show_data('FFT_sines_periodogram.jpg')
     

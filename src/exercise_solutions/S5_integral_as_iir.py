@@ -13,8 +13,7 @@ from scipy import integrate
 from collections import namedtuple
 
 a = [1, -1]
-b = {'quadratic':np.r_[-1, 20, 17]/36,
-     'cum_trapz': np.r_[0.5, 0.5],
+b = {'cum_trapz': np.r_[0.5, 0.5],
      'cum_sum':  [1]}
 
 Results = namedtuple('Results', ['calculated', 'filtered'])
@@ -41,17 +40,15 @@ si = np.sin(t)
 co = np.cos(t)
 
 plt.plot(t, si, label='sin')
-plt.plot(t, 1-co, label='cos')
+plt.plot(t, 1-co, label='1-cos')
 
 # Approximal integrals
 integral = {}
 integral['cum_sum'] = np.cumsum(si) * dt
 integral['cum_trapz'] = integrate.cumtrapz(si) * dt
-integral['quadratic'] = lfilter(b['quadratic'], a, si) * dt
 
 plt.plot(t, integral['cum_sum'], '-*', label='cum_sum')
 plt.plot(t[1:], integral['cum_trapz'], '-o', label='cum_trapz')
-plt.plot(t[:-1], integral['quadratic'][1:], 'k', label='quadratic fit');
 
 plt.legend()
 plt.show()
@@ -63,6 +60,4 @@ print('sine integral: cum_sum ------------')
 print( integral['cum_sum'][0:10:2] )
 print('sine integral: cum_trapz ------------')
 print( integral['cum_trapz'][0:10:2] )
-print('sine integral: quadratic -------------')
-print ( integral['quadratic'][2:12:2] )
 

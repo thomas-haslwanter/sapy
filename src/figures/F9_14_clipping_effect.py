@@ -99,7 +99,7 @@ if __name__ == '__main__':
     for ax in axs[0].tolist()+axs[1].tolist():
         ax.set_xticklabels('')
     
-    axs[2,0].set_xlabel('Time [s]')
-    axs[2,1].set_xlabel('Frequency [Hz]')
+    axs[2,0].set_xlabel('Time (s)')
+    axs[2,1].set_xlabel('Frequency (Hz)')
     
     show_data(out_file)

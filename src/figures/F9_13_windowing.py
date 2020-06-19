@@ -40,14 +40,14 @@ thin = 0.2
 # Sound
 axs[0,0].plot(time, a1, lw=thin)
 axs[0,0].margins(x=0)
-axs[0,0].set_ylabel('Sound')
+axs[0,0].set_ylabel('Sound ()')
 axs[0,0].set_xticklabels('')
 
 # Window
 window = np.zeros_like(time)
 window[win_index] = signal.windows.hann(win_length)
 axs[1,0].plot(time, window, color='C1')
-axs[1,0].set_xlabel('Time [s]')
+axs[1,0].set_xlabel('Time (s)')
 axs[1,0].set_ylabel('Window')
 axs[1,0].set_ylim(0,1)
 for ax in [axs[0,0], axs[1,0]]:
@@ -66,8 +66,8 @@ axs[1,1].plot(time[win_index], window[win_index]*a1[win_index], lw=0.6)
 axs[1,1].plot(time[win_index], window[win_index]*max_sound,
               ls='dashed')
 axs[1,1].set_yticks([-0.5, 0, 0.5])
-axs[1,1].set_xlabel('Time [s]')
-axs[1,1].set_ylabel('Windowed Sound')
+axs[1,1].set_xlabel('Time (s)')
+axs[1,1].set_ylabel('Windowed Sound ()')
               
 for ax in axs.ravel():
     ax.margins(x=0)
