@@ -6,4 +6,4 @@ def squared(x=10):
 for ii in range(6):
     print(ii, squared(ii))
 
-print(squared())
+print( squared() )

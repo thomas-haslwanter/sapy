@@ -3,14 +3,15 @@
 # author:   Thomas Haslwanter
 # date:     June-2020
 
-# Import the required packages
+# Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from ftplib import FTP
 import os
 
-# Get the data --------------------------------
+# For the fitting
+import statsmodels.formula.api as smf
+
 
 def get_data(in_file: str=None) -> pd.DataFrame:
     """Get data from NOAA about the global CO2-levels
@@ -57,13 +58,13 @@ def get_data(in_file: str=None) -> pd.DataFrame:
     
     return df
 
-def polynomial_fits(data):
+
+def polynomial_fits(data: pd.DataFrame):
     """"Linear, quadratic and cubic fits to the data
     
-    Paramters
-    ---------
-        data : pandas DataFrame
-            input data, from 'get_data'
+    Parameters
+    ----------
+        data : input data, from 'get_data'
     """
 
     p_1 = np.polyfit(data.date, data.co2, 1)
@@ -101,18 +102,20 @@ def polynomial_fits(data):
     
     plt.legend()
     plt.show()
+
+
+def CIs_and_residuals(data: pd.DataFrame) -> dict:    
+    """Use 'statsmodels' to find confidence-intervals, and plot the residuals
     
-    
-def CIs_and_sinefit(data):    
-    """Use 'statsmodels' to find confidence-intervals, and to make a sine-fit
-    
-    Paramters
-    ---------
-        data : pandas DataFrame
-            input data, from 'get_data'
+    Parameters
+    ----------
+        data : input data, from 'get_data'
+
+    Returns
+    -------
+        residuals : x/y-values for the residuals
     """
     
-    import statsmodels.formula.api as smf
     
     # Linear fit
     mod = smf.ols(formula='co2 ~ year2000', data=data)
@@ -136,7 +139,7 @@ def CIs_and_sinefit(data):
     #print(res_3.summary())
     
     # Which ones are significant?
-    print('\Which order of fit d0 we need?')
+    print('\Which order of fit do we need?')
     for (res, order) in zip([res_1, res_2, res_3], ['linear', 'quadratic', 'cubic']):
         ci = res.conf_int()
         ci.columns = ['Lower', 'Upper']
@@ -151,8 +154,13 @@ def CIs_and_sinefit(data):
     # Select a range with an approximately constant offset, around 2010
     good_years = (data.year2000>4) & (data.year2000<16)
     
-    sim_x = data.year2000[good_years]
-    sim_y = res_2.resid[good_years]
+    residuals = {}
+    residuals['x'] = data.year2000[good_years]
+    residuals['y'] = res_2.resid[good_years]
+
+    return residuals
+    
+
     
     # Prepare the data for the sine-fit
     phi = np.deg2rad(np.arange(len(sim_x))*30)
@@ -167,6 +175,40 @@ def CIs_and_sinefit(data):
     delta = np.arctan2(fit.sine, fit.cosine)
     
     print(f'\nAmplitude of annual CO2-variations: {amp:5.3f}')    
+
+
+def sinefit(data: pd.DataFrame):    
+    """Make a sine-fit
+    
+    Parameters
+    ----------
+        data : residuals, from 'CIs_and_residuals'
+    """
+    
+    # Prepare the data for the sine-fit
+    phi = np.deg2rad(np.arange(len(data['x']))*30)
+    data_sine = pd.DataFrame({
+        'phi':phi,
+        'sine':np.sin(phi),
+        'cosine':np.cos(phi),
+        'resid':data['y'] })
+    
+    # Make the sine-fit
+    mod_sine = smf.ols(formula='resid ~ sine + cosine', data=data_sine)
+    res_sine = mod_sine.fit()
+    
+    fit = res_sine.params
+    amp = np.sqrt(fit.sine**2 + fit.cosine**2)
+    delta = np.arctan2(fit.cosine, fit.sine)
+    offset = fit.Intercept
+
+    # Show values and fit
+    plt.plot(phi, data['y'], '.-', label='values')
+    plt.plot(phi, offset + amp * np.sin(phi + delta), label='fit')
+    plt.legend()
+    plt.show()
+
+    print(f'\nAmplitude of annual CO2-variations: {amp:5.3f}')    
     
     
 if __name__ == '__main__':
@@ -176,4 +218,5 @@ if __name__ == '__main__':
 
     data = get_data(in_file)    
     polynomial_fits(data)    
-    CIs_and_sinefit(data)
+    res_val = CIs_and_residuals(data)
+    sinefit(res_val)
