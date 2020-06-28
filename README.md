@@ -1,5 +1,5 @@
-<img src='pictures/sapy.png' width=500>
-<!-- ![Title](pictures/sapy.png) -->
+<img src='pictures/sapy.png' width=250>
+
 ---
 Hands-on Signal Analysis with Python
 ---
