@@ -1,4 +1,4 @@
-<img src='pictures/sapy.png' width=250 align=center>
+<img src='pictures/sapy.png' width=250 align='center'>
 
 ---
 Hands-on Signal Analysis with Python
