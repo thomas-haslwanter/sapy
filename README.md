@@ -3,7 +3,9 @@
 ---
 Hands-on Signal Analysis with Python
 ---
-Python code and data to the manuscript "Hands-on Signal Analysis with Python"
+Python code, data, and Jupyter notebooks, to my upcoming book "Hands-on Signal Analysis with Python".
+
+The book should be out by late summer, and will be published by Springer.
 
 data
 ====
