@@ -1,7 +1,7 @@
-""" Solution to Exercise 'Mixed Inputs' of Chapter 'Data Input' """ 
+""" Solution to Exercise 'Mixed Inputs', 'Data Input' """ 
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Get the required packages
 import numpy as np
@@ -56,7 +56,8 @@ if __name__ == '__main__':
     print(data.tail())
 
     # Read in a zipped data-file from the WWW
-    url = 'https://www.routledge.com/downloads/K32369/GLM.dobson.data.zip'
+    #url = 'https://www.routledge.com/downloads/K32369/GLM.dobson.data.zip'
+    url = 'https://work.thaslwanter.at/sapy/GLM.dobson.data.zip'
     inFile = r'Table 2.8 Waist loss.xls'
 
     df = getDataDobson(url, inFile)

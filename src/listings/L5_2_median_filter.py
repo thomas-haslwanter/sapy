@@ -1,4 +1,4 @@
-""" Demonstration of linear and non-linear filters on data with extreme outliers """
+""" Effects Linear and non-linear filters on data with extreme outliers """
 
 # Import the standard packages
 import numpy as np

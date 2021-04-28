@@ -2,16 +2,23 @@
 
 To run this module, the Python-package 'control' must be installed """
 
+# author:   Thomas Haslwanter
+# date:     April-2021
+
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 import control
 
+# Import formatting commands 
+from utilities.my_style import set_fonts, show_data 
+
 
 def feedforward(tau: float) -> None:
-    """Simulation of a feedforward system, using the Python package 'scipy.signal'
-    'time', 'in_signal', 'num' and 'den' are taken from the global workspace
+    """Simulation of a feedforward system, using the Python package
+    'scipy.signal' 'time', 'in_signal', 'num' and 'den' are taken from the
+    global workspace
     
     Parameters
     ----------
@@ -51,26 +58,28 @@ def feedback(tau: float, fb_gain: float) -> None:
     print(sys)          # 1 / (tau*s + 1)
     
     # Simulate the response of the feedforward system
-    t_out, y_out, x_out = control.forced_response(sys, T=time, U=in_signal)
+    t_ff, out_ff = control.forced_response(sys, T=time, U=in_signal)
     
     # Then define a feedback-loop, with gain fb_gain
     sys_total = control.feedback(sys, fb_gain)
     print(sys_total)    # 1 / (tau*s + (1+k)) 
     
     # Simulate the response of the feedback system
-    t_total, y_total, x_total = control.forced_response(sys_total,
-                                                        T=time, U=in_signal)
+    t_fb, out_fb = control.forced_response(sys_total, T=time, U=in_signal)
     
     # Show the signals
     plt.plot(time, in_signal, '-', label='Input')
-    plt.plot(t_out, y_out, '--', label='Feedforward')
-    plt.plot(t_total, y_total, '-.', label='Feedback')
+    plt.plot(t_ff, out_ff, '--', label='Feedforward')
+    plt.plot(t_fb, out_fb, '-.', label='Feedback')
     
     # Format the plot
     plt.xlabel('Time [sec]')
     plt.title(f"First order lag (tau={tau} sec)")
-    plt.text(15, 0.8, "Simulated with 'control' ", fontsize=12)
+    print('Simulated with "control"')
     plt.legend()
+    
+    out_file = 'feedback.jpg'
+    show_data(out_file)
     
     
 if __name__ == '__main__':

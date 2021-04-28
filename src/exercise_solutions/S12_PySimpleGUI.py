@@ -13,7 +13,7 @@ https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np

@@ -1,4 +1,4 @@
-""" Visualization of cross correlation
+""" Visualization of cross correlation.
 
 The app is working fine, but for some unclear reason, the app crashes the
 testing (after it is closed), with the error message
@@ -6,7 +6,7 @@ _tkinter.TclError: can't invoke "update" command: application has been destroyed
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
@@ -56,8 +56,9 @@ def corr_vis(x:np.ndarray, y:np.ndarray) -> None:
     axs[0].set_ylabel('Y[n]')
     axs[0].legend()
     
-    # Precalculate limits of correlation output
-    axr = [xmin, xmax, np.correlate(x,y,'full').min(), np.correlate(x,y,'full').max()]
+    # Pre-calculate limits of correlation output
+    axr = [xmin, xmax, np.correlate(x,y,'full').min(),
+           np.correlate(x,y,'full').max()]
     
     # Make a version of y padded to the full extent of X's we'll shift
     padY = np.r_[np.zeros(Nx-1), y, np.zeros(Nx-1)]
@@ -99,7 +100,8 @@ def corr_vis(x:np.ndarray, y:np.ndarray) -> None:
         
         # If one exits early, the command "waitforbuttonpress" crashes, and must
         # be caught. Otherwise it produces the error-message
-        # _tkinter.TclError: can't invoke "update" command: application has been destroyed
+        # _tkinter.TclError: can't invoke "update" command: application has
+        #                                                       been destroyed
         try:
             plt.waitforbuttonpress()
         except:
@@ -112,7 +114,7 @@ def corr_vis(x:np.ndarray, y:np.ndarray) -> None:
 if __name__ == '__main__':
     sns.set_style('ticks')
     
-    # Generate the data
+    # Generate the data used in the book
     signal = np.zeros(20)
     signal[7:10] = 1
     signal[14:17] = 1

@@ -6,7 +6,7 @@
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
@@ -35,7 +35,7 @@ def generate_data():
         'std':[7.1, 7.1]
         })
 
-    # Make the "gender" the label for the row-index, and print these values
+    # Make the "gender" the label for the row-index, and display the values
     height = height.set_index('gender')
     print('Pandas DataFrame for the height of men and women:')
     print(height)
@@ -107,7 +107,7 @@ def two_categories():
     # Basic statistics
     print(grouped.describe())
 
-    # Show the two groups as a scatter-plot, with labels added
+    # On the left, show the two groups as a scatter-plot, with labels added
     fig, axs = plt.subplots(1,2)
     for name, group in grouped:
         axs[0].plot(group.height, 'o', label=name)    
@@ -120,7 +120,7 @@ def two_categories():
     females = grouped.get_group('female').height.values
     df_mf = pd.DataFrame({'male': males,
                           'female': females})
-    df_mf.boxplot(ax=axs[1])
+    df_mf.boxplot(ax=axs[1])  # shows this plot in the right panel
 
     # To save to an out-file with my default formatting
     out_file = 'pandas.jpg'

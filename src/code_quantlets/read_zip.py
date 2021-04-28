@@ -1,7 +1,7 @@
 """Get data from MS-Excel files, which are stored zipped on the WWW. """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import standard packages
 import pandas as pd
@@ -32,9 +32,10 @@ def getDataDobson(url: str, inFile: str) -> pd.DataFrame:
 
     return df
 
+
 if __name__ == '__main__':
     # Select archive (on the web) and the file in the archive
-    url = 'https://www.routledge.com/downloads/K32369/GLM.dobson.data.zip'
+    url = 'https://work.thaslwanter.at/sapy/GLM.dobson.data.zip'
     inFile = r'Table 2.8 Waist loss.xls'
 
     df = getDataDobson(url, inFile)

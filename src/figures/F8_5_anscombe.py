@@ -1,7 +1,4 @@
-"""
-==================
-Anscombe's quartet
-==================
+""" Anscombe's quartet
 
 `Anscombe's quartet`_ is a group of datasets (x, y) that have the same mean,
 standard deviation, and regression line, but which are qualitatively different.

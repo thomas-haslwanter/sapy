@@ -1,13 +1,14 @@
 """ Demonstration of basic morphological operations """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import morphology
 
+# Convenience functions ensuring consistent styling and folders
 from utilities.my_style import set_fonts, show_data 
     
     

@@ -1,7 +1,7 @@
-"""Solution to Exercise 'Reading in Data' of the chapter 'Data Input' """
+""" Solution to Exercise 'Reading in Data', Chapter 'Data Input' """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the standard packages
 import numpy as np

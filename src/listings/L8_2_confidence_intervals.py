@@ -1,4 +1,4 @@
-""" Calculation of confidence intervals """
+""" Calculation of confidence intervals for a line-fit """
 
 # Import the required packages
 import numpy as np

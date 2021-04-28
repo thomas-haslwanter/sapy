@@ -3,7 +3,7 @@ Show the effect of clipping and windowing on a cosine wave.
 """
     
 # author: Thomas Haslwanter
-# date:   June-2020
+# date:   April-2021
 
 import numpy as np
 from numpy import fft

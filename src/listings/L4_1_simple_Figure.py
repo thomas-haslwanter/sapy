@@ -28,7 +28,8 @@ axs[0].set_ylabel('Position [m]')
 axs[1].set_xlabel('Time [sec]')
 axs[1].set_ylabel('Velocity [m/s]')
 
-# Set the x-limit (Note that since the x-axes are shared, we only have to do this once!)
+# Set the x-limit (Note that since the x-axes are shared, we only
+# have to do this once!)
 axs[0].set_xlim([0, 10])
 
 # Also put the date on the figure

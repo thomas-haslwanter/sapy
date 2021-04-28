@@ -1,7 +1,7 @@
 """ Images for the intro-fig of Chapter 5 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 import numpy as np
 import matplotlib.pyplot as plt

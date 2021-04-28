@@ -1,7 +1,7 @@
-"""Solution Exercise 'EMG', Chapter 'Events' """
+""" Solution Exercise 'EMG', Chapter 'Events' """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
@@ -38,7 +38,8 @@ b, a = signal.butter(5, 1/(rate/2), 'high')
 df['filtered'] = signal.lfilter(b, a, df.emg_1)
 
 # Smooth the absolute value, to obtain the level of muscle activation
-df['smoothed'] = signal.savgol_filter(np.abs(df.filtered), polyorder=3, window_length=101)
+df['smoothed'] = signal.savgol_filter(np.abs(df.filtered), polyorder=3,
+        window_length=101)
 
 # Find onset and offset of muscle activations
 threshold = 0.05
@@ -82,5 +83,5 @@ plt.plot(np.r_[offsets]/rate, np.zeros_like(offsets), 'g*')
 plt.show()
 
 # And display the mean contraction time
-print('The mean contraction time is' \
-       + f'{np.mean(offsets - onsets)/rate:5.2f} (sec)')
+print('The mean contraction time is' +
+     f'{np.mean(offsets - onsets)/rate:5.2f} (sec)')

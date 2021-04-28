@@ -1,4 +1,4 @@
-'''Short demonstration of Python for scientific data analysis
+"""Short demonstration of Python for scientific data analysis
 
 This script covers the following points:
 * Plotting a sine wave
@@ -17,17 +17,18 @@ This script covers the following points:
 For such a short program, the definition of a "main" function, and calling
 it by default when the module is imported by the main program, is a bit
 superfluous. But it shows good Python coding style.
-'''
+"""
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # In contrast to MATLAB, you explicitly have to load the modules that you need.
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def main() -> None:
-    '''Define the main function. '''
+    """Define the main function. """
     
     # Create a sine-wave
     t = np.arange(0,10,0.1)

@@ -1,4 +1,4 @@
-"""Generation of data for Chapter 'Data Input'
+""" Generation of data for Chapter 'Data Input'
 
 It shows how to generate
 - formatted text-strings
@@ -12,7 +12,7 @@ One may have to install the package "xlwt" for this solution to run.
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
-"""Solution to Exercise 'Modifying Figures' of the chapter 'Data Display' """
+""" Solution to Exercise 'Modifying Figures', Chapter 'Data Display' """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
@@ -30,7 +30,8 @@ plt.annotate('This is\nnot funny!',
              arrowprops=dict(facecolor='black', shrink=0.05) )
              
 # Save JPG-file
-plt.savefig(out_file, dpi=200, quality=90)
+pil_kwargs = {'quality': 90}
+plt.savefig(out_file, dpi=200, pil_kwargs=pil_kwargs)
 
 # Save the same file in SVG-format
 svg_file = out_file.replace('jpg', 'svg')
@@ -53,7 +54,7 @@ with plt.xkcd():
                  arrowprops=dict(facecolor='black', shrink=0.05) )
                  
     funny_file = out_file.replace('.jpg', '_funny.jpg')
-    plt.savefig(funny_file, dpi=200, quality=90)
+    plt.savefig(funny_file, dpi=200, pil_kwargs=pil_kwargs)
     print(f'... and also saved {funny_file} ;)')
     plt.show()
         

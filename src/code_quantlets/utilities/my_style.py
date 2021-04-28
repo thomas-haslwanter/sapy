@@ -1,9 +1,11 @@
-'''Common formatting and print commands, for the book "Hands-on Signal
+"""Common formatting and print commands, for the book "Hands-on Signal
 Analysis with Python".
-These commands ensure a common layout, and reduce the code required to generate plots in the other modules.
-'''
+These commands ensure a common layout, and reduce the code required to
+generate plots in the other modules.
+"""
 
-# Copyright(c) 2020, Thomas Haslwanter. All rights reserved, under the CC BY-SA 4.0 International License
+# Copyright(c) 2020, Thomas Haslwanter. All rights reserved, under
+# the CC BY-SA 4.0 International License
 
 # Import standard packages
 import matplotlib.pyplot as plt
@@ -14,7 +16,7 @@ import matplotlib as mpl
 
 
 def set_fonts(fs=24):
-    '''Set my favorite defaulte fonts'''
+    """Set my favorite defaulte fonts"""
     
     font = {'family' : 'sans-serif',
             'weight' : 'normal',
@@ -44,7 +46,7 @@ def set_fonts(fs=24):
     
     
 def show_data(out_file, out_dir = None):
-    '''Save a figure with subplots to a file, and then display it'''
+    """Save a figure with subplots to a file, and then display it"""
     
     if out_dir is not None:
         # Generate the plot

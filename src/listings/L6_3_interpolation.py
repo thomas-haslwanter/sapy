@@ -31,7 +31,8 @@ plt.legend()
 
 # Save and show the figure
 out_file = 'interpolations.jpg'
-plt.savefig(out_file, dpi=200, quality=90)
+pil_kwargs = {'quality': 90}
+plt.savefig(out_file, dpi=200, pil_kwargs=pil_kwargs)
 print(f'Image saved to {out_file}')
 
 plt.show()

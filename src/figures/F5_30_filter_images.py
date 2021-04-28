@@ -1,7 +1,7 @@
 """ Demonstration on how to filter images """
 
 # author:	Thomas Haslwanter
-# date:		Oct-2019
+# date:		April-2021
 
 # Import the standard packages
 import numpy as np
@@ -17,7 +17,9 @@ from utilities.my_style import set_fonts, show_data
 # Get the data
 import skimage as ski
 img = ski.data.camera()
-img_f = np.array(img, dtype=float)   # for the filtering, the data must not be uint
+
+# for the filtering, the data must not be uint
+img_f = np.array(img, dtype=float) 
 
 # Make the filters
 Filters = []

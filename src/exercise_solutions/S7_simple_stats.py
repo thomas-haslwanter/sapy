@@ -1,7 +1,7 @@
 """ Solution Exercises Chapter 'Statistics' """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
@@ -53,7 +53,8 @@ def show(data: Tuple) -> None:
     # The first two plots show SDs and SEMs ...
     ylims = [30, 90]
     for ii, param in enumerate(['std', 'sem']):
-        axs[ii].errorbar([1,2], [group1['mean'], group2['mean']], yerr=[group1[param], group2[param]], fmt='o g')
+        axs[ii].errorbar([1,2], [group1['mean'], group2['mean']],
+                         yerr=[group1[param], group2[param]], fmt='o g')
         axs[ii].set_xlim([0.5, 2.5])
         axs[ii].set_ylim(ylims)
         axs[ii].set_xticks([1,2])
@@ -62,6 +63,9 @@ def show(data: Tuple) -> None:
     
     axs[0].set_ylabel('Weight [kg]')
     axs[1].set_yticklabels([])
+    
+    print("Note that the SEMs don't overlap!") 
+    # ... hence the two groups are probably significantly different.
     
     # ... and then the boxplots 
     data = [group1['data'], group2['data']]

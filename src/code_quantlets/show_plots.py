@@ -13,7 +13,7 @@ The examples contain:
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import standard packages
 import numpy as np
@@ -88,6 +88,7 @@ def simplePlots() -> None:
     
     # Boxplot
     # The ox consists of the first, second (middle) and third quartile
+    set_fonts(18)
     plt.boxplot(x, sym='*')
     printout('boxplot.jpg', xlabel='Values', title='Boxplot')
     
@@ -115,7 +116,7 @@ def simplePlots() -> None:
     plt.ylabel('Weight [kg]')
     plt.title('Adult male, mean +/- SD')
 
-    show_data('SD_groups.jpg')
+    show_data('SD_groups.jpg', out_dir='.')
     
     # Barplot
     # The font-size is set such that the legend does not overlap with the data

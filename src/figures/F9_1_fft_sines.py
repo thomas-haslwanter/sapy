@@ -1,13 +1,15 @@
-""" Example of Fourier Transformation and Power-spectra
+""" Example of Fourier Transformation and Power-spectra.
 
 If you want the output to use the LaTeX-formatting, please
     i) make sure that LaTeX is installed properly on your system, and then
     ii) manually set the flag 'latex_installed' in line 22 to 'True'
+
+Also note that the generation of LaTex-formatted figures is rather slow,
+since LaTeX has to be launched in the background.
 """
     
-
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the standard packages
 import numpy as np
@@ -15,6 +17,7 @@ import matplotlib.pyplot as plt
 from scipy import signal
 import pandas as pd
 import os
+from typing import Tuple
 
 # For simplified presentation
 from utilities.my_style import set_fonts, show_data 
@@ -25,10 +28,19 @@ if latex_installed:
     import matplotlib
     matplotlib.rcParams['text.usetex'] = True
 
-def generate_data() -> None:
-    """ Generate sample data for the FFT-demo """
+    
+def generate_data() -> Tuple[np.ndarray, float, np.ndarray, np.ndarray]:
+    """ Generate sample data for the FFT-demo 
+    Signal is a  superposition of three sine waves.
+    
+    Returns
+    -------
+    t : time vector [s]
+    dt : sample interval [s]
+    sig_with_noise : signal vector, with random noise added
+    sig_without_noise : signal vector 
+    """
 
-    # Generate some data, as a superposition of three sine waves
     # First set the parameters
     rate = 200     # [Hz]
     duration = 60   # [sec]
@@ -55,12 +67,13 @@ def generate_data() -> None:
     # Note that the same could be achived with a single line of code.
     # However, in my opinion that is much less clear
     #sig = np.ravel(np.atleast_2d(amps) @ np.sin(2*np.pi * np.c_[freqs]*t)) + \
-        #np.random.randn(len(t))*5
+        # 1 + np.random.randn(len(t))*5
         
     return (t, dt, sig_with_noise, sig_without_noise)
 
 
-def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
+def power_spectrum(t: np.ndarray, dt: float,
+                   sig: np.ndarray,
                    sig_ideal: np.ndarray) -> None:
     """ Demonstrate three different ways to calculate the power-spectrum
     
@@ -77,7 +90,8 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
     fig, axs = plt.subplots(1,2, figsize=(10, 5))
     
     if latex_installed:
-        txt ='$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t) + noise$'
+        txt = '$\displaystyle signal=offset + \sum_{i=0}^{2} a_i*sin(\omega_i*t) + noise$'
+
         label = '$|FFT|\; ()$'
         label2 = '$|FFT|^2  ()$'
     else:
@@ -93,7 +107,7 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
     axs[0].set_xlabel('Time (s)')
     axs[0].set_ylabel('Signal ()')
     axs[0].legend()
-    axs[0].text(0.2, 24, s=txt, fontsize=16)
+    axs[0].text(0.2, 26, s=txt, fontsize=16)
     
     # Calculate the spectrum by hand
     fft = np.fft.fft(sig)
@@ -109,6 +123,7 @@ def power_spectrum(t: np.ndarray, dt: float, sig: np.ndarray,
     axs[1].set_ylabel(label)
         
     axs[1].set_yticklabels([])
+    #plt.show()
     show_data('FFT_sines.jpg')
     
     # Also show the double-sided spectrum
@@ -158,5 +173,5 @@ if __name__ == '__main__':
     
     power_spectrum(*data)
     # Equivalent to: 
-    # power_spectrum(data[0], data[1], data[2])
+    #power_spectrum(data[0], data[1], data[2], data[3])
     

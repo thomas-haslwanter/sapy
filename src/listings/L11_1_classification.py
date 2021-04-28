@@ -1,6 +1,6 @@
 """ Simple classification model for "iris" data-set """
 
-# Import the standard packages
+# Import the standard packages ...
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -22,7 +22,8 @@ print(f"Shape of data: {iris_dataset['data'].shape}")
 print(f"First 5 rows of data:\n {iris_dataset['data'][:5]}")
 
 # Split data into training- and test-set
-X_train, X_test, y_train, y_test = train_test_split(iris_dataset['data'], iris_dataset['target'], random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(iris_dataset['data'],
+        iris_dataset['target'], random_state=0)
 
 # Define and train the network
 knn = KNeighborsClassifier(n_neighbors=3)

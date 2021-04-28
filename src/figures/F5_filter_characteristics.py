@@ -1,12 +1,13 @@
 """ Shows how filters can be characterized. """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
+from typing import Tuple
 
 
 def impulse_response(a, b, ax) -> None:
@@ -68,7 +69,7 @@ def step_response(a, b, ax) -> None:
     ax.set_ylabel('Step Response')
 
 
-def freq_response(a, b):
+def freq_response(a, b) -> Tuple[float, complex]:
     """ Show the impulse response of an IIR-filter. 
     
     Parameters
@@ -111,7 +112,8 @@ def freq_response(a, b):
     # Show it on the plot
     dB = 20*np.log10(gain)
     axs[0].plot(selFreq_w, 20*np.log10( np.abs(selFreq_h) ), 'b*')
-    axs[1].plot(selFreq_w, np.rad2deg(np.arctan2(selFreq_h.imag, selFreq_h.real)), 'b*')
+    axs[1].plot(selFreq_w,
+                np.rad2deg(np.arctan2(selFreq_h.imag,selFreq_h.real)), 'b*')
 
     plt.show()
 
@@ -133,6 +135,10 @@ def show_filterEffect(w: float, h: complex) -> None:
     nyq = rate/2
     dt = 1/rate
     freq = w * nyq    # Freqency in Hz, for the selected sample rate
+    
+    # Correct gain and phase
+    gain = np.abs(h)
+    phase = np.rad2deg(np.arctan2(h.imag, h.real))
     
     # Calculate the input and output sine, for 0.04 sec
     t = np.arange(0, 0.04, dt)
@@ -160,8 +166,8 @@ def show_filterEffect(w: float, h: complex) -> None:
     tMaxOut = t[secondCycle[indexSecondMaxFiltered]] 
     
     # Estimate gain and phase-shift from them
-    gainEstimate = secondMaxFiltered / secondMaxIn
-    phaseEstimate = (tMaxIn-tMaxOut)*360*freq
+    gain_est = secondMaxFiltered / secondMaxIn
+    phase_est = (tMaxIn-tMaxOut)*360*freq
     
     # Plot them
     plt.plot(tMaxIn, secondMaxIn, 'b*')
@@ -169,8 +175,8 @@ def show_filterEffect(w: float, h: complex) -> None:
     # legend('Input', 'Response', 'maxInput', 'maxResponse')
     plt.show()
     
-    print(f'Calculated gain and phase: {np.abs(h):4.2f}, and {np.rad2deg(np.arctan2(h.imag, h.real)):5.1f} deg')
-    print(f'Calculated gain and phase: {gainEstimate:4.2f}, and {phaseEstimate:5.1f} deg')
+    print(f'Correct gain and phase: {gain:4.2f}, and {phase:5.1f} deg')
+    print(f'Numerical estimation: {gain_est:4.2f}, and {phase_est:5.1f} deg')
     
     # If you want to define the figure format, add the following:
     #fig = gcf

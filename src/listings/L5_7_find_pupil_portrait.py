@@ -38,7 +38,8 @@ if __name__ == '__main__':
     histo = np.histogram(data, bins=np.arange(0,256))
     axs[0,1].plot(histo[1][:-1], histo[0])
     
-    # Since the histogram does not have the 4/3 aspect ration, I re-position it by hand
+    # Since the histogram does not have the 4/3 aspect ration, I re-position
+    # it by hand
     axs[0,1].set_position([0.53, 0.68, 0.46, 0.29])
     
     # Convert to black-and-white

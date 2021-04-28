@@ -8,22 +8,22 @@ from scipy import optimize
 
 def find_start(t, x):
     """ Find where the exponential decay approximately starts """
-
     max_val = np.max(x)
-    level = 0.6
+    level = 0.6     # 40% below maximum
     threshold = max_val * level
     first_below = np.min(np.where(x<threshold)[0])
     return t[first_below]
 
-# For the fit, define an error-function ...
+
 def model(x, t):
     """ Returns the residuals of the expected function """
     return x[0] + x[1] * np.exp(-t/x[2])
 
 
 def err_fun(x, t, y):
-    """ Returns the residuals of the expected function """
+    """ Error-function that is minimized by the fit """
     return model(x,t) - y
+
 
 if __name__ == '__main__':
 
@@ -42,7 +42,8 @@ if __name__ == '__main__':
     t_start = find_start(time, values)
     decay = time > t_start
     x0 = [0, 1, 1]  # initial values for the fit
-    par = optimize.least_squares(err_fun, x0, args = (time[decay], values[decay]))
+    par = optimize.least_squares(err_fun, x0, args = (time[decay],
+             values[decay]))
     print(f'Fitted parameters: {par.x}')
 
     plt.plot(time, values, '.', label='data')

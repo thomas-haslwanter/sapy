@@ -1,7 +1,7 @@
 """ Demonstration of the Nyquist criterium """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the basic packages
 import numpy as np

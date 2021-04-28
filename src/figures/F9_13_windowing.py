@@ -1,7 +1,7 @@
 """ Show the principle of windowing for FFTs """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Get the basic packages
 import numpy as np

@@ -1,7 +1,7 @@
-"""Demonstration of B-splines."""
+""" Demonstration of B-splines. """
 
 # author:   stack-overflow user Fnord, comments by Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,13 +9,20 @@ import scipy.interpolate as si
 
 from utilities.my_style import set_fonts, show_data 
 
-def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False):
+
+def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False) -> np.ndarray:
     """ Calculate n samples on a bspline
 
-        cv :      Array of control vertices
-        n  :      Number of samples to return
-        degree:   Curve degree
-        periodic: True - Curve is closed
+    Parameters
+    ----------
+    cv :  Array of control vertices
+    n  :  Number of samples to return
+    degree :  Curve degree
+    periodic : True - Curve is closed
+    
+    Returns
+    -------
+    spline_data : x/y-values of the spline-curve
     """
 
     cv = np.asarray(cv)
@@ -36,7 +43,9 @@ def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False):
     # Return samples
     max_param = count - (degree * (1-periodic))
     spl = si.BSpline(kv, cv, degree)
-    return spl(np.linspace(0,max_param,n))
+    spline_data = spl(np.linspace(0,max_param,n))
+    
+    return spline_data
 
 
 if __name__ == '__main__':
@@ -53,8 +62,6 @@ if __name__ == '__main__':
     plt.plot(cv[:,0],cv[:,1], 'o-', label='Control Points')
 
     ax = plt.gca()
-    # ax.set_xticklabels([])
-    # ax.set_yticklabels([])
     ax.set_prop_cycle(None)
     
     # for degree in range(1,7):

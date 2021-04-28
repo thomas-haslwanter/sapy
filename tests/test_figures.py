@@ -1,7 +1,7 @@
 """ Test routine for source code that generates 'F'igures """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # additional packages
 import os
@@ -9,7 +9,7 @@ import sys
 
 figDir = os.path.join('..', r'src/figures')
 os.chdir(figDir)
-startNr = 0     # if you don't want to go through all files
+startNr = 24     # if you don't want to go through all files
 
 # make sure local imports are working
 sys.path.append('.')

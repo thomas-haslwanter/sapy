@@ -1,6 +1,7 @@
 """ Plot explaining the principle of a Kernel-Density-Estimation (KDE). """
 
-# Copyright(c) 2020, Thomas Haslwanter. All rights reserved, under the CC BY-SA 4.0 International License
+# author:   Thomas Haslwanter
+# date:     April-2021
 
 # Import standard packages
 import numpy as np
@@ -11,6 +12,7 @@ from scipy import stats
 from utilities.my_style import set_fonts, show_data 
 
 set_fonts(14)
+
 
 def plot_histogram(ax, data):
     ''' Left plot: histogram '''
@@ -26,6 +28,7 @@ def plot_histogram(ax, data):
     for ii in range(len(data)):
         ax.plot([data,data], [0, -0.005], 'b')    
     
+
 def plot_normdist(pos, sd, xcum, ycum):
     ''' Plot individual curves '''
     
@@ -41,6 +44,7 @@ def plot_normdist(pos, sd, xcum, ycum):
         ycum[xcr==xir[ii]] += y[ii]
     return ycum
     
+
 def explain_KDE(ax, data):
     ''' Right plot: Explanation of KDE '''
     

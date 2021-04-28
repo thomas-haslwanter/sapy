@@ -1,4 +1,7 @@
 """ Demonstration of the princple behind B-splines """
+ 
+# author:   Thomas Haslwanter
+# date:     April-2021
 
 # Import the required packages
 import numpy as np

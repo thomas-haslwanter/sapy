@@ -3,7 +3,7 @@
 This script produces Figs. 9.2, 9.9, 9.10, 9.12"""
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the required libraries
 import numpy as np
@@ -13,18 +13,8 @@ import os
 import sksound
 from scipy import signal
 
-
-def show_data(out_file: str) -> None:
-    """Saves the data in a given format, and shows the result
-    
-    Parameters
-    ----------
-    out_file : name of out-file
-    """
-    
-    plt.savefig(out_file, quality=90, dpi=200)
-    print(f'Image saved to {out_file}')
-    plt.show()
+# For simplified presentation
+from utilities.my_style import set_fonts, show_data 
 
     
 def get_data(in_file, sound_time, time_slice):

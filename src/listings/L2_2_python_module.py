@@ -1,7 +1,7 @@
 """ Demonstration of a Python Function """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import standard packages
 import numpy as np

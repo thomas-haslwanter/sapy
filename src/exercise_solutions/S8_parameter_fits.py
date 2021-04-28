@@ -1,7 +1,7 @@
 """ Solution Exercises Chapter 'Parameter Fits' """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import the standard packages
 import numpy as np
@@ -53,7 +53,8 @@ def get_data(in_file: str=None) -> pd.DataFrame:
         else:
             raise IOError(f'{in_file} does not exist!')
 
-    df = pd.read_csv(local_file, header=None, skiprows=72, delim_whitespace=True)
+    df = pd.read_csv(local_file, header=None, skiprows=72,
+            delim_whitespace=True)
     df.columns = ['Year', 'index', 'date', 'avg', 'co2', 'trend', 'nr_days']
     
     return df
@@ -71,7 +72,8 @@ def polynomial_fits(data: pd.DataFrame):
     p_2 = np.polyfit(data.date, data.co2, 2)
 
 
-    # Since there are numerical problems with large-x-values, center them around 2000
+    # Since there are numerical problems with large-x-values,
+    # center them around 2000
     data['year2000'] = data['date']-2000
     explanation = """Fitting a polynomial with a large offset on the x-axis can lead to numerical instabilities.
     To avoid that problem, we subtract the main bias of 2000 years.
@@ -134,13 +136,15 @@ def CIs_and_residuals(data: pd.DataFrame) -> dict:
     print(res_2.summary())
     
     # Cubic fit
-    mod = smf.ols(formula='co2 ~ year2000 + I(year2000**2) + I(year2000**3)', data=data)
+    mod = smf.ols(formula='co2 ~ year2000 + I(year2000**2) + I(year2000**3)',
+            data=data)
     res_3 = mod.fit()
     #print(res_3.summary())
     
     # Which ones are significant?
     print('\Which order of fit do we need?')
-    for (res, order) in zip([res_1, res_2, res_3], ['linear', 'quadratic', 'cubic']):
+    for (res, order) in zip([res_1, res_2, res_3],
+                            ['linear', 'quadratic', 'cubic']):
         ci = res.conf_int()
         ci.columns = ['Lower', 'Upper']
         if ci.iloc[-1].prod() < 0:
@@ -164,7 +168,8 @@ def CIs_and_residuals(data: pd.DataFrame) -> dict:
     
     # Prepare the data for the sine-fit
     phi = np.deg2rad(np.arange(len(sim_x))*30)
-    data_sine = pd.DataFrame({'phi':phi, 'sine':np.sin(phi), 'cosine':np.cos(phi), 'resid':sim_y})
+    data_sine = pd.DataFrame({'phi':phi, 'sine':np.sin(phi),
+                              'cosine':np.cos(phi), 'resid':sim_y})
     
     # Make the sine-fit
     mod_sine = smf.ols(formula='resid ~ sine + cosine', data=data_sine)

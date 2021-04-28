@@ -7,13 +7,14 @@ functions below show how to
     - Pause to display the plot, and proceed automatically after a few sec
     - Proceed on a click, or a keyboard hit
     - Evaluate keyboard inputs
+    - Show information on selected data points
 
 based on http://scipy-central.org/item/84/1/simple-interactive-matplotlib-plots
 license: Creative Commons Zero (almost public domain) http://scpyce.org/cc0
 """
 
 # author:   Thomas Haslwanter
-# date:     June-2020
+# date:     April-2021
 
 # Import standard packages
 import numpy as np
@@ -21,6 +22,9 @@ import matplotlib.pyplot as plt
 
 # additional packages
 import tkinter as tk
+import plotly.express as px
+import pandas as pd
+import io
 
 t = np.arange(0,10,0.1)
 c = np.cos(t)
@@ -150,9 +154,26 @@ def on_key_event(event) -> None:
         plt.draw()
     
 
+def plotly_demo() -> None:
+    """Example for interactive display of information on data.
+    To show the name, simply hover the cursor above the data point """
+    
+    # Get the data, from a string
+    in_data = """name    size    weight
+    Peter   175     80
+    Paul    180     68
+    Mary    165     65"""
+    df = pd.read_csv(io.StringIO(in_data), delim_whitespace=True)
+
+    # Plot them, indicating also the 'name' in the hover-display
+    fig = px.scatter(df, x="weight", y="size", hover_data=['name'])
+    fig.show()
+
+
 if __name__ == '__main__':
     normalPlot()    
     positionOnScreen()    
     showAndPause()    
     waitForInput()    
     keySelection()
+    plotly_demo()
