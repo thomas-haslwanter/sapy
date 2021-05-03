@@ -38,10 +38,12 @@ if __name__ == '__main__':
     filled = np.invert(ndimage.binary_fill_holes(np.invert(bw)))
     show_me(filled)
     
+    # 'Close' the image, with a disk (radius 10 pixels) as structural element
     se = morphology.disk(10)
     closed = morphology.closing(filled, se)
     show_me(closed)
     
+    # Edge detection
     edges = filters.sobel(closed)
     show_me(edges)
     

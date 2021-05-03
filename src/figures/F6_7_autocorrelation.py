@@ -1,4 +1,4 @@
-"""Generate an auto-correlation."""
+""" Show 'signal' and 'feature' for the cross-correlation . """
 
 # author:   Thomas Haslwanter
 # date:     April-2021
@@ -15,6 +15,12 @@ if __name__ =='__main__':
     signal = np.zeros(20)
     signal[7:10] = 1
     signal[14:17] = 1
+    plt.plot(signal, 'o-')
+    plt.hlines(0, 0, 19, ls='dotted')
+    plt.xlim(-0.5, 19.5)
+    plt.xticks(np.arange(0, 20, 2))
+    sig_file = 'signal.jpg'
+    show_data(sig_file, out_dir='.')
 
     # Determine the auto-correlation 
     auto_corr = np.correlate(signal, signal, 'full')
