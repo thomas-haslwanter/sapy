@@ -46,4 +46,3 @@ if __name__ == '__main__':
     # Edge detection
     edges = filters.sobel(closed)
     show_me(edges)
-    

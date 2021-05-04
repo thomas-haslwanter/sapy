@@ -59,8 +59,10 @@ if __name__=='__main__':
 
     show_modImage(data, 'binary_erosion',  axs[0][0], 'Eroded')
     show_modImage(data, 'binary_dilation', axs[0][1], 'Dilated')
-    show_modImage(data, 'binary_opening',  axs[1][0], 'Opened (Dilation after Erosion)')
-    show_modImage(data, 'binary_closing',  axs[1][1], 'Closed (Erosion after Dilation)')
+    show_modImage(data, 'binary_opening',  axs[1][0],
+            'Opened (Dilation after Erosion)')
+    show_modImage(data, 'binary_closing',  axs[1][1],
+            'Closed (Erosion after Dilation)')
 
     out_file = 'Square_Morphological.jpg'
     show_data(out_file, out_dir='.')

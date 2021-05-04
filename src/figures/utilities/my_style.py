@@ -1,4 +1,4 @@
-"""Common formatting and print commands, for the book "Hands-on Signal
+""" Common formatting and print commands, for the book "Hands-on Signal
 Analysis with Python".
 These commands ensure a common layout, and reduce the code required to
 generate plots in the other modules.

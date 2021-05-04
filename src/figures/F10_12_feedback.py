@@ -99,4 +99,3 @@ if __name__ == '__main__':
     
     feedforward(tau)
     feedback(tau, fb_gain)
-    

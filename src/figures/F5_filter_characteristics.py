@@ -200,4 +200,3 @@ if __name__ == '__main__':
     w, h = freq_response(a, b)
     
     show_filterEffect(w, h)
-

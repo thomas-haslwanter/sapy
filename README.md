@@ -5,7 +5,7 @@ Hands-on Signal Analysis with Python
 ---
 Python code, data, and Jupyter notebooks, to the upcoming book "Hands-on Signal Analysis with Python".
 
-The book should be out by late summer 2020, and will be published by Springer.
+The book should be out by late summer 2021, and will be published by Springer.
 
 data
 ====

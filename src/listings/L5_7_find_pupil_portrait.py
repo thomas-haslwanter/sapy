@@ -73,4 +73,3 @@ if __name__ == '__main__':
     print(f'Image saved to {out_file}')
     
     plt.show()
-    

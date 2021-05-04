@@ -1,4 +1,4 @@
-"""Scatterplot of normally distributed data, with SD and Standard Error"""
+""" Scatterplot of normally distributed data, with SD and Standard Error """
 
 # author:   Thomas Haslwanter
 # date:     April-2021

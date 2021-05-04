@@ -1,4 +1,4 @@
-"""Get data from MS-Excel files, which are stored zipped on the WWW. """
+""" Get data from MS-Excel files, which are stored zipped on the WWW """
 
 # author:   Thomas Haslwanter
 # date:     April-2021
@@ -40,5 +40,3 @@ if __name__ == '__main__':
 
     df = getDataDobson(url, inFile)
     print(df)
-
-    #input('All done!')

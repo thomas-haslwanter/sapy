@@ -1,4 +1,4 @@
-"""Simple generation of B-splines"""
+""" Simple generation of B-splines """
 
 # Import the required packages
 import numpy as np

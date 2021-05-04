@@ -70,6 +70,7 @@ def explain_KDE(ax, data):
     ycum /= np.sum(ycum)/10
     ax.plot(xcum, ycum)
 
+
 def main():
     # Generate dummy data
     x = np.array([-2.1, -1.3, -0.4, 1.9, 5.1, 6.2])
@@ -86,6 +87,6 @@ def main():
     # Save and show
     show_data('KDEexplained.jpg')
     
+
 if __name__ == '__main__':
     main()
-    

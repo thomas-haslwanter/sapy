@@ -55,8 +55,6 @@ def fuzzy_check(Data):
     
     
 if __name__ == '__main__':
-    
-
     """
     # Example 1
     in_val = 4

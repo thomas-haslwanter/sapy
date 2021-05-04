@@ -1,4 +1,4 @@
-"""Short demonstration of Python for scientific data analysis
+""" Short demonstration of Python for scientific data analysis
 
 This script covers the following points:
 * Plotting a sine wave

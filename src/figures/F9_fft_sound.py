@@ -1,6 +1,6 @@
-"""Introduction Fourier Transformation: Application to Piano-sound 
-
-This script produces Figs. 9.2, 9.9, 9.10, 9.12"""
+""" Introduction Fourier Transformation: Application to Piano-sound 
+This script produces Figs. 9.2, 9.9, 9.10, 9.12
+"""
 
 # author:   Thomas Haslwanter
 # date:     April-2021
@@ -151,6 +151,7 @@ def welch_periodogram(data, rate, freq, Pxx, out_file):
     axs[1].legend()
     
     show_data(out_file)
+
 
 if __name__ == '__main__':
     # Specify the parameters

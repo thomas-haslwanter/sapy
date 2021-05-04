@@ -1,4 +1,4 @@
-"""Common formatting and print commands, for the book "Hands-on Signal
+""" Common formatting and print commands, for the book "Hands-on Signal
 Analysis with Python".
 These commands ensure a common layout, and reduce the code required to
 generate plots in the other modules.
@@ -52,7 +52,8 @@ def show_data(out_file, out_dir = None):
         # Generate the plot
         saveTo = os.path.join(out_dir, out_file)
         if out_file[-3:].lower() == 'jpg':
-            plt.savefig(saveTo, dpi=200, quality=90)
+            pil_kwargs = {'quality': 90}
+            plt.savefig(saveTo, dpi=200, pil_kwargs=pil_kwargs)
         else:
             plt.savefig(saveTo, dpi=200)
     
@@ -64,7 +65,7 @@ def show_data(out_file, out_dir = None):
     plt.show()
     plt.close()
 
-    
+
 if __name__ == '__main__':
     set_fonts()
     

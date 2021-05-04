@@ -1,4 +1,4 @@
-"""Plot an infinity symbol"""
+""" Plot an infinity symbol """
 
 # author:   Thomas Haslwanter
 # date:     April-2021

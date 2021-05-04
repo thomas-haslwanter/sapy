@@ -41,7 +41,8 @@ plt.vlines(0, -2, 24, ls='dashed', lw=2)
 
 plt.plot(t, data, 'o', ms=6)
 plt.plot(t_fit, np.polyval(p_fit, t_fit), lw=5)
-plt.plot([lower, upper], 0.5 + val_middle+slope*(upper-lower)/2*np.r_[-1,1], lw=5)
+plt.plot([lower, upper],
+        0.5 + val_middle+slope*(upper-lower)/2*np.r_[-1,1], lw=5)
 plt.plot(middle, np.polyval(p_fit, middle), 'o', ms=15, c='C1')
 
 # format plot

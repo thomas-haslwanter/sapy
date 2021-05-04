@@ -45,4 +45,3 @@ for ii, ax in enumerate(axs):
 axs[0].legend()
 
 show_data(out_file)
-

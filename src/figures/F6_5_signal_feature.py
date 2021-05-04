@@ -39,7 +39,3 @@ if __name__ =='__main__':
     axs[1].set_yticks([0, 0.5, 1])
     sig_file = 'CorrDemo.jpg'
     show_data(sig_file, out_dir='.')
-
-
-
-

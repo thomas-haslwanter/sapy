@@ -1,4 +1,4 @@
-"""Show how to read in images, and mark selected locations"""
+""" Show how to read in images, and mark selected locations """
 
 import numpy as np
 import matplotlib.pyplot as plt

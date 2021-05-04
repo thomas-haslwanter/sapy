@@ -1,4 +1,4 @@
-"""Application of the Fourier Transformation to a repeating step function"""
+""" Application of the Fourier Transformation to a repeating step function """
 
 # author:   Thomas Haslwanter
 # date:     April-2021
