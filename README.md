@@ -1,13 +1,14 @@
-<p align="center">
-  <img src="images/sapy.png"  width=350  />
-</p>
+<!-- <p align="center"> -->
+<!--   <img src="images/sapy.png"  width=350  /> -->
+<!-- </p> -->
 
 ---
 Hands-on Signal Analysis with Python
 ---
-Python code, data, and Jupyter notebooks, to the upcoming book "Hands-on Signal Analysis with Python".
+Python code, data, and Jupyter notebooks, to the book
+["Hands-on Signal Analysis with Python"](https://link.springer.com/book/10.1007/978-3-030-57903-6).
 
-The book should be out by late summer 2021, and will be published by Springer.
+![Cover](images/sapy_cover.jpg)
 
 data
 ====
@@ -33,3 +34,8 @@ All the Python programs that go with the book:
 tests
 =====
 Rudimentary tests to ensure that the programs in 'src' are running.
+
+Errata
+======
+The file [Errata.pdf](Errata.pdf) contains the a list of mistakes in the
+manuscript, and the corresponding corrections.
