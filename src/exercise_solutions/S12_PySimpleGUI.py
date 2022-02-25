@@ -13,7 +13,7 @@ https://matplotlib.org/3.1.0/gallery/user_interfaces/embedding_in_tk_sgskip.html
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Nov-2021
 
 # Import the required packages
 import numpy as np
@@ -80,8 +80,8 @@ if __name__ == '__main__':
     while event == 'Ok':
         # Update the figure with the new parameters, until
         # the user hits "Cancel"
-        amp = np.float(values[0])
-        freq = np.float(values[1])
+        amp = np.float32(values[0])
+        freq = np.float32(values[1])
         t_new, x_new = make_sine(amp, freq)
         
         ax.cla()

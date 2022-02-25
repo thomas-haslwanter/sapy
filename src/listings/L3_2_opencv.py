@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 import cv2
 
 # Set the video file, and open it
-video_file = r'..\Data\Pleasure.mp4'
+video_file = r'..\..\data\Pleasure.mp4'
 cap = cv2.VideoCapture(video_file)
 
 # Set the parameters
-out_base =  r'..\Data\Pleasure_out'
+out_base =  r'..\..\data\Pleasure_out'
 dt = 25 # [msec]
 counter = 0
 
