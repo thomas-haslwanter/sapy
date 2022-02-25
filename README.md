@@ -8,7 +8,7 @@ Hands-on Signal Analysis with Python
 Python code, data, and Jupyter notebooks, to the book
 ["Hands-on Signal Analysis with Python"](https://link.springer.com/book/10.1007/978-3-030-57903-6).
 
-![Cover](images/sapy_cover.jpg)
+<img src="images/sapy_cover.jpg"  width=180  /> 
 
 data
 ====
