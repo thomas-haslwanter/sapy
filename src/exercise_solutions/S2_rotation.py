@@ -1,7 +1,7 @@
 """ Solution to Exercise 'Rotation', Chapter 'Python' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     April-2022
 
 # Import the required packages
 import numpy as np
@@ -30,13 +30,13 @@ def rotate_me(in_vector:np.ndarray, alpha:float) -> np.ndarray:
     
     alpha_rad = np.deg2rad(alpha)
     R = np.array([[np.cos(alpha_rad), -np.sin(alpha_rad)],
-    [np.sin(alpha_rad), np.cos(alpha_rad)]])
+                  [np.sin(alpha_rad),  np.cos(alpha_rad)]])
     return R @ in_vector
 
 
 if __name__ == '__main__':
     
-    vector = [2,1]
+    vector = [2, 1]
     # Draw a green line from [0,0] to [2,1]
     plt.plot([0,vector[0]], [0, vector[1]], 'g', label='original')
     
