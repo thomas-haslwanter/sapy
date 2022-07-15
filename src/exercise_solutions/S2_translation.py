@@ -1,22 +1,22 @@
 """ Solution to Exercise 'Translation', the Chapter 'Python' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     April-2022
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the original points
-p_0 = [0,0]
-p_1 = [2,1]
+p_0 = [0, 0]
+p_1 = [2, 1]
 
 # Combine them to an array
 array = np.array([p_0, p_1])
 print(array)
 
 # Translate the array
-translated = array + [3,1]
+translated = array + [3, 1]
 print(translated)
 
 # Plot the data

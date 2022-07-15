@@ -1,7 +1,7 @@
 """ Solution Exercise 'Gait Analysis', Chapter 'Statistics' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     July-2022
 
 # Import the required packages
 import numpy as np
@@ -11,7 +11,7 @@ from scipy import io
 import seaborn as sns
 
 # Set the parameters
-in_dir = r'..\..\data'
+in_dir = '../../data'
 file_name = 'gait.mat'
 
 # Get the data
@@ -41,9 +41,9 @@ n_interp = 101
 steps = []
 for ii, step_length in enumerate(np.diff(heel_strike_idx)):
     steps.append(np.interp(np.arange(n_interp),
-                    np.linspace(0, n_interp, step_length+1),
-                    gait[heel_strike_idx[ii]:(heel_strike_idx[ii+1]+1)] ))
-    
+                 np.linspace(0, n_interp, step_length+1),
+                 gait[heel_strike_idx[ii]:(heel_strike_idx[ii+1]+1)]))
+
 # Convert from list to array, and calculate mean and std
 data = np.array(steps)
 mean = np.mean(data, axis=0)
@@ -70,7 +70,7 @@ plt.plot(mean, label='mean')
 #plt.plot(mean + 2*std, ls='dashed', label='95%-CI')
 #plt.plot(mean - 2*std, ls='dashed', color='C1')
 plt.fill_between(np.arange(len(mean)), mean-2*std, mean+2*std,
-                 alpha=0.2, label='95%-CI') 
+                 alpha=0.2, label='95%-CI')
 plt.legend()
 plt.xlabel('Gait-cycle (%)')
 plt.ylabel('Knee-angle (deg)')
