@@ -11,8 +11,10 @@ import os
 # For the image filtering
 from scipy import ndimage
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# additional packages
+import sys
+sys.path.append(r'..\code_quantlets\utilities')
+import my_style
 
 # Get the data
 import skimage as ski
@@ -51,4 +53,4 @@ plt.tight_layout()
 
 # Save and show the figure
 out_file = 'filter_demo.jpg'
-show_data(out_file)
+my_style.show_data(out_file)
