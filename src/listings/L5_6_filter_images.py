@@ -1,7 +1,7 @@
 """ Demonstration on how to filter images """
 
 # author:	Thomas Haslwanter
-# date:		April-2021
+# date:		Nov-2022
 
 # Import the standard packages
 import numpy as np
