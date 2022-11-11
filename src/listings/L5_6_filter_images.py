@@ -6,7 +6,6 @@
 # Import the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
-import os
 
 # For the image filtering
 from scipy import ndimage
