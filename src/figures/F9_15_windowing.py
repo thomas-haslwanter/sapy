@@ -1,7 +1,7 @@
 """ Show the principle of windowing for FFTs """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Get the basic packages
 import numpy as np
@@ -11,8 +11,8 @@ import os
 from scipy import signal
 from scipy.io import wavfile
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Set the parameters
 in_dir = '../../data'
@@ -68,9 +68,9 @@ axs[1,1].plot(time[win_index], window[win_index]*max_sound,
 axs[1,1].set_yticks([-0.5, 0, 0.5])
 axs[1,1].set_xlabel('Time (s)')
 axs[1,1].set_ylabel('Windowed Sound ()')
-              
+
 for ax in axs.ravel():
     ax.margins(x=0)
-    
+
 plt.tight_layout()
 show_data(out_file)

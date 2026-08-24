@@ -1,15 +1,15 @@
 """ Fit a normal distribution """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Set the parameters
 np.random.seed(123)

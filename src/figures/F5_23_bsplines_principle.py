@@ -1,7 +1,7 @@
 """ Demonstration of the princple behind B-splines """
- 
+
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -17,8 +17,8 @@ for ii in range(1):
     Bsplines.append(np.convolve(Bsplines[-1], ones))
     # Normalize the integral to "1"
     Bsplines[-1] /= np.sum(Bsplines[-1])*dt
-    
-# Plot the Bsplines    
+
+# Plot the Bsplines
 spline = Bsplines[1]
 n_spline = len(spline)
 t_base = np.arange(len(spline))*dt
@@ -46,7 +46,7 @@ plt.ylabel('y')
 
 # Save and show the image
 out_file = 'Bsplines_1d.jpg'
-plt.savefig(out_file, dpi=200, quality=90)
+plt.savefig(out_file, dpi=200)
 plt.grid(True, ls='dashed')
 print(f'Image saved to {out_file}')
 

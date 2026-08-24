@@ -1,7 +1,7 @@
 """ Solution to Exercise 'First Steps with Pandas', Chapter 'Python' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np

@@ -1,7 +1,7 @@
-""" Solution to Exercise 'Mixed Inputs', 'Data Input' """ 
+""" Solution to Exercise 'Mixed Inputs', 'Data Input' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Get the required packages
 import numpy as np

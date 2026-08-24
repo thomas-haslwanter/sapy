@@ -1,14 +1,14 @@
 """ Show principle of Savitzky-Golay filter """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Set the parameters
 p = [-4, 15, 4]

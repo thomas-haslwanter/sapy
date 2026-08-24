@@ -1,14 +1,14 @@
 """ Add transparency layer to image. """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required libraries
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import data
 
-from utilities.my_style import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data
 
 # Get a color-image
 img = data.astronaut()
@@ -21,7 +21,7 @@ alpha_col = np.linspace(1, 0, nrows)
 # Make coordinate-grids
 X, Y = np.meshgrid(alpha_row, alpha_col)
 
-# Scale the vector from 0 to 255, and 
+# Scale the vector from 0 to 255, and
 # let the image fade from top-right to bottom-left
 X_Y = np.uint8(X*Y * 255)
 X_Y = np.atleast_3d(X_Y)  #make sure the dimensions matches the image

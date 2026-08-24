@@ -1,7 +1,7 @@
 """ Solution to Exercise 'Modifying Text Files', Chapter 'Data Input' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -16,7 +16,7 @@ in_file = os.path.join(data_dir, file_name)
 out_file = 'imaginary_out.txt'
 
 # Get the data
-df = pd.read_csv(in_file, delim_whitespace=True)
+df = pd.read_csv(in_file, sep=r'\s+')
 
 # Add radius and angle as new columns
 df['Radius'] = np.sqrt(df.Real**2 + df.Imaginary**2)

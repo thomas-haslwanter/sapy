@@ -21,7 +21,7 @@ axs[1].imshow(img>125)
 
 # Save and show the image
 out_file = 'bw_images.jpg'
-plt.savefig(out_file, dpi=200, quality=90)
+plt.savefig(out_file, dpi=200)
 print(f'Image saved to {out_file}')
 
 plt.show()

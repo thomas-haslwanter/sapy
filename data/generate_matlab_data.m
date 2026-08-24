@@ -1,7 +1,7 @@
 % Generates and saves different Matlab data-structures
 %
 % Author:   Thomas Haslwanter
-% Date:     April-2021
+% Date:     Aug-2026
 
 int_number = 42;
 float_number = pi;

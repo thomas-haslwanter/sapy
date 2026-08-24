@@ -1,7 +1,7 @@
 """ This module contains the functions for test-module 'test_functions.py' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 
 def inc(x):

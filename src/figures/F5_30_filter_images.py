@@ -1,7 +1,7 @@
 """ Demonstration on how to filter images """
 
 # author:	Thomas Haslwanter
-# date:		April-2021
+# date:		Aug-2026
 
 # Import the standard packages
 import numpy as np
@@ -11,15 +11,15 @@ import os
 # For the image filtering
 from scipy import ndimage
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Get the data
 import skimage as ski
 img = ski.data.camera()
 
 # for the filtering, the data must not be uint
-img_f = np.array(img, dtype=float) 
+img_f = np.array(img, dtype=float)
 
 # Make the filters
 Filters = []

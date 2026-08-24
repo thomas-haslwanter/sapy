@@ -1,13 +1,13 @@
 """ Show 'signal' and 'feature' for the cross-correlation . """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 if __name__ =='__main__':
 
@@ -22,7 +22,7 @@ if __name__ =='__main__':
     sig_file = 'signal.jpg'
     show_data(sig_file, out_dir='.')
 
-    # Determine the auto-correlation 
+    # Determine the auto-correlation
     auto_corr = np.correlate(signal, signal, 'full')
     shift = np.arange(len(auto_corr)) - (len(signal)-1)
 

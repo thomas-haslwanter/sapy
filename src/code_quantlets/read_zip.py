@@ -1,7 +1,7 @@
 """ Get data from MS-Excel files, which are stored zipped on the WWW """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import standard packages
 import pandas as pd
@@ -10,7 +10,7 @@ import pandas as pd
 import io
 import zipfile
 from urllib.request import urlopen
-    
+
 
 def getDataDobson(url: str, inFile: str) -> pd.DataFrame:
     """ Extract data from a zipped-archive on the web. """

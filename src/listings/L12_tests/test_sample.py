@@ -1,7 +1,7 @@
 """Exampling showing function definition and test in a single file."""
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 
 def inc(x):

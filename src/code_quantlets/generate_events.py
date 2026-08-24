@@ -6,7 +6,7 @@ These data can be retrieved with the command
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -20,7 +20,7 @@ def generate_events() -> dict:
     Returns
     -------
     data : dictionary
-        With fields 
+        With fields
         - 'signal': numpy vector with 'signal' values
         - 'step'  : numpy vector with 'step' feature
         - 'sine'  : numpy vector with 'sine' feature
@@ -37,7 +37,7 @@ def generate_events() -> dict:
     noise_amp = 0.1
     signal_length = 50   # [sec]
     pattern_length = 50 # [pts]
-    
+
     # At the following points there will be steps or sine-patterns
     locations = {'step':[500,  1500, 4400],
                  'sine':[1000, 2500, 4100] }
@@ -79,24 +79,24 @@ def generate_events() -> dict:
 if __name__ == '__main__':
     # Get the signal data and the features
     data = generate_events()
-    
+
     # Plot them
     fig, axs = plt.subplots(2,1)
     axs[0].plot(data['signal'], label='signal')
     axs[0].set_xlabel('Time [sec]')
     axs[0].legend()
-    
+
     axs[1].plot(data['step'], label='step')
     axs[1].plot(data['sine'], label='sine')
     axs[1].set_xlabel('Time [sec]')
     axs[1].legend()
-    
+
     plt.tight_layout()
     plt.show()
-    
+
     # Save them to the file '
     out_file = 'S6_1_data'
     np.savez(out_file, **data)
     print(f'Data have been saved to {out_file}.npz')
-    
-    
+
+

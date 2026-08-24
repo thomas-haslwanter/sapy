@@ -1,13 +1,13 @@
 """ Application of the Fourier Transformation to a repeating step function """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Generate and plot a stepping signal
 t = np.arange(0, 2, 0.01)

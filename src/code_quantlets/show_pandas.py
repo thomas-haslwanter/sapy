@@ -5,7 +5,7 @@
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -57,7 +57,7 @@ def generate_data():
         })
 
     # Combine the two DataFrames, mix them, and re-set the index
-    data = male.append(female)
+    data = pd.concat((male, female))
     data = data.sample(n=200)
     data = data.reset_index(drop=True)
 
@@ -86,7 +86,7 @@ def handle_nans():
     print(df.dropna())     # Drop all rows containing nan-s
 
     print('Replaced with the next-lower value:')
-    print(df.fillna(method='pad'))  # Replace with the next-lower value
+    print(df.ffill()) # Replace nan-s with last valid observation
 
     print('Replaced with an interpolated value:')
     print(df.interpolate())         # Replace with an interpolated value
@@ -109,12 +109,12 @@ def two_categories():
     # On the left, show the two groups as a scatter-plot, with labels added
     fig, axs = plt.subplots(1,2)
     for name, group in grouped:
-        axs[0].plot(group.height, 'o', label=name)    
+        axs[0].plot(group.height, 'o', label=name)
 
     axs[0].set_ylabel('Height [cm]')
     axs[0].legend()
 
-    # If you only want the height-values of each group 
+    # If you only want the height-values of each group
     males   = grouped.get_group('male').height.values
     females = grouped.get_group('female').height.values
     df_mf = pd.DataFrame({'male': males,
@@ -123,11 +123,11 @@ def two_categories():
 
     # To save to an out-file with my default formatting
     out_file = 'pandas.jpg'
-    plt.savefig(out_file, dpi=200, quality=90)
+    plt.savefig(out_file, dpi=200)
     print(f'Image saved to {out_file}')
 
     plt.show()
-    
+
     # For a standalone figure, the boxplot of the two groups can also be
     # generated with a single command:
     grouped.boxplot()

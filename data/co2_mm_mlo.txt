@@ -1,28 +1,28 @@
 # --------------------------------------------------------------------
 # USE OF NOAA ESRL DATA
-# 
+#
 # These data are made freely available to the public and the
 # scientific community in the belief that their wide dissemination
 # will lead to greater understanding and new scientific insights.
 # The availability of these data does not constitute publication
 # of the data.  NOAA relies on the ethics and integrity of the user to
-# ensure that ESRL receives fair credit for their work.  If the data 
-# are obtained for potential use in a publication or presentation, 
-# ESRL should be informed at the outset of the nature of this work.  
-# If the ESRL data are essential to the work, or if an important 
+# ensure that ESRL receives fair credit for their work.  If the data
+# are obtained for potential use in a publication or presentation,
+# ESRL should be informed at the outset of the nature of this work.
+# If the ESRL data are essential to the work, or if an important
 # result or conclusion depends on the ESRL data, co-authorship
 # may be appropriate.  This should be discussed at an early stage in
 # the work.  Manuscripts using the ESRL data should be sent to ESRL
 # for review before they are submitted for publication so we can
 # insure that the quality and limitations of the data are accurately
 # represented.
-# 
+#
 # Contact:   Pieter Tans (303 497 6678; pieter.tans@noaa.gov)
-# 
+#
 # File Creation:  Mon Nov  5 08:59:30 2018
-# 
+#
 # RECIPROCITY
-# 
+#
 # Use of these data implies an agreement to reciprocate.
 # Laboratories making similar measurements agree to make their
 # own data available to the general public and to the scientific
@@ -35,11 +35,11 @@
 # Model availability includes collaborative support for new
 # users of the models.
 # --------------------------------------------------------------------
-#  
-#  
+#
+#
 # See www.esrl.noaa.gov/gmd/ccgg/trends/ for additional details.
-#  
-# Data from March 1958 through April 1974 have been obtained by C. David Keeling
+#
+# Data from March 1958 through Aug 1974 have been obtained by C. David Keeling
 # of the Scripps Institution of Oceanography (SIO) and were obtained from the
 # Scripps website (scrippsco2.ucsd.edu).
 #
@@ -59,7 +59,7 @@
 # The interpolated monthly mean is then the sum of the average seasonal cycle
 # value and the trend value for the missing month.
 #
-# NOTE: In general, the data presented for the last year are subject to change, 
+# NOTE: In general, the data presented for the last year are subject to change,
 # depending on recalibration of the reference gas mixtures used, and other quality
 # control procedures. Occasionally, earlier years may also be changed for the same
 # reasons.  Usually these changes are minor.

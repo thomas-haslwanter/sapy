@@ -1,11 +1,11 @@
 """ Solution Exercise 'Heart Rate Variability', Chapter 'Events'
 
-Estimation of hear beat variability 
+Estimation of hear beat variability
 To read in the data, you need the package 'wfdb'
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,12 +40,12 @@ dts = np.diff(onset)*dt
 sds = []
 for ii in range(len(dts)-nn):
     sds.append(np.std(dts[ii:ii+nn]))
-    
-# Print minimum and maximum variability    
+
+# Print minimum and maximum variability
 print(f'Minimum HRV: {np.min(sds):6.3f}')
 print(f'Maximum HRV: {np.max(sds):6.3f}')
 
 
 
 
-    
+

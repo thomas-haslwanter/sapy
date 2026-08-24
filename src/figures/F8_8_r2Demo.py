@@ -1,15 +1,15 @@
 """ Demonstration of different correlation coefficients """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Set the parameters
 x = np.arange(1000)
@@ -24,8 +24,8 @@ for ii in range(3):
     regression = stats.linregress(x,y)
     axs[ii].set_title(f'$r^2 = {regression.rvalue:5.3f}$')
 
-axs[0].set_ylabel('Y')    
+axs[0].set_ylabel('Y')
 axs[1].set_xlabel('X')
 
-out_file = 'regressionCoefficient.jpg'    
+out_file = 'regressionCoefficient.jpg'
 show_data(out_file)

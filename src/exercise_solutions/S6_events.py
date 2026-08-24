@@ -1,7 +1,7 @@
 """ Solution Exercise 'Event Finding', Chapter 'Events' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -27,23 +27,23 @@ for pattern in pattern_names:
     # Calculate the cross correlation between signal and pattern
     r = signal.correlate(sig, features[pattern])
     lag = np.arange(len(r)) - len(features[pattern])
-    
+
     # Find the maxima of that cross correlation, by ...
     # ... first finding the approximate matches ...
     threshold = 0.75 * np.max(r)
     approxLocations = (r > threshold)*1
     local_starts = np.where(np.diff(approxLocations) ==  1)[0]
     local_ends   = np.where(np.diff(approxLocations) == -1)[0]
-    
+
     # ... and then the local maxima
     maxLocs = []
     for (start, end) in zip(local_starts, local_ends):
         locMax = r[start:end].argmax()
-        # the "+1" is due to the fact that the "diff" (above) is one shorter than the input 
+        # the "+1" is due to the fact that the "diff" (above) is one shorter than the input
         maxLocs.append( lag[start+locMax] + 1)
-    
+
     found_locations[pattern] = maxLocs
-    
+
 print('Found Locations:')
 print(found_locations)
 

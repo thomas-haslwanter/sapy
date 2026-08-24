@@ -1,7 +1,7 @@
 """ Solution to Exercise 'Translation', the Chapter 'Python' """
 
 # author:   Thomas Haslwanter
-# date:     April-2022
+# date:     Aug-2022
 
 # Import the required packages
 import numpy as np

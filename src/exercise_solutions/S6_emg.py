@@ -1,7 +1,7 @@
 """ Solution Exercise 'EMG', Chapter 'Events' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -16,7 +16,7 @@ file_name = 'Shimmer3_EMG_calibrated.csv'
 
 # Get the data
 in_file = os.path.join(in_dir, file_name)
-df = pd.read_csv(in_file, skiprows=3, header=None, delim_whitespace=True)
+df = pd.read_csv(in_file, skiprows=3, header=None, sep=r'\s+')
 df.columns = ['date', 'abs_time', 'cal', 'emg_1', 'emg_2']
 
 # Either use a sample-rate of 512 Hz (from experimental protocol)
@@ -26,7 +26,7 @@ rate = 512
 df.abs_time = pd.to_datetime(df.abs_time)
 df['time'] = df.abs_time - df.abs_time[0]
 # convert from pandas format (nano-sec) into sec
-df['t_sec'] = df.time.to_numpy(dtype=float)/1e9
+df['t_sec'] = df.time.to_numpy(dtype=float) / 1e6
 
 # Show the original data
 df.plot('t_sec', 'emg_1')
@@ -56,10 +56,10 @@ offset = offset[offset>2000]
 # Make sure that we start with an onset ...
 if onset[0] > offset[0]:
     offset = offset[1:]
-# ... and end with an offset    
+# ... and end with an offset
 if offset[-1] < onset[-1]:
     onset = onset[:-1]
-    
+
 assert(len(onset)==len(offset))
 
 # Eliminate short contractions, as they may be artifacts
@@ -71,7 +71,7 @@ for (start, stop) in zip(onset, offset):
     if dt > min_interval:
         onsets.append(start)
         offsets.append(stop)
-        
+
 # Convert onsets and offsets from lists to arrays
 onsets = np.array(onsets)
 offsets = np.array(offsets)

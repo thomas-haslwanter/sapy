@@ -72,7 +72,7 @@ plt.tight_layout()
 
 # Save and show the figure
 out_file = 'event_detection.jpg'
-plt.savefig(out_file, dpi=200, quality=90)
+plt.savefig(out_file, dpi=200)
 print(f'Image saved to {out_file}')
 
 plt.show()

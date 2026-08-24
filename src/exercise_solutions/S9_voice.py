@@ -5,7 +5,7 @@ To show how to proceed, I use the sound in 'vowels.wav'.
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np

@@ -5,7 +5,7 @@ The information about the measurement units is taken from the column names
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -50,23 +50,23 @@ for sensor in ['mobile', 'imu']:
     df_new = pd.DataFrame()         # ... in a DataFrame
     start = np.argmax(df.total)     # Point of max acc
     t_int = np.arange(df.time[start], df.time.iloc[-1], 1/rate_sync)
-    
+
     df_new['time']  = t_int-t_int[0]    # Set this point to '0'
     # For (x/y/z)
     df_acc = df.filter(regex='acc*')
     for col in df_acc.columns:
         df_new['_'.join([sensor, col])] = np.interp(t_int, df.time, df_acc[col])
     ip_ed.append(df_new)
-    
-# Chop off the longer one    
+
+# Chop off the longer one
 t_max = np.max([ip_ed[0].time.iloc[-1], ip_ed[1].time.iloc[-1]])
 for sensor in ip_ed:
     sensor = sensor.drop(sensor[sensor.time > t_max].index)
-    
+
 ip_ed[1] = ip_ed[1].drop(columns='time') # We only need one 'time' column
 
 # Combine the interpolated values in one DataFrame
-synced = pd.concat(ip_ed, axis=1)    
+synced = pd.concat(ip_ed, axis=1)
 out_file = 'synchronized.txt'
 synced.to_csv(out_file)
 print(f'Synchronized data saved to {out_file}' \

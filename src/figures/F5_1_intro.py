@@ -1,16 +1,16 @@
 """ Images for the intro-fig of Chapter 5 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 from skimage import color, feature
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
-    
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
+
 # Formatting
 set_fonts(14)
 

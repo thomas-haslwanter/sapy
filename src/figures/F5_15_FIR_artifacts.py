@@ -1,15 +1,15 @@
 """ Show the artifacts introduced by FIR-filters """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Get the basic packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Generate the signal
 t = np.linspace(0, 2*np.pi, 21)

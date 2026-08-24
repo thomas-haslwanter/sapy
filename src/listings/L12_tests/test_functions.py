@@ -1,7 +1,7 @@
 """ This module contains the test-function for the module 'functions.py' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import functions as fcn
 

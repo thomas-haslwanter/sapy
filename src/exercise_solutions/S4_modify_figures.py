@@ -1,7 +1,7 @@
 """ Solution to Exercise 'Modifying Figures', Chapter 'Data Display' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -28,7 +28,7 @@ plt.annotate('This is\nnot funny!',
              xy = (xi,yi),
              xytext = (xi-dx, yi-dy),
              arrowprops=dict(facecolor='black', shrink=0.05) )
-             
+
 # Save JPG-file
 pil_kwargs = {'quality': 90}
 plt.savefig(out_file, dpi=200, pil_kwargs=pil_kwargs)
@@ -43,20 +43,20 @@ plt.close()
 # Now re-generate the plot in a "funny"-style, and save the file
 # with "_funny" added to the JPG filename
 with plt.xkcd():
-    # Plot it 
+    # Plot it
     plt.plot(t,x)
     plt.axhline(yi, ls='dotted')
-    
+
     # Annotate it
     plt.annotate('This is\nfunny!',
                  xy = (xi,yi),
                  xytext = (xi-dx, yi-dy),
                  arrowprops=dict(facecolor='black', shrink=0.05) )
-                 
+
     funny_file = out_file.replace('.jpg', '_funny.jpg')
     plt.savefig(funny_file, dpi=200, pil_kwargs=pil_kwargs)
     print(f'... and also saved {funny_file} ;)')
     plt.show()
-        
-                
-            
+
+
+

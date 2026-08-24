@@ -1,36 +1,36 @@
 """ Scatterplot of normally distributed data, with SD and Standard Error """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 
 def arrow_bidir(ax, start, end, headWidth=0.01):
     """Plot a bidirectional arrow"""
-    
+
        # For the arrow, find the start
-       
+
     start = np.array(start)
     end = np.array(end)
     delta = end - start
-    
+
     ax.arrow(start[0], start[1], delta[0], delta[1],
               width=headWidth, length_includes_head=True,
               head_length=headWidth*3, head_width=headWidth*5, color='k')
-    
+
     ax.arrow(end[0], end[1], -delta[0], -delta[1],
               width=headWidth, length_includes_head=True,
               head_length=headWidth*3, head_width=headWidth*5, color='k')
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
     # Generate the data
     np.random.seed(123)
     x = np.random.randn(150) + 5
@@ -82,9 +82,10 @@ if __name__ == '__main__':
 
     # Add the text
     fs = 18
-    plt.text(11, 5.5, '$\pm$ 1SD', fontsize=fs, 
-             fontstyle='italic', color='C0')
-    plt.text(62, 5.2, '$\pm$ 1SEM', fontsize=fs, 
+    plt.text(
+        11, 5.5, r'$\pm$ 1SD', fontsize=fs, fontstyle='italic', color='C0'
+    )
+    plt.text(62, 5.2, r'$\pm$ 1SEM', fontsize=fs,
              fontstyle='italic', color='C1')
 
     # plt.annotate('mean', (110,np.mean(x)),xycoords='data',

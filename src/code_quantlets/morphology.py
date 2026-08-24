@@ -1,20 +1,23 @@
 """ Demonstration of basic morphological operations """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage import morphology
+from scipy import ndimage
 
 # Convenience functions ensuring consistent styling and folders
-from utilities.my_style import set_fonts, show_data 
-    
-    
-def show_modImage(image, function: str, ax, title: str) -> None:
+from utilities.my_style import set_fonts, show_data
+
+
+def show_modImage(
+    image: np.ndarray, function: str, ax, title: str, selem: np.ndarray
+) -> None:
     """ Perform a morphological operation on an image, and display it.
-    
+
     Parameters
     ----------
     image : 2D ndarray
@@ -25,9 +28,9 @@ def show_modImage(image, function: str, ax, title: str) -> None:
          For the generation of the plots
     title : title for the subplot
     """
-    
-    fcn = getattr(morphology, function)
-    ax.imshow(fcn(image, selem=selem))
+
+    fcn = getattr(ndimage, function)
+    ax.imshow(fcn(image, structure=selem))
     ax.set_title(title)
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
@@ -54,15 +57,25 @@ if __name__=='__main__':
     show_data(out_file)
 
     # Perform the morphological operations
-    selem = morphology.square(5)
+    selem = morphology.footprint_rectangle((5, 5))
     fig, axs = plt.subplots(2,2, figsize=(8,8))
 
-    show_modImage(data, 'binary_erosion',  axs[0][0], 'Eroded')
-    show_modImage(data, 'binary_dilation', axs[0][1], 'Dilated')
-    show_modImage(data, 'binary_opening',  axs[1][0],
-            'Opened (Dilation after Erosion)')
-    show_modImage(data, 'binary_closing',  axs[1][1],
-            'Closed (Erosion after Dilation)')
+    show_modImage(data, 'binary_erosion', axs[0][0], 'Eroded', selem)
+    show_modImage(data, 'binary_dilation', axs[0][1], 'Dilated', selem)
+    show_modImage(
+        data,
+        'binary_opening',
+        axs[1][0],
+        'Opened (Dilation after Erosion)',
+        selem,
+    )
+    show_modImage(
+        data,
+        'binary_closing',
+        axs[1][1],
+        'Closed (Erosion after Dilation)',
+        selem
+    )
 
     out_file = 'Square_Morphological.jpg'
     show_data(out_file, out_dir='.')

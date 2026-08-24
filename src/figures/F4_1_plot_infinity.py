@@ -1,14 +1,14 @@
 """ Plot an infinity symbol """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Generate the trajectory
 t = np.arange(0, 4*np.pi, 0.1)

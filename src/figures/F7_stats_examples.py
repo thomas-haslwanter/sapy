@@ -1,7 +1,7 @@
 """Figures for the chapter 'Statistics' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -10,8 +10,8 @@ import pandas as pd
 from scipy import stats
 import seaborn as sns
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Use the "seaborn"-package for the figure styling
 # (this is just a convenience wrapper for matplotlib settings)
@@ -32,7 +32,7 @@ fig, axs = plt.subplots(1, 2, sharey=True)
 
 axs[0].plot(samples['China'], '.')
 axs[0].set_xlabel('Subject-Nr')
-axs[0].set_ylabel('$BMI \, [kg/m^2]$')
+axs[0].set_ylabel(r'$BMI \, [kg/m^2]$')
 axs[0].set_title('Sample data from adult males - China')
 
 axs[1].boxplot(samples['China'], sym='*')

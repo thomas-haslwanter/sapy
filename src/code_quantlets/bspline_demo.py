@@ -1,13 +1,13 @@
 """ Demonstration of B-splines. """
 
 # author:   stack-overflow user Fnord, comments by Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate as si
 
-from utilities.my_style import set_fonts, show_data 
+from utilities.my_style import set_fonts, show_data
 
 
 def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False) -> np.ndarray:
@@ -19,7 +19,7 @@ def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False) -> np.nda
     n  :  Number of samples to return
     degree :  Curve degree
     periodic : True - Curve is closed
-    
+
     Returns
     -------
     spline_data : x/y-values of the spline-curve
@@ -44,32 +44,32 @@ def scipy_bspline(cv, n: int=100, degree: int=3, periodic: bool=False) -> np.nda
     max_param = count - (degree * (1-periodic))
     spl = si.BSpline(kv, cv, degree)
     spline_data = spl(np.linspace(0,max_param,n))
-    
+
     return spline_data
 
 
 if __name__ == '__main__':
-    
+
     cv = np.array([[ 50.,  25.],
        [ 59.,  12.],
        [ 50.,  10.],
        [ 57.,   2.],
        [ 40.,   4.],
        [ 40.,   14.]])
-    
+
 
     set_fonts(12)
     plt.plot(cv[:,0],cv[:,1], 'o-', label='Control Points')
 
     ax = plt.gca()
     ax.set_prop_cycle(None)
-    
+
     # for degree in range(1,7):
     for degree in [1, 2, 3]:
         p = scipy_bspline(cv, n=100, degree=degree, periodic=False)
         x,y = p.T
         plt.plot(x, y,  label='Degree %s'%degree)
-    
+
     # Format the plot
     plt.legend()
     plt.xlim(35, 70)

@@ -1,7 +1,7 @@
 """ Solution Exercise 'Handcoding the FFT', Chapter 'Spectral Analysis' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np

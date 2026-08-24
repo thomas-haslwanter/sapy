@@ -1,14 +1,14 @@
 """ Demonstration of the Nyquist criterium """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the basic packages
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 # Set the parameters
 rate = 10
@@ -26,7 +26,7 @@ time = np.arange(0, duration, dt)
 t_fast = np.arange(0, duration, dt/50) # Should be much higher
 
 time = time[:, np.newaxis]          # column vector
-t_fast = t_fast[:, np.newaxis]          
+t_fast = t_fast[:, np.newaxis]
 
 data = np.sin(time @ omega)
 data_fast = np.sin(t_fast @ omega)

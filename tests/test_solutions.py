@@ -3,7 +3,7 @@
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # additional packages
 import os
@@ -22,4 +22,4 @@ for number, file in enumerate(pyList):
     if number >= startNr:
         os.chdir(figDir)
         exec(open(file).read())
-    
+

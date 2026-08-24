@@ -1,14 +1,14 @@
 """ Show autocorrelations of two simple signals """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import all the standard packages
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Import formatting commands 
-from utilities.my_style import set_fonts, show_data 
+# Import formatting commands
+from utilities.my_style import set_fonts, show_data
 
 
 # Signal 1
@@ -30,8 +30,8 @@ for  ii, sig in enumerate(signals):
     for ax in axs[ii]:
         ax.axhline(0, ls='dotted')
         ax.margins(x=0)
-        
-axs[0,0].set_title('Signals')        
+
+axs[0,0].set_title('Signals')
 axs[0,1].set_title('Auto-Correlations')
 
 out_file = 'simple_autocorrelations.jpg'

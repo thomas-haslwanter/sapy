@@ -2,7 +2,7 @@
     from Chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -20,7 +20,7 @@ noise_amp = 0.5
 dt = 1/rate
 omega = 2*np.pi*freq
 tCycle = 1/freq
-t = np.arange(0, num_cycles*tCycle, dt) 
+t = np.arange(0, num_cycles*tCycle, dt)
 x = amp * np.sin(omega*t) + noise_amp*np.random.randn(len(t))
 
 # Smooth the noisy data, and check the result visually
@@ -42,7 +42,7 @@ for (grayLevel, winSize) in zip(gray_levels, win_sizes):
     plt.plot(t, filtered, color=gray)
 
 plt.title('Differentiated Signal')
-plt.legend(( f'winSize: {win_sizes[0]}', 
+plt.legend(( f'winSize: {win_sizes[0]}',
        f'winSize: {win_sizes[1]}',
        f'winSize: {win_sizes[2]}'))
 plt.show()

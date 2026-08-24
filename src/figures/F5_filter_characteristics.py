@@ -1,7 +1,7 @@
 """ Shows how filters can be characterized. """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # Import the required packages
 import numpy as np
@@ -12,7 +12,7 @@ from typing import Tuple
 
 def impulse_response(a, b, ax) -> None:
     """Show the impulse response of an IIR-filter.
-    
+
     Parameters
     ----------
     a : array_like
@@ -42,7 +42,7 @@ def impulse_response(a, b, ax) -> None:
 
 def step_response(a, b, ax) -> None:
     """Show the impulse response of an IIR-filter.
-    
+
     Parameters
     ----------
     a : array_like
@@ -70,8 +70,8 @@ def step_response(a, b, ax) -> None:
 
 
 def freq_response(a, b) -> Tuple[float, complex]:
-    """ Show the impulse response of an IIR-filter. 
-    
+    """ Show the impulse response of an IIR-filter.
+
     Parameters
     ----------
     a : array_like
@@ -81,7 +81,7 @@ def freq_response(a, b) -> Tuple[float, complex]:
 
     Returns
     -------
-    w : selected radial frequency of 
+    w : selected radial frequency of
     h : complex gain for w
     """
 
@@ -89,7 +89,7 @@ def freq_response(a, b) -> Tuple[float, complex]:
     w, h = signal.freqz(b, a, fs=2)   # Calculate the normalized values
     # Plot them, in a new figure
     fig, axs = plt.subplots(2, 1, sharex=True)
-    
+
     axs[0].plot(w, 20*np.log10( np.abs(h) ))
     axs[0].set_ylim([-40, 0])
     axs[0].set_ylabel('Magnitude [dB]')
@@ -118,7 +118,7 @@ def freq_response(a, b) -> Tuple[float, complex]:
     plt.show()
 
     return (selFreq_w, selFreq_h)
-    
+
 
 def show_filterEffect(w: float, h: complex) -> None:
     """ Demonstrate the filter effect on the selected frequency.
@@ -128,61 +128,61 @@ def show_filterEffect(w: float, h: complex) -> None:
     w : radial frequency
     h : complex gain
     """
-    
+
     # Convert the normalized frequency to an absolute frequency
     rate = 1000
-    
+
     nyq = rate/2
     dt = 1/rate
     freq = w * nyq    # Freqency in Hz, for the selected sample rate
-    
+
     # Correct gain and phase
     gain = np.abs(h)
     phase = np.rad2deg(np.arctan2(h.imag, h.real))
-    
+
     # Calculate the input and output sine, for 0.04 sec
     t = np.arange(0, 0.04, dt)
     sin_in = np.sin(2*np.pi * freq * t)
     sin_out = signal.lfilter(b, a, sin_in)
-    
+
     # Plot them
     plt.plot(t, sin_in, label='Input')
     plt.plot(t, sin_out, label='Output')
-    
+
     plt.title(f'Input and Response for {freq:4.1f} Hz, sampled at {rate}  Hz')
     plt.xlabel('Time [s]')
     plt.ylabel('Signal')
-    
+
     # Estimate gain and phase-shift from the location of the second maximum
     # First find the two maxima (input and output)
     secondCycle = np.where( (t > 1/freq) & (t < (2/freq) ) )[0]
-    
+
     secondMaxIn = np.max(sin_in[secondCycle])
     indexSecondMaxIn = np.argmax(sin_in[secondCycle])
-    tMaxIn = t[secondCycle[indexSecondMaxIn]] 
-    
+    tMaxIn = t[secondCycle[indexSecondMaxIn]]
+
     secondMaxFiltered = np.max(sin_out[secondCycle])
     indexSecondMaxFiltered = np.argmax(sin_out[secondCycle])
-    tMaxOut = t[secondCycle[indexSecondMaxFiltered]] 
-    
+    tMaxOut = t[secondCycle[indexSecondMaxFiltered]]
+
     # Estimate gain and phase-shift from them
     gain_est = secondMaxFiltered / secondMaxIn
     phase_est = (tMaxIn-tMaxOut)*360*freq
-    
+
     # Plot them
     plt.plot(tMaxIn, secondMaxIn, 'b*')
     plt.plot(tMaxOut, secondMaxFiltered, 'r*')
     # legend('Input', 'Response', 'maxInput', 'maxResponse')
     plt.show()
-    
+
     print(f'Correct gain and phase: {gain:4.2f}, and {phase:5.1f} deg')
     print(f'Numerical estimation: {gain_est:4.2f}, and {phase_est:5.1f} deg')
-    
+
     # If you want to define the figure format, add the following:
     #fig = gcf
     #fig.PaperUnits = 'inches'
     #fig.PaperPosition = [0 0 6 3]
-    
+
 
 if __name__ == '__main__':
 
@@ -198,5 +198,5 @@ if __name__ == '__main__':
     plt.show()
 
     w, h = freq_response(a, b)
-    
+
     show_filterEffect(w, h)

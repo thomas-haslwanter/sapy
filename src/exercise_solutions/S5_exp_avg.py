@@ -1,7 +1,7 @@
 """ Solution Ex. 'Exponential Averaging Filter', Chapter 'Data Filtering' """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 
 # Import the required packages

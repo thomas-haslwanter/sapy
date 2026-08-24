@@ -20,7 +20,7 @@ superfluous. But it shows good Python coding style.
 """
 
 # author:   Thomas Haslwanter
-# date:     April-2021
+# date:     Aug-2026
 
 # In contrast to MATLAB, you explicitly have to load the modules that you need.
 import numpy as np
@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 
 def main() -> None:
     """Define the main function. """
-    
+
     # Create a sine-wave
     t = np.arange(0,10,0.1)
     x = np.sin(t)
@@ -83,19 +83,19 @@ def main() -> None:
     # If you want to know confidence intervals, best switch to "pandas"
     # Note that this is an advanced topic, and requires new data structures
     # such ad "DataFrames" and "ordinary-least-squares" or "ols-models".
-    
+
     import pandas as pd
     import statsmodels.formula.api as smf
-    
+
     # Put the data into a pandas DataFrame
     myDict = {'x':tHigh, 'y':xHigh}
     df = pd.DataFrame(myDict)
-    
+
     # Fit the model: here the "formula"-syntax commonly used in statistics
     # is employed.  'y~x' means "y is a linear function of x, taking a
     # possible offset into consideration"
     results = smf.ols('y~x', data=df).fit()
-    
+
     # Print the results
     print(results.summary())
 
